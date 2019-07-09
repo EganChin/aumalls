@@ -5,28 +5,28 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import java.util.List;
 
 /**
- * @author LiangYongjie
- * @date 2019-01-05
+ * @author egan
+ * @date 2019-07-09
  */
-public class PageUtils<T> {
+public class PageWrapper<T> {
 
 	private Long pn;
 	private Long ps;
 	private Long total;
 	private List<?> list;
 
-	public PageUtils(IPage page) {
+	public PageWrapper(IPage page) {
 		this(page, page.getRecords());
 	}
 
-	public PageUtils(IPage page, List<?> list) {
+	public PageWrapper(IPage page, List<?> list) {
 		this.pn = page.getCurrent();
 		this.ps = page.getSize();
 		this.total = page.getTotal();
 		this.list = list;
 	}
 
-	public PageUtils(Query query, List<?> list) {
+	public PageWrapper(Query query, List<?> list) {
 		this.pn = query.getPn().longValue();
 		this.ps = query.getPs().longValue();
 		this.total = query.getTotal().longValue();

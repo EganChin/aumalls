@@ -5,16 +5,14 @@ import com.mall.common.service.IProvider;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.annotation.Resource;
-
 /**
  * @author Egan
  * @date 2019/7/8 15:23
  **/
 @RestController
-public class ConsumerController {
+public class ConsumerTestController {
 
-    @Resource
+//    @Resource
     @Reference(version = "1.0.0")
     private IProvider provider;
 

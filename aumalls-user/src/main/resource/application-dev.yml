@@ -1,4 +1,10 @@
 spring:
+  dubbo:
+      appname: user
+      registry: zookeeper://127.0.0.1:2181
+      protocol: dubbo
+      port: 20880
+
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     driverClassName: com.mysql.jdbc.Driver
@@ -54,10 +60,3 @@ logging:
 
 #swagger: true
 
-dubbo:
-  scan:
-    basePackages:
-      com.mall.prov.impl
-  application:
-    id:
-      dubbo-provider-demo
