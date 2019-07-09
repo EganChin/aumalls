@@ -1,5 +1,6 @@
 package com.mall.common.config;
 
+import com.mall.common.config.annotation.SecurityConfig;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -9,6 +10,7 @@ import org.springframework.web.filter.DelegatingFilterProxy;
  * @author LiangYongjie
  * @date 2019-01-07
  */
+@SecurityConfig
 @Configuration
 public class FilterConfig {
 

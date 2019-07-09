@@ -1,4 +1,4 @@
-package com.mall.goods.Service;
+package com.mall.consumer.Service;
 
 import com.alibaba.dubbo.config.annotation.Service;
 import com.mall.common.form.goods.QueryGoodsForm;

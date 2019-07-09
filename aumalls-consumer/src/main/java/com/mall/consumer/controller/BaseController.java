@@ -1,4 +1,4 @@
-package com.mall.common.controller;
+package com.mall.consumer.controller;
 
 import com.mall.common.domain.User;
 import org.apache.shiro.SecurityUtils;

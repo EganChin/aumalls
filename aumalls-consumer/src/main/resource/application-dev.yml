@@ -1,0 +1,32 @@
+spring:
+
+  dubbo:
+    appname: consumer
+    registry: zookeeper://127.0.0.1:2181
+    protocol: dubbo
+    port: 20880
+
+  redis:
+    database: 0
+    host: egan.online
+    port: 19459
+    password: redis4.0
+    timeout: 5s
+    lettuce:
+      pool:
+        min-idle: 2
+        max-active: 8
+        max-idle: 4
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+logging:
+  level:
+    com.golddak.web.dao: debug
+    com.golddak.config: debug
+
+swagger: true

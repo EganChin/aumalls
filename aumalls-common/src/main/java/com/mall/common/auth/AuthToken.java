@@ -1,5 +1,6 @@
 package com.mall.common.auth;
 
+import com.mall.common.config.annotation.SecurityConfig;
 import org.apache.shiro.authc.AuthenticationToken;
 
 import java.io.Serializable;
@@ -10,6 +11,7 @@ import java.io.Serializable;
  * @author LiangYongjie
  * @date 2019-01-06
  */
+@SecurityConfig
 public class AuthToken implements AuthenticationToken, Serializable {
 
     private String token;

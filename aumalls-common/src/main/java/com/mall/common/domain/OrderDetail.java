@@ -1,57 +1,60 @@
 package com.mall.common.domain;
 
 
+import com.baomidou.mybatisplus.annotation.TableId;
+
 public class OrderDetail {
 
-  private Integer detailId;
-  private String detailOrder;
-  private Integer detailGoods;
-  private double detailPrice;
-  private Integer detailNum;
+    @TableId
+    private Integer detailId;
+    private String detailOrder;
+    private Integer detailGoods;
+    private Double detailPrice;
+    private Integer detailNum;
 
 
-  public Integer getDetailId() {
-    return detailId;
-  }
+    public Integer getDetailId() {
+        return detailId;
+    }
 
-  public void setDetailId(Integer detailId) {
-    this.detailId = detailId;
-  }
-
-
-  public String getDetailOrder() {
-    return detailOrder;
-  }
-
-  public void setDetailOrder(String detailOrder) {
-    this.detailOrder = detailOrder;
-  }
+    public void setDetailId(Integer detailId) {
+        this.detailId = detailId;
+    }
 
 
-  public Integer getDetailGoods() {
-    return detailGoods;
-  }
+    public String getDetailOrder() {
+        return detailOrder;
+    }
 
-  public void setDetailGoods(Integer detailGoods) {
-    this.detailGoods = detailGoods;
-  }
-
-
-  public double getDetailPrice() {
-    return detailPrice;
-  }
-
-  public void setDetailPrice(double detailPrice) {
-    this.detailPrice = detailPrice;
-  }
+    public void setDetailOrder(String detailOrder) {
+        this.detailOrder = detailOrder;
+    }
 
 
-  public Integer getDetailNum() {
-    return detailNum;
-  }
+    public Integer getDetailGoods() {
+        return detailGoods;
+    }
 
-  public void setDetailNum(Integer detailNum) {
-    this.detailNum = detailNum;
-  }
+    public void setDetailGoods(Integer detailGoods) {
+        this.detailGoods = detailGoods;
+    }
+
+
+    public Double getDetailPrice() {
+        return detailPrice;
+    }
+
+    public void setDetailPrice(Double detailPrice) {
+        this.detailPrice = detailPrice;
+    }
+
+
+    public Integer getDetailNum() {
+        return detailNum;
+    }
+
+    public void setDetailNum(Integer detailNum) {
+        this.detailNum = detailNum;
+    }
 
 }

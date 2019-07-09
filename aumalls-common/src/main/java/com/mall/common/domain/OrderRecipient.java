@@ -1,67 +1,70 @@
 package com.mall.common.domain;
 
 
+import com.baomidou.mybatisplus.annotation.TableId;
+
 public class OrderRecipient {
 
-  private Integer recipientsId;
-  private String recipientsName;
-  private String recipientsAddress;
-  private String recipientsPhone;
-  private Integer recipientsUser;
-  private Integer recipientsChecked;
+    @TableId
+    private Integer recipientsId;
+    private String recipientsName;
+    private String recipientsAddress;
+    private String recipientsPhone;
+    private Integer recipientsUser;
+    private Integer recipientsChecked;
 
 
-  public Integer getRecipientsId() {
-    return recipientsId;
-  }
+    public Integer getRecipientsId() {
+        return recipientsId;
+    }
 
-  public void setRecipientsId(Integer recipientsId) {
-    this.recipientsId = recipientsId;
-  }
-
-
-  public String getRecipientsName() {
-    return recipientsName;
-  }
-
-  public void setRecipientsName(String recipientsName) {
-    this.recipientsName = recipientsName;
-  }
+    public void setRecipientsId(Integer recipientsId) {
+        this.recipientsId = recipientsId;
+    }
 
 
-  public String getRecipientsAddress() {
-    return recipientsAddress;
-  }
+    public String getRecipientsName() {
+        return recipientsName;
+    }
 
-  public void setRecipientsAddress(String recipientsAddress) {
-    this.recipientsAddress = recipientsAddress;
-  }
-
-
-  public String getRecipientsPhone() {
-    return recipientsPhone;
-  }
-
-  public void setRecipientsPhone(String recipientsPhone) {
-    this.recipientsPhone = recipientsPhone;
-  }
+    public void setRecipientsName(String recipientsName) {
+        this.recipientsName = recipientsName;
+    }
 
 
-  public Integer getRecipientsUser() {
-    return recipientsUser;
-  }
+    public String getRecipientsAddress() {
+        return recipientsAddress;
+    }
 
-  public void setRecipientsUser(Integer recipientsUser) {
-    this.recipientsUser = recipientsUser;
-  }
+    public void setRecipientsAddress(String recipientsAddress) {
+        this.recipientsAddress = recipientsAddress;
+    }
 
 
-  public Integer getRecipientsChecked() {
-    return recipientsChecked;
-  }
+    public String getRecipientsPhone() {
+        return recipientsPhone;
+    }
 
-  public void setRecipientsChecked(Integer recipientsChecked) {
-    this.recipientsChecked = recipientsChecked;
-  }
+    public void setRecipientsPhone(String recipientsPhone) {
+        this.recipientsPhone = recipientsPhone;
+    }
+
+
+    public Integer getRecipientsUser() {
+        return recipientsUser;
+    }
+
+    public void setRecipientsUser(Integer recipientsUser) {
+        this.recipientsUser = recipientsUser;
+    }
+
+
+    public Integer getRecipientsChecked() {
+        return recipientsChecked;
+    }
+
+    public void setRecipientsChecked(Integer recipientsChecked) {
+        this.recipientsChecked = recipientsChecked;
+    }
 
 }

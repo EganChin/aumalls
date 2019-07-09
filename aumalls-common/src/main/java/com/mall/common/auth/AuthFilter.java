@@ -1,6 +1,7 @@
 package com.mall.common.auth;
 
 import com.google.gson.Gson;
+import com.mall.common.config.annotation.SecurityConfig;
 import com.mall.common.utils.R;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.authc.AuthenticationException;
@@ -20,6 +21,7 @@ import java.io.IOException;
  * @author LiangYongjie
  * @date 2019-01-06
  */
+@SecurityConfig
 public class AuthFilter extends AuthenticatingFilter {
 
     private static final Logger log = LoggerFactory.getLogger(AuthFilter.class);

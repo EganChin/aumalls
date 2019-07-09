@@ -1,7 +1,9 @@
 package com.mall.common.form.goods;
 
 import com.mall.common.form.SortCondition;
+import com.mall.common.utils.Query;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -9,7 +11,7 @@ import java.util.List;
  * @author Egan
  * @date 2019/7/9 14:15
  **/
-public class QueryGoodsForm {
+public class QueryGoodsForm extends Query implements Serializable{
 
     private List<SortCondition> sorts;
 

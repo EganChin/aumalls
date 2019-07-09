@@ -2,20 +2,24 @@ package com.mall.common.utils;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * @author egan
  * @date 2019-07-09
  */
-public class PageWrapper<T> {
+public class PageWrapper<T> implements Serializable{
 
 	private Long pn;
 	private Long ps;
 	private Long total;
 	private List<?> list;
 
-	public PageWrapper(IPage page) {
+    public PageWrapper() {
+    }
+
+    public PageWrapper(IPage page) {
 		this(page, page.getRecords());
 	}
 

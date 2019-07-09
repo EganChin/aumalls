@@ -7,8 +7,10 @@
         <groupId>com.mall</groupId>
         <version>2.0-beta</version>
     </parent>
+
     <modelVersion>4.0.0</modelVersion>
 
+    <groupId>com.mall.common</groupId>
     <artifactId>common</artifactId>
 
     <dependencies>

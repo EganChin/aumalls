@@ -4,7 +4,7 @@ spring:
     appname: goods
     registry: zookeeper://127.0.0.1:2181
     protocol: dubbo
-    port: 20881
+    port: 20883
 
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource

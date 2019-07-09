@@ -1,57 +1,60 @@
 package com.mall.common.domain;
 
 
+import com.baomidou.mybatisplus.annotation.TableId;
+
 public class GoodsType {
 
-  private Integer typeId;
-  private String typeName;
-  private Integer typePid;
-  private Integer typeLv;
-  private String typePath;
+    @TableId
+    private Integer typeId;
+    private String typeName;
+    private Integer typePid;
+    private Integer typeLv;
+    private String typePath;
 
 
-  public Integer getTypeId() {
-    return typeId;
-  }
+    public Integer getTypeId() {
+        return typeId;
+    }
 
-  public void setTypeId(Integer typeId) {
-    this.typeId = typeId;
-  }
-
-
-  public String getTypeName() {
-    return typeName;
-  }
-
-  public void setTypeName(String typeName) {
-    this.typeName = typeName;
-  }
+    public void setTypeId(Integer typeId) {
+        this.typeId = typeId;
+    }
 
 
-  public Integer getTypePid() {
-    return typePid;
-  }
+    public String getTypeName() {
+        return typeName;
+    }
 
-  public void setTypePid(Integer typePid) {
-    this.typePid = typePid;
-  }
-
-
-  public Integer getTypeLv() {
-    return typeLv;
-  }
-
-  public void setTypeLv(Integer typeLv) {
-    this.typeLv = typeLv;
-  }
+    public void setTypeName(String typeName) {
+        this.typeName = typeName;
+    }
 
 
-  public String getTypePath() {
-    return typePath;
-  }
+    public Integer getTypePid() {
+        return typePid;
+    }
 
-  public void setTypePath(String typePath) {
-    this.typePath = typePath;
-  }
+    public void setTypePid(Integer typePid) {
+        this.typePid = typePid;
+    }
+
+
+    public Integer getTypeLv() {
+        return typeLv;
+    }
+
+    public void setTypeLv(Integer typeLv) {
+        this.typeLv = typeLv;
+    }
+
+
+    public String getTypePath() {
+        return typePath;
+    }
+
+    public void setTypePath(String typePath) {
+        this.typePath = typePath;
+    }
 
 }

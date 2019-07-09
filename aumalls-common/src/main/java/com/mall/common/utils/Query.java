@@ -22,6 +22,9 @@ public class Query {
     @ApiModelProperty(hidden = true)
     private Integer total;
 
+    public Query() {
+    }
+
     public Query(Integer pn, Integer ps) {
         this.setPn(pn);
         this.setPs(ps);

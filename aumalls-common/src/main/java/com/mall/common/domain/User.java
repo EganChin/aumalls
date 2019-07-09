@@ -1,57 +1,60 @@
 package com.mall.common.domain;
 
 
+import com.baomidou.mybatisplus.annotation.TableId;
+
 public class User {
 
-  private Integer userId;
-  private String userName;
-  private String userPass;
-  private String userAddress;
-  private String userPhone;
+    @TableId
+    private Integer userId;
+    private String userName;
+    private String userPass;
+    private String userAddress;
+    private String userPhone;
 
 
-  public Integer getUserId() {
-    return userId;
-  }
+    public Integer getUserId() {
+        return userId;
+    }
 
-  public void setUserId(Integer userId) {
-    this.userId = userId;
-  }
-
-
-  public String getUserName() {
-    return userName;
-  }
-
-  public void setUserName(String userName) {
-    this.userName = userName;
-  }
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
 
 
-  public String getUserPass() {
-    return userPass;
-  }
+    public String getUserName() {
+        return userName;
+    }
 
-  public void setUserPass(String userPass) {
-    this.userPass = userPass;
-  }
-
-
-  public String getUserAddress() {
-    return userAddress;
-  }
-
-  public void setUserAddress(String userAddress) {
-    this.userAddress = userAddress;
-  }
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
 
 
-  public String getUserPhone() {
-    return userPhone;
-  }
+    public String getUserPass() {
+        return userPass;
+    }
 
-  public void setUserPhone(String userPhone) {
-    this.userPhone = userPhone;
-  }
+    public void setUserPass(String userPass) {
+        this.userPass = userPass;
+    }
+
+
+    public String getUserAddress() {
+        return userAddress;
+    }
+
+    public void setUserAddress(String userAddress) {
+        this.userAddress = userAddress;
+    }
+
+
+    public String getUserPhone() {
+        return userPhone;
+    }
+
+    public void setUserPhone(String userPhone) {
+        this.userPhone = userPhone;
+    }
 
 }

@@ -3,7 +3,7 @@ server:
     min-spare-threads: 5
     max-threads: 50
     max-http-post-size: 20MB
-  port: 8082
+  port: 8801
 
 spring:
   profiles:

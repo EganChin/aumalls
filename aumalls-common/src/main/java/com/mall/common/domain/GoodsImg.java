@@ -1,37 +1,40 @@
 package com.mall.common.domain;
 
 
+import com.baomidou.mybatisplus.annotation.TableId;
+
 public class GoodsImg {
 
-  private Integer imgId;
-  private String imgPath;
-  private Integer imgGoods;
+    @TableId
+    private Integer imgId;
+    private String imgPath;
+    private Integer imgGoods;
 
 
-  public Integer getImgId() {
-    return imgId;
-  }
+    public Integer getImgId() {
+        return imgId;
+    }
 
-  public void setImgId(Integer imgId) {
-    this.imgId = imgId;
-  }
-
-
-  public String getImgPath() {
-    return imgPath;
-  }
-
-  public void setImgPath(String imgPath) {
-    this.imgPath = imgPath;
-  }
+    public void setImgId(Integer imgId) {
+        this.imgId = imgId;
+    }
 
 
-  public Integer getImgGoods() {
-    return imgGoods;
-  }
+    public String getImgPath() {
+        return imgPath;
+    }
 
-  public void setImgGoods(Integer imgGoods) {
-    this.imgGoods = imgGoods;
-  }
+    public void setImgPath(String imgPath) {
+        this.imgPath = imgPath;
+    }
+
+
+    public Integer getImgGoods() {
+        return imgGoods;
+    }
+
+    public void setImgGoods(Integer imgGoods) {
+        this.imgGoods = imgGoods;
+    }
 
 }

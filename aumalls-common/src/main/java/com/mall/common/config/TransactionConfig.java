@@ -1,5 +1,6 @@
 package com.mall.common.config;
 
+import com.mall.common.config.annotation.DatabaseConfig;
 import org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -16,6 +17,7 @@ import java.util.Collections;
  * @author LiangYongjie
  * @date 2019-01-06
  */
+@DatabaseConfig
 @Configuration
 public class TransactionConfig {
 
