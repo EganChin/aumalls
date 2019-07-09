@@ -10,9 +10,10 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>common</module>
-        <module>provider</module>
-        <module>consumer</module>
+        <module>aumalls-common</module>
+        <module>aumalls-user</module>
+        <module>aumalls-goods</module>
+        <module>aumalls-order</module>
     </modules>
 
     <parent>
