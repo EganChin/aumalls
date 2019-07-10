@@ -56,7 +56,6 @@ management:
 
 logging:
   level:
-    com.golddak.web.dao: debug
-    com.golddak.config: debug
+    com.mall.goods.dao: debug
 
 swagger: true

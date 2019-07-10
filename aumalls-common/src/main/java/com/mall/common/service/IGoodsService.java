@@ -2,6 +2,9 @@ package com.mall.common.service;
 
 import com.mall.common.form.goods.QueryGoodsForm;
 import com.mall.common.utils.PageWrapper;
+import com.mall.common.vo.goods.GoodsTypeVO;
+
+import java.util.List;
 
 /**
  * @author Egan
@@ -16,4 +19,10 @@ public interface IGoodsService {
      **/
     PageWrapper getPage(QueryGoodsForm form);
 
+    /**
+     * 获取所有一级和二级商品类型
+     * @date 2019/7/10 15:04
+     * @param
+     **/
+    List<GoodsTypeVO> getSeniorTypes();
 }

@@ -15,7 +15,7 @@ import java.util.List;
  **/
 public interface GoodsDao {
 
-    @Select("select goods_id, goods_name, goods_price, goods_num, goods_img, goods_type from goods ${ew.customSqlSegment}")
+    @Select("select goods_id, goods_name, goods_price, goods_num, goods_img from goods ${ew.customSqlSegment}")
     List<QueryGoodsVO> selectGoodsPage(Page page, @Param("ew")Wrapper wrapper);
 
 }

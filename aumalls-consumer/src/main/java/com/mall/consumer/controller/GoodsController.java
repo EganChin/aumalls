@@ -5,6 +5,7 @@ import com.mall.common.form.goods.QueryGoodsForm;
 import com.mall.common.service.IGoodsService;
 import com.mall.common.utils.R;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -15,12 +16,16 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("goods")
 public class GoodsController {
 
-//    @Reference
+    @Reference
     private IGoodsService goodsService;
 
-    @RequestMapping(value = "page")
+    @RequestMapping(value = "page", method = RequestMethod.GET)
     public R getPage(QueryGoodsForm form){
         return R.ok().put("page", goodsService.getPage(form));
     }
 
+    @RequestMapping(value = "type/senior", method = RequestMethod.GET)
+    public R getSeniorType(){
+        return R.ok().put("list", goodsService.getSeniorTypes());
+    }
 }

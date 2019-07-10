@@ -17,9 +17,9 @@ public class QueryGoodsForm extends Query implements Serializable{
 
     private Integer type;
 
-    private Float maxPrice;
+    private Float maxPrice = 3.4028235E38F;
 
-    private Float minPrice;
+    private Float minPrice = 0F;
 
     public List<SortCondition> getSorts() {
         return sorts;
