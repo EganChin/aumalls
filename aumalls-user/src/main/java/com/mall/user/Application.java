@@ -1,11 +1,14 @@
 package com.mall.user;
 
 import com.alibaba.dubbo.spring.boot.annotation.EnableDubboConfiguration;
+import com.mall.common.config.annotation.SecurityConfig;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.FilterType;
 import org.springframework.context.annotation.ImportResource;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
@@ -17,7 +20,9 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @EnableScheduling
 @EnableDubboConfiguration
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
-//@ComponentScan(basePackages = "com.mall.user")
+@ComponentScan(basePackages = {"com.mall.user", "com.mall.common.config"},
+    excludeFilters = {@ComponentScan.Filter(type = FilterType.ANNOTATION, value = SecurityConfig.class)})
+@MapperScan(basePackages = "com.mall.user.dao")
 public class Application {
 
     public static void main(String[] args) {

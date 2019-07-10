@@ -7,6 +7,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.mall.common.form.goods.QueryGoodsForm;
 import com.mall.common.service.IGoodsService;
 import com.mall.common.utils.PageWrapper;
+import com.mall.common.vo.goods.QueryGoodsVO;
 import com.mall.goods.dao.GoodsDao;
 
 import javax.annotation.Resource;
@@ -27,7 +28,7 @@ public class GoodService implements IGoodsService {
     public PageWrapper getPage(QueryGoodsForm form) {
         Page page = new Page(form.getPn(), form.getPs());
 
-        List<GoodsVO> list = goodsDao.selectGoodsPage(page, new QueryWrapper<>());
+        List<QueryGoodsVO> list = goodsDao.selectGoodsPage(page, new QueryWrapper<>());
 
         return new PageWrapper<>(page, list);
     }

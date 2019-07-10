@@ -1,11 +1,13 @@
 package com.mall.common.config;
 
 import com.mall.common.utils.GsonUtils;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.format.FormatterRegistry;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.GsonHttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import org.springframework.web.context.request.RequestContextListener;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 
@@ -24,6 +26,11 @@ public class WebConfig extends WebMvcConfigurationSupport {
         GsonHttpMessageConverter converter = new GsonHttpMessageConverter();
         converter.setGson(GsonUtils.get());
         converters.add(converter);
+    }
+
+    @Bean
+    public RequestContextListener requestContextListener(){
+        return new RequestContextListener();
     }
 
 //    @Override

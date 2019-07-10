@@ -10,7 +10,7 @@ spring:
     database: 0
     host: egan.online
     port: 19459
-    password: redis4.0
+    password: 2016CUITBlogSystem
     timeout: 5s
     lettuce:
       pool:

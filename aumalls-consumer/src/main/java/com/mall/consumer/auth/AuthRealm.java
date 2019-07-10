@@ -1,11 +1,11 @@
 package com.mall.consumer.auth;
 
 
-import com.mall.common.auth.AuthConfig;
 import com.mall.common.auth.AuthToken;
+import com.mall.common.config.AuthConfig;
 import com.mall.common.domain.User;
 import com.mall.common.exception.RRException;
-import com.mall.common.utils.RedisUtil;
+import com.mall.common.utils.RedisWrapper;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
@@ -15,6 +15,7 @@ import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
 
 import java.util.concurrent.TimeUnit;
@@ -31,6 +32,8 @@ public class AuthRealm extends AuthorizingRealm {
     @Autowired
     private AuthConfig configuration;
 
+    @Autowired
+    private RedisTemplate<String,Object> redisTemplate;
 
     /**
      * token 类型支持
@@ -69,11 +72,11 @@ public class AuthRealm extends AuthorizingRealm {
         /*
          * 管理员在使用时，刷新令牌过期时间
          */
-        User user = (User) RedisUtil.value().get(accessToken);
+        User user = (User) redisTemplate.opsForValue().get(accessToken);
         if (user == null) {
             throw new RRException("token过期", 401);
         } else{
-            RedisUtil.t.expire(accessToken, configuration.getTimeout().getSeconds(), TimeUnit.SECONDS);
+            redisTemplate.expire(accessToken, configuration.getTimeout().getSeconds(), TimeUnit.SECONDS);
         }
 
         return new SimpleAuthenticationInfo(user, accessToken, getName());

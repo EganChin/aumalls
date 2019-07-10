@@ -1,5 +1,6 @@
 package com.mall.common.config;
 
+import com.mall.common.utils.RedisWrapper;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.CacheManager;
 import org.springframework.context.annotation.Bean;
@@ -36,6 +37,14 @@ public class RedisConfig {
         redisTemplate.setEnableTransactionSupport(false);
 
         return redisTemplate;
+    }
+
+    @Bean
+    public RedisWrapper redisWrapper(RedisTemplate<String, Object> template) {
+
+        RedisWrapper redisWrapper = new RedisWrapper(template);
+
+        return redisWrapper;
     }
 
     @Value("${spring.cache.ttl:5m}")

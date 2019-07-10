@@ -12,7 +12,7 @@
     <artifactId>user</artifactId>
     <dependencies>
         <dependency>
-            <groupId>com.mall</groupId>
+            <groupId>com.mall.common</groupId>
             <artifactId>common</artifactId>
             <version>2.0-beta</version>
         </dependency>
@@ -30,14 +30,14 @@
             <artifactId>spring-boot-configuration-processor</artifactId>
             <optional>true</optional>
         </dependency>
-        <!--<dependency>-->
-        <!--<groupId>org.apache.shiro</groupId>-->
-        <!--<artifactId>shiro-web</artifactId>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-        <!--<groupId>org.apache.shiro</groupId>-->
-        <!--<artifactId>shiro-spring</artifactId>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-spring</artifactId>
+        </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid-spring-boot-starter</artifactId>
@@ -97,24 +97,10 @@
             <artifactId>springfox-swagger-ui</artifactId>
         </dependency>
 
-    </dependencies>
 
+    </dependencies>
     <build>
         <finalName>user</finalName>
-        <resources>
-            <resource>
-                <directory>src/main/java/</directory>
-                <includes>
-                    <include>**/*.*</include>
-                </includes>
-            </resource>
-            <resource>
-                <directory>src/main/resources/</directory>
-                <includes>
-                    <include>**/*.*</include>
-                </includes>
-            </resource>
-        </resources>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

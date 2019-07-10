@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("goods")
 public class GoodsController {
 
-    @Reference
+//    @Reference
     private IGoodsService goodsService;
 
     @RequestMapping(value = "page")

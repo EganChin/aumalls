@@ -1,4 +1,4 @@
-package com.mall.common.auth;
+package com.mall.common.config;
 
 import com.mall.common.config.annotation.SecurityConfig;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -12,7 +12,6 @@ import java.time.Duration;
  * @author LiangYongjie
  * @date 2019-01-15
  */
-@SecurityConfig
 @Configuration
 @ConfigurationProperties("security")
 public class AuthConfig {

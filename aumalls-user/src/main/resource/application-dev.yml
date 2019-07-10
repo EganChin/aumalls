@@ -1,6 +1,6 @@
 spring:
   dubbo:
-      appname: user
+      appname: users
       registry: zookeeper://127.0.0.1:2181
       protocol: dubbo
       port: 20881
@@ -39,7 +39,7 @@ spring:
     database: 0
     host: egan.online
     port: 19459
-    password: redis4.0
+    password: 2016CUITBlogSystem
     timeout: 5s
     lettuce:
       pool:

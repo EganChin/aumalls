@@ -12,7 +12,7 @@
     <artifactId>goods</artifactId>
     <dependencies>
         <dependency>
-            <groupId>com.mall</groupId>
+            <groupId>com.mall.common</groupId>
             <artifactId>common</artifactId>
             <version>2.0-beta</version>
         </dependency>

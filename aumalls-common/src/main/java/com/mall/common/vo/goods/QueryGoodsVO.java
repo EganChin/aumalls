@@ -1,4 +1,4 @@
-package com.mall.goods.vo;
+package com.mall.common.vo.goods;
 
 import com.mall.common.domain.Goods;
 

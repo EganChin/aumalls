@@ -3,6 +3,7 @@ package com.mall.goods.dao;
 import com.alipay.api.domain.GoodsVO;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.mall.common.vo.goods.QueryGoodsVO;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
@@ -15,6 +16,6 @@ import java.util.List;
 public interface GoodsDao {
 
     @Select("select goods_id, goods_name, goods_price, goods_num, goods_img, goods_type from goods ${ew.customSqlSegment}")
-    List<GoodsVO> selectGoodsPage(Page page, @Param("ew")Wrapper wrapper);
+    List<QueryGoodsVO> selectGoodsPage(Page page, @Param("ew")Wrapper wrapper);
 
 }

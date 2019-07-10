@@ -5,8 +5,8 @@ import org.springframework.data.redis.core.HashOperations;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -16,23 +16,23 @@ import java.util.concurrent.TimeUnit;
  * @author Egan
  * @date 2019/3/10 14:44
  **/
-@Component
-public class RedisUtil {
+public class RedisWrapper{
 
-	public static RedisTemplate<String, Object> t;
+	private RedisTemplate<String, Object> template;
 
 	private static final String TOKENS = "tokenTable";
 
-	@Autowired
-	public RedisUtil(RedisTemplate<String, Object> template){
-		RedisUtil.t = template;
+    public RedisWrapper(RedisTemplate<String, Object> template) {
+        this.template = template;
+    }
+
+    public ValueOperations<String, Object> value(){
+		return template.opsForValue();
 	}
 
-	public static ValueOperations<String, Object> value(){
-		return t.opsForValue();
-	}
-
-    private static RedisTemplate<String, Object> template;
+    public RedisTemplate<String, Object> getTemplate() {
+        return template;
+    }
 
     /**
      * 尝试获取锁，若获取失败立刻返回
@@ -42,7 +42,7 @@ public class RedisUtil {
      * @param unit   时间单位
      * @return 获取到锁返回 true，否则返回 false
      */
-    public static boolean tryLock(String lock, long expire, TimeUnit unit) {
+    public boolean tryLock(String lock, long expire, TimeUnit unit) {
         Boolean b = template.opsForValue().setIfAbsent(lock, lock, expire, unit);
         return b != null && b;
     }
@@ -56,7 +56,7 @@ public class RedisUtil {
      * @param timeout 尝试获取的时间, 单位：ms
      * @return 获取到锁返回 true，否则返回 false
      */
-    public static boolean tryLock(String lock, long expire, TimeUnit unit, long timeout) {
+    public boolean tryLock(String lock, long expire, TimeUnit unit, long timeout) {
         Boolean b;
         long now = System.currentTimeMillis();
         do {
@@ -68,21 +68,21 @@ public class RedisUtil {
         return true;
     }
 
-    public static void unlock(String lock) {
+    public void unlock(String lock) {
         template.delete(lock);
     }
 
-	public static void deleteAllToken(Integer id) {
-		HashOperations<String, Object, Object> hash = t.opsForHash();
+	public void deleteAllToken(Integer id) {
+		HashOperations<String, Object, Object> hash = template.opsForHash();
 		List<String> tokens = (List<String>) hash.get(TOKENS, id.toString());
 		if (tokens != null) {
-			t.delete(tokens);
+			template.delete(tokens);
 			hash.delete(TOKENS, id.toString());
 		}
 	}
 
-	public static void addToken(Integer id, String token) {
-		HashOperations<String, String, Object> hashOperations = t.opsForHash();
+	public void addToken(Integer id, String token) {
+		HashOperations<String, String, Object> hashOperations = template.opsForHash();
 		List<String> tokens = (List<String>) hashOperations.get(TOKENS, id.toString());
 		if (tokens == null) {
 			tokens = new ArrayList<>();
@@ -92,27 +92,17 @@ public class RedisUtil {
 			Iterator<String> iterator = tokens.iterator();
 			while (iterator.hasNext()) {
 				String next = iterator.next();
-				if (!t.hasKey(next)) {
+				if (!template.hasKey(next)) {
 					timeout.add(next);
 					iterator.remove();
 				}
 			}
 			if (timeout.size() != 0) {
-				t.delete(timeout);
+				template.delete(timeout);
 			}
 		}
 		tokens.add(token);
 		hashOperations.put(TOKENS, id.toString(), tokens);
 	}
 
-	public static BigDecimal getPublisherPrice(){
-		return (BigDecimal) value().get("pprice");
-	}
-
-	public static BigDecimal getUserPrice(){
-		return (BigDecimal) value().get("cprice");
-	}
-
-	public static Integer timeout4(){return (Integer) value().get("timeout4");}
-	public static Integer timeout5(){return (Integer) value().get("timeout5");}
 }

@@ -13,8 +13,8 @@
         <module>aumalls-common</module>
         <module>aumalls-user</module>
         <module>aumalls-goods</module>
-        <module>aumalls-order</module>
-        <module>consumer</module>
+        <module>aumalls-user</module>
+        <module>aumalls-consumer</module>
     </modules>
 
     <parent>
