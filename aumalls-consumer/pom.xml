@@ -51,10 +51,6 @@
             <!--<artifactId>mybatis-plus-boot-starter</artifactId>-->
         <!--</dependency>-->
         <dependency>
-            <groupId>com.alipay.sdk</groupId>
-            <artifactId>alipay-sdk-java</artifactId>
-        </dependency>
-        <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
         </dependency>

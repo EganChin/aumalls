@@ -1,6 +1,5 @@
 package com.mall.goods.dao;
 
-import com.alipay.api.domain.GoodsVO;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.mall.common.vo.goods.QueryGoodsVO;
