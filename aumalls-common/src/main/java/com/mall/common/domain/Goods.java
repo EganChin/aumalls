@@ -12,7 +12,15 @@ public class Goods {
     private Integer goodsNum;
     private String goodsImg;
     private Integer goodsType;
+    private Integer goodsState;
 
+    public Integer getGoodsState() {
+        return goodsState;
+    }
+
+    public void setGoodsState(Integer goodsState) {
+        this.goodsState = goodsState;
+    }
 
     public Integer getGoodsId() {
         return goodsId;
