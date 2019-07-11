@@ -1,4 +1,4 @@
-package com.mall.goods.dao;
+package com.mall.order.dao;
 
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;

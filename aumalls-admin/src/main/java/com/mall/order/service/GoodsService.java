@@ -1,7 +1,6 @@
-package com.mall.goods.service;
+package com.mall.order.service;
 
 import com.alibaba.dubbo.config.annotation.Service;
-import com.alipay.api.domain.GoodsVO;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.mall.common.domain.GoodsType;
@@ -9,11 +8,10 @@ import com.mall.common.form.SortCondition;
 import com.mall.common.form.goods.QueryGoodsForm;
 import com.mall.common.service.IGoodsService;
 import com.mall.common.utils.PageWrapper;
-import com.mall.common.validator.ValidatorUtils;
 import com.mall.common.vo.goods.GoodsTypeVO;
 import com.mall.common.vo.goods.QueryGoodsVO;
-import com.mall.goods.dao.GoodsDao;
-import com.mall.goods.dao.GoodsTypeDao;
+import com.mall.order.dao.GoodsDao;
+import com.mall.order.dao.GoodsTypeDao;
 
 import javax.annotation.Resource;
 import java.util.List;

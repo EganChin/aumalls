@@ -1,7 +1,6 @@
-package com.mall.goods;
+package com.mall.order;
 
 import com.alibaba.dubbo.spring.boot.annotation.EnableDubboConfiguration;
-import com.mall.common.config.annotation.DatabaseConfig;
 import com.mall.common.config.annotation.SecurityConfig;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
@@ -10,7 +9,6 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.FilterType;
-import org.springframework.context.annotation.ImportResource;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 /**

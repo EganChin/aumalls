@@ -1,5 +1,6 @@
 package com.mall.common.config;
 
+import com.alibaba.dubbo.remoting.TimeoutException;
 import com.mall.common.utils.R;
 import com.mall.common.exception.RRException;
 import org.apache.shiro.authz.AuthorizationException;
@@ -23,6 +24,11 @@ import javax.validation.ConstraintViolationException;
 public class ExceptionHandlerConfig {
 
     private static final Logger log = LoggerFactory.getLogger(ExceptionHandlerConfig.class);
+
+    @ExceptionHandler(TimeoutException.class)
+    public R handlerTimeoutException(){
+        return R.error("连接超时");
+    }
 
     @ExceptionHandler(RRException.class)
     public R handlerRRException(RRException e) {

@@ -1,4 +1,4 @@
-package com.mall.goods.dao;
+package com.mall.order.dao;
 
 import com.alipay.api.domain.GoodsVO;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
