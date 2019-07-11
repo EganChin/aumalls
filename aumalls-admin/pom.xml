@@ -9,7 +9,9 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>aumalls-goods</artifactId>
+    <groupId>com.mall.admin</groupId>
+    <artifactId>aumalls-admin</artifactId>
+
     <dependencies>
         <dependency>
             <groupId>com.mall.common</groupId>
@@ -100,7 +102,7 @@
 
     </dependencies>
     <build>
-        <finalName>goods</finalName>
+        <finalName>admin</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
@@ -116,4 +118,5 @@
             </plugin>
         </plugins>
     </build>
+
 </project>

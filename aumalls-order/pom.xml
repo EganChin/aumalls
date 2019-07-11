@@ -9,7 +9,9 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>aumalls-goods</artifactId>
+    <groupId>com.mall.order</groupId>
+    <artifactId>aumalls-order</artifactId>
+
     <dependencies>
         <dependency>
             <groupId>com.mall.common</groupId>
@@ -99,8 +101,9 @@
 
 
     </dependencies>
+
     <build>
-        <finalName>goods</finalName>
+        <finalName>order</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
