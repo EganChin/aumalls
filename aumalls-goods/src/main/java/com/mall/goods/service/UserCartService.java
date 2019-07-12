@@ -32,7 +32,7 @@ public class UserCartService implements IUserShopCartService {
      * @return 返回 -1代表用户不存在， 否则返回生成的主键值
      */
     @Override
-    public int userJoinShopCart(int userId, int goodsNum, int goodsId) {
+    public int addUserShopItermCart(int userId, int goodsNum, int goodsId) {
 
         Goods goods = getGoodsInShopcart(goodsId);
 
@@ -77,6 +77,10 @@ public class UserCartService implements IUserShopCartService {
 
         int i = shopItermDao.updateById(shopitem);
 
+        /***
+         * 测试
+         */
+
         return i;
     }
 
@@ -90,7 +94,7 @@ public class UserCartService implements IUserShopCartService {
     }
 
     @Override
-    public int flushCart(int userId) {
+    public int updateFlushCart(int userId) {
         QueryWrapper<Shopitem> shopitemQueryWrapper = new QueryWrapper<>();
 
         shopitemQueryWrapper.eq("item_user", userId);
@@ -99,7 +103,7 @@ public class UserCartService implements IUserShopCartService {
     }
 
     @Override
-    public int flushOneShopiterm(int iterm) {
+    public int updateFlushOneShopiterm(int iterm) {
         return shopItermDao.deleteById(iterm);
 
     }

@@ -17,7 +17,7 @@ public interface IUserShopCartService {
      * @param goodsId  商品
      * @return 返回生成的ItermID
      */
-    int userJoinShopCart(int userId, int goodsNum, int goodsId);
+    int addUserShopItermCart(int userId, int goodsNum, int goodsId);
 
     /**
      *
@@ -47,13 +47,13 @@ public interface IUserShopCartService {
      * 清空购物车
      * @param userId 用户Id
      */
-      int flushCart(int userId);
+      int updateFlushCart(int userId);
 
     /**
      * 移除购物车某一项
      * @param iterm
      * @return
      */
-      int flushOneShopiterm(int iterm);
+      int updateFlushOneShopiterm(int iterm);
 
 }
