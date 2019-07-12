@@ -25,8 +25,6 @@ public class TestShopcart {
         int i = userCartService.addUserShopItermCart(1, 1, 12);
 
         System.out.println(i);
-        System.out.println(i);
-        System.out.println(i);
 
 
     }
