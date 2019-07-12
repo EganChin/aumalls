@@ -8,5 +8,4 @@ import com.mall.common.domain.User;
  * @date 2019/7/10 10:07
  **/
 public interface UserDao extends BaseMapper<User> {
-
 }
