@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mall.goods.dao.ShopItermDao">
+    <update id="updateItermNum">
+        update
+    </update>
+
+
+    <select id="getAllShopCartIterms" resultType="com.mall.common.vo.shoppingcart.ShoppingCartItem">
+        SELECT
+            s.item_goods AS goodsId,
+            gi.img_goods AS goodsImgPath,
+            s.item_id AS itermId,
+            s.item_price AS goodsTotalPrice,
+            s.item_num AS goodsNum
+        from
+            shopitem AS s LEFT JOIN
+            goods_img AS gi
+        ON
+            s.item_goods = gi.img_goods where s.item_user = #{userId}
+    </select>
+</mapper>
