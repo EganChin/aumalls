@@ -1,9 +1,11 @@
 package com.mall.common.vo.shoppingcart;
 
+import java.io.Serializable;
+
 /**
  * Created by zzy on 2019/7/11.
  */
-public class ShoppingCartItem {
+public class ShoppingCartItem implements Serializable{
 
     private Integer itermId;
 
