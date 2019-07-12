@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mall.goods.dao.GoodsManagerDao">
+    <select id="getGoodsByState0" resultType="com.mall.common.domain.Goods">
+SELECT
+goods.goods_id,
+goods.goods_name,
+goods.goods_price,
+goods.goods_num,
+goods.goods_img,
+goods.goods_type,
+goods.goods_state
+FROM
+goods
+WHERE
+0 = goods.goods_state
+    </select>
+</mapper>

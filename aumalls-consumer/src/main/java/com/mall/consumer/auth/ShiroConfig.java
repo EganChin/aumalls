@@ -25,6 +25,7 @@ import java.util.Map;
 public class ShiroConfig {
 
     private static final String[] DEFAULT_ANON_URLS = new String[]{
+            "/shopcart/**",
         "/**/**",
         "/**/*.ico",
         "/**/*.html",
