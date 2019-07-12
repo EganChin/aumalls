@@ -17,6 +17,13 @@ spring:
       max-request-size: 20MB
       max-file-size: 20MB
       enabled: true
+#  mvc:
+#    view:
+#      suffix: .jsp
+#      prefix: /WEB-INF/jsp/view/
+  view:
+    suffix: .jsp
+    prefix: /WEB-INF/jsp/view/
 
 
 mybatis-plus:

@@ -12,8 +12,6 @@ import com.mall.common.utils.RedisWrapper;
 import com.mall.common.vo.user.LoginVO;
 import com.mall.user.dao.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.data.redis.core.ValueOperations;
 
 import javax.annotation.Resource;
 
@@ -47,15 +45,15 @@ public class UserService implements IUserService {
 //		}
 
         QueryWrapper<User> ew = new QueryWrapper<User>()
-            .eq("user_pass",  form.getPass())
-            .and(w -> w.eq("user_name", form.getUsername())
-                .or().eq("user_phone", form.getUsername()));
+            .eq("user_pass",  form.getPassword())
+            .and(w -> w.eq("user_name", form.getAccount())
+                .or().eq("user_phone", form.getAccount()));
         User user = userDao.selectOne(ew);
 
 
         if (user != null) {
                 // 生成临时身份令牌
-                String token = HashUtils.md5Digest(form.getUsername() + System.currentTimeMillis());
+                String token = HashUtils.md5Digest(form.getAccount() + System.currentTimeMillis());
                 redisWrapper.value().set(token, user, configuration.getTimeout());
 
                 redisWrapper.addToken(user.getUserId(), token);

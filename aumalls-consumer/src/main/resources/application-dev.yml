@@ -17,6 +17,10 @@ spring:
         min-idle: 2
         max-active: 8
         max-idle: 4
+#  mvc:
+#    view:
+#      prefix: /WEB-INF/jsp/view
+#      suffix: .jsp
 
 management:
   endpoints:
@@ -28,5 +32,3 @@ logging:
   level:
     com.golddak.web.dao: debug
     com.golddak.config: debug
-
-swagger: true

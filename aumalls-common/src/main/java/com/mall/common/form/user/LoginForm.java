@@ -9,25 +9,25 @@ import java.io.Serializable;
  **/
 public class LoginForm implements Serializable{
 
-    @NotBlank(message = "用户名不能为空")
-    private String username;
+    @NotBlank(message = "账号不能为空")
+    private String account;
 
     @NotBlank(message = "密码不能为空")
-    private String pass;
+    private String password;
 
-    public String getUsername() {
-        return username;
+    public String getAccount() {
+        return account;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setAccount(String account) {
+        this.account = account;
     }
 
-    public String getPass() {
-        return pass;
+    public String getPassword() {
+        return password;
     }
 
-    public void setPass(String pass) {
-        this.pass = pass;
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
