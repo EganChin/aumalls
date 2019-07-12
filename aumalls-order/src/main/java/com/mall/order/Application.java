@@ -19,13 +19,12 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @EnableScheduling
 @EnableDubboConfiguration
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
-@ComponentScan(basePackages = {"com.mall.goods", "com.mall.common.config"},
+@ComponentScan(basePackages = {"com.mall.user", "com.mall.common.config"},
     excludeFilters = {@ComponentScan.Filter(type = FilterType.ANNOTATION, value = SecurityConfig.class)})
-@MapperScan(basePackages = "com.mall.goods.dao")
+@MapperScan(basePackages = "com.mall.user.dao")
 public class Application {
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
     }
 }
-

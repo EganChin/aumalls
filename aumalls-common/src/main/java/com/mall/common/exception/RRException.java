@@ -1,6 +1,7 @@
 package com.mall.common.exception;
 
 /**
+ * 使用R实体返回的RuntimeException
  * @author LiangYongjie
  * @date 2019-01-05
  */
