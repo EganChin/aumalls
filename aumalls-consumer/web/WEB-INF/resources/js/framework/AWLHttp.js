@@ -92,7 +92,7 @@ var AWLHttp = (function () {
         if (method === "POST")
             params = AWLHttpObj.jsonToStr(params);
 
-        console.log(" send request")
+        console.log(" send request to " + json["address"]);
         $.ajax({
             type: method,
             async: async,
@@ -103,13 +103,16 @@ var AWLHttp = (function () {
             data: params,
             success: function (message) {
                 // $("#loadingDiv").fadeOut(200);
-                //用户未登录，重定向至登录页面
+                // 用户未登录，显示登录框
                 if (message.code === httpCode.unauthorized){
-                    AWLPage.redirectTo("/login.html");
+                    alert("请先登录");
+                    $("#login-dialog").css("style", "display:block");
+                    AWLStorage.remove("user");
+                    // AWLPage.redirectTo("/login.html");
                     return;
                 }
                 if (message.code !== httpCode.success) {
-                    alert(message.msg);
+                    alert(message.message);
                     return;
                 }
                 callBack.success(message);

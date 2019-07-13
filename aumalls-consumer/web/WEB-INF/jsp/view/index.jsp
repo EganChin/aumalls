@@ -19,41 +19,7 @@
     <script src="resources/js/framework/AWLHttp.js"></script>
 </head>
 <body>
-<div class="login-dialog" id="login-dialog" style="display: none">
-    <div class="graybox"></div>
-    <div class="popbox">
-        <div class="poptop">
-            <h3>登录</h3>
-            <a id="close" class="close">X</a>
-        </div>
-        <div class="popcon">
-            <div>
-                <div class="group">
-                    <input type="text" id="account" value="请输入帐号" onFocus="if(value=='请输入帐号') {value=''}"
-                           onBlur="if(value==''){value='请输入帐号'}">
-                    <i class="fa fa-user"></i>
-                </div>
-                <div class="group">
-                    <input type="password" id="password" placeholder="请输入密码">
-                    <i class="fa fa-lock"></i>
-                </div>
-            </div>
-            <div class="remember clearfix">
-                <div class="remember-con">
-                    <input type="checkbox" id="input1" class="inputbox">
-                    <label for="input1">记住密码</label>
-                </div>
-                <div class="remember-con">
-                    <a href="#" class="code"><i class="fa fa-question-circle"></i>忘记密码</a>
-                </div>
-            </div>
-        </div>
-        <div class="divbtn clearfix">
-            <a id="cancel-btn" class="btn" id="cancel">取消</a>
-            <a id="login-btn" class="btn ok">登录</a>
-        </div>
-    </div>
-</div>
+<jsp:include page="login.jsp"/>
 <header class="wrap-all">
     <div class="head center_1200">
         <!-- 头部左边 -->
@@ -62,13 +28,13 @@
                 <a href="#">
                     <em></em>
                     <span>澳猫首页</span>
-                    <span>嗨，澳猫欢迎你！</span>
+                    <span id="welcome">嗨，澳猫欢迎你！</span>
                 </a>
             </div>
             <div class="user" id="user-group">
-                <a target="_blank" id="login">登录</a>
+                <a target="_self" id="login">登录</a>
                 <span>|</span>
-                <a target="_blank" id="register">注册</a>
+                <a target="_self" id="register">注册</a>
             </div>
             <div class="phone">
                 <a href="#">

@@ -26,7 +26,7 @@
         var rithtButton = $("#right");
         for (i = pageRange.start; i <= pageRange.end; i++) {
             var cls = i === current ? "\"active\"" : "\"page\"";
-            rithtButton.before("<span class=" + cls + "><a href='/?pn=" + i + "' target=\"_blank\" class='page-link'> " + i + "</a></span>");
+            rithtButton.before("<span class=" + cls + "><a href='/?pn=" + i + "' target=\"_self\" class='page-link'> " + i + "</a></span>");
         }
         // console.log(btns);
         // $("#right").append(btns);

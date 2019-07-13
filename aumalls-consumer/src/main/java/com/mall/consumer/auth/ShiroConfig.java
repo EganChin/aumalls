@@ -30,7 +30,7 @@ public class ShiroConfig {
         "/resources",
         "/images",
         "/shopcart/**",
-        "/login",
+        "/user/login",
         "/**/*.ico",
         "/**/*.html",
         "/**/*.css",

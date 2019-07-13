@@ -19,7 +19,7 @@ import javax.annotation.Resource;
  * @author Egan
  * @date 2019/7/10 10:08
  **/
-@Service
+@Service(timeout = 50000)
 @org.springframework.stereotype.Service
 public class UserService implements IUserService {
 
@@ -49,7 +49,6 @@ public class UserService implements IUserService {
             .and(w -> w.eq("user_name", form.getAccount())
                 .or().eq("user_phone", form.getAccount()));
         User user = userDao.selectOne(ew);
-
 
         if (user != null) {
                 // 生成临时身份令牌
