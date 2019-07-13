@@ -8,7 +8,7 @@ $(function () {
             return;
         }
 
-        content.append( "<div class="lis_lf"><span class="peo"></span><p class="lis_txt">"+msg+"</p></div>");
+        content.append( '<div class="lis_lf"><span class="peo"></span><p class="lis_txt">'+msg+'</p></div>');
         $("#chat-msg").val("");
     };
 
