@@ -1,11 +1,14 @@
 package com.mall.consumer.controller;
 
-import com.mall.common.form.user.LoginForm;
-import com.mall.common.utils.IPUtils;
-import com.mall.common.validator.ValidatorUtils;
+import com.alibaba.dubbo.config.annotation.Reference;
+import com.mall.common.form.goods.QueryGoodsForm;
+import com.mall.common.service.IGoodsService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
+
+import javax.servlet.http.HttpServletRequest;
+import java.util.Map;
 
 /**
  * @author Egan
@@ -14,8 +17,19 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class IndexController {
 
+    @Reference
+    private IGoodsService goodsService;
+
+//    @Autowired
+//    private HttpServletRequest request;
+
     @RequestMapping("/")
-    public String index(){
+    public String index(Map<String, Object> model){
+
+
+        model.put("typeList", goodsService.getSeniorTypes());
+        model.put("goodsPage", goodsService.getPage(new QueryGoodsForm()));
+
         return "index";
     }
 

@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿<%--@elvariable id="typeList" type="java.util.List<com.mall.common.utils.PageWrapper<com.mall.common.vo.goods.QueryGoodsVO>>"--%>
+<%--@elvariable id="typeList" type="java.util.List<com.mall.common.utils.PageWrapper<com.mall.common.vo.goods.QueryGoodsVO>>"--%>
+<%
+%>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
