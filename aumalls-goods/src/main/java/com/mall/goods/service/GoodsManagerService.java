@@ -20,4 +20,16 @@ public class GoodsManagerService implements IGoodsManagerService {
         goods=goodsManagerDao.getGoodsByState0();
         return goods;
     }
+
+    @Override
+    public int updateGoodsState(Integer id) {
+        return goodsManagerDao.updateGoodsState(id);
+    }
+
+    @Override
+    public int updateGoodsStateTo0(List ids) {
+
+        return goodsManagerDao.updateGoodsStateTo0(ids);
+    }
+
 }
