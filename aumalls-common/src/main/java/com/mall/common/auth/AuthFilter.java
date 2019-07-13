@@ -16,6 +16,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.Writer;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
@@ -54,8 +55,10 @@ public class AuthFilter extends AuthenticatingFilter {
             HttpServletResponse httpResponse = (HttpServletResponse) response;
             response.setContentType("application/json;charset=utf-8");
             String json = new Gson().toJson(R.error(401, "invalid token"));
-            httpResponse.getWriter().print(json);
+            Writer writer = httpResponse.getWriter();
+            writer.write(json);
 
+            writer.close();
             return false;
         }
 
@@ -68,14 +71,15 @@ public class AuthFilter extends AuthenticatingFilter {
         HttpServletResponse httpResponse = (HttpServletResponse) response;
         HttpServletRequest httpRequest = (HttpServletRequest) request;
         response.setContentType("application/json;charset=utf-8");
-//        try {
+        try {
 //            Throwable throwable = e.getCause() == null ? e : e.getCause();
-        httpRequest.setAttribute("status", 401);
+//        httpRequest.getSession().setAttribute("status", 401);
+        httpResponse.sendRedirect("/?login-status=401");
 //            httpResponse.sendRedirect("index");
-
-//        } catch (IOException e1) {
-//            log.info("user login failure");
-//        }
+            return false;
+        } catch (IOException e1) {
+            log.info("user login failure");
+        }
 
         return true;
     }

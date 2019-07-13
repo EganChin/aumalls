@@ -20,6 +20,7 @@
 </head>
 <body>
 <jsp:include page="login.jsp"/>
+<jsp:include page="chat.jsp"/>
 <header class="wrap-all">
     <div class="head center_1200">
         <!-- 头部左边 -->

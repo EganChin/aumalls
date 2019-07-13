@@ -18,6 +18,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
 
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -34,6 +38,9 @@ public class AuthRealm extends AuthorizingRealm {
 
     @Autowired
     private RedisTemplate<String,Object> redisTemplate;
+
+    @Autowired
+    private HttpServletRequest request;
 
     /**
      * token 类型支持
@@ -74,10 +81,11 @@ public class AuthRealm extends AuthorizingRealm {
          */
         User user = (User) redisTemplate.opsForValue().get(accessToken);
         if (user == null) {
-            throw new RRException("token过期", 401);
-        } else{
-            redisTemplate.expire(accessToken, configuration.getTimeout().getSeconds(), TimeUnit.SECONDS);
+            //token过期
+//            request.getSession().setAttribute("status", 401);
+            return null;
         }
+
 
         return new SimpleAuthenticationInfo(user, accessToken, getName());
     }
