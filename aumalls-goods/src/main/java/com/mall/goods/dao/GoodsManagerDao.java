@@ -34,4 +34,10 @@ public interface GoodsManagerDao extends BaseMapper<Goods> {
      * @return
      */
     public int updateGoodsStateTo0(List ids);
+
+    /**
+     * 管理员查看已上架商品
+     * @return
+     */
+    public List<Goods> getAllGoodsState1();
 }
