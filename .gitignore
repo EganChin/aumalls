@@ -72,3 +72,4 @@ fabric.properties
 # Editor-based Rest Client
 .idea/httpRequests
 /web/src/main/test/java/com/awl/web/test/
+/aumalls-consumer/web/WEB-INF/resources/images/

@@ -62,12 +62,15 @@ public class AuthFilter extends AuthenticatingFilter {
     protected boolean onLoginFailure(AuthenticationToken token, AuthenticationException e,
                                      ServletRequest request, ServletResponse response) {
         HttpServletResponse httpResponse = (HttpServletResponse) response;
+        HttpServletRequest httpRequest = (HttpServletRequest) request;
         response.setContentType("application/json;charset=utf-8");
         try {
             Throwable throwable = e.getCause() == null ? e : e.getCause();
             R r = R.error(401, throwable.getMessage());
-            String json = new Gson().toJson(r);
-            httpResponse.getWriter().print(json);
+//            String json = new Gson().toJson(r);
+//            httpResponse.getWriter().print(json);
+            httpResponse.sendRedirect("login");
+
         } catch (IOException e1) {
             log.info("user login failure");
         }
@@ -79,6 +82,6 @@ public class AuthFilter extends AuthenticatingFilter {
      * 获取请求中的token
      */
     private String getRequestToken(HttpServletRequest request) {
-        return request.getHeader("token");
+        return (String) request.getSession().getAttribute("token");
     }
 }

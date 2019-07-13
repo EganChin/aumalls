@@ -86,11 +86,6 @@
             <groupId>de.codecentric</groupId>
             <artifactId>spring-boot-admin-starter-client</artifactId>
         </dependency>
-        <dependency>
-            <groupId>com.alipay.sdk</groupId>
-            <artifactId>alipay-sdk-java</artifactId>
-            <version>3.4.49.ALL</version>
-        </dependency>
     </dependencies>
     <build>
         <finalName>admin</finalName>

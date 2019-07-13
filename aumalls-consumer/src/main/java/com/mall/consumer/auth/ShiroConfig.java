@@ -25,8 +25,11 @@ import java.util.Map;
 public class ShiroConfig {
 
     private static final String[] DEFAULT_ANON_URLS = new String[]{
-            "/shopcart/**",
-        "/**/**",
+//        "/**/**",
+        "/",
+        "/resources",
+        "/shopcart/**",
+        "/login",
         "/**/*.ico",
         "/**/*.html",
         "/**/*.css",
@@ -46,10 +49,7 @@ public class ShiroConfig {
         "/**/jolokia",
         "/metrics",
         "/actuator/**",
-        "/v2/**",
-        "/swagger-resources/**",
-        "/webjars/springfox-swagger-ui/**",
-        "/**/swagger-ui.html",
+        "/v2/**"
     };
 
     private static final String[] CUSTOM_ANON_URLS = new String[]{

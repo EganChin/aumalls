@@ -1,0 +1,37 @@
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+}
+
+.color-container {
+    background: #4a4a4a;
+}
+
+.position-container {
+    margin-top: 50px;
+    padding-bottom: 95px;
+}
+.list-box {
+    background: #353535;
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-bottom: 90px;
+}
+.list-set {
+    margin-top: 6px;
+    background: #414141;
+    color: #d5d5d5;
+    font-size: 16px;
+}
+.context-container{
+    background: #f4f4f4;
+}
+.card-modify{
+    display: inline-block;
+    margin-top: 15px;
+    margin-left: 60px;
+}
+.cardBody-modify{
+    text-align: center;
+}

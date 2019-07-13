@@ -21,7 +21,6 @@ public class JspConfig {
         resolver.setViewClass(JstlView.class);
         resolver.setPrefix("/WEB-INF/jsp/view/");
         resolver.setSuffix(".jsp");
-        System.out.println("jsp-config");
         return resolver;
     }
 
