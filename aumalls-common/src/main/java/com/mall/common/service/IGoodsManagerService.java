@@ -17,6 +17,13 @@ public interface IGoodsManagerService {
     List<Goods> getGoodsByStateE0();
 
     /**
+     * 查询
+     * @date2019/7/13
+     * @return 商品上架状态为1的所有商品信息
+     */
+    List<Goods> getGoodsByStateE1();
+
+    /**
      * 更新商品状态为1，即上架商品
      * @return
      */
