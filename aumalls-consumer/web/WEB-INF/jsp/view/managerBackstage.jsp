@@ -1,23 +1,21 @@
-<%--@elvariable id="goodsPage" type="com.mall.common.utils.PageWrapper<com.mall.common.vo.goods.QueryGoodsVO>"--%>
-<%--@elvariable id="goods" type="com.mall.common.vo.goods.QueryGoodsVO"--%>
-<%--@elvariable id="typeList" type="java.util.List<com.mall.common.vo.goods.GoodsTypeVO>"--%>
+<%@page pageEncoding="UTF-8"%>
 <%@ include file="base.jsp" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>managerGoods</title>
-    <link rel="stylesheet" href="resources/bootstrap-4.3.1-dist/css/bootstrap.min.css">
-    <script src="resources/js/jquery-1.7.2.min.js"></script>
-    <script src="resources/bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="resources/css/adminnistrators.css">
-    <link rel="stylesheet" href="resources/css/manager.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/bootstrap-4.3.1-dist/css/bootstrap.min.css">
+    <script src="${pageContext.request.contextPath}/resources/js/jquery-1.7.2.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/adminnistrators.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/manager.css">
 </head>
 <body>
 <nav class="navigation-back fixed-top">
     <div class="navbar navbar-expand-sm" style="width:1024px;margin: 0 auto;">
         <a class="nav-logo col-1" style="margin-right: 50px" href="#">
-            <img src="resources/images/headimg.png" height="35"/>
+            <img src="${pageContext.request.contextPath}/resources/images/headimg.png" height="35"/>
         </a>
         <div class="collapse navbar-collapse col-3" id="collapsibleNavbar">
             <ul class="navbar-nav">
@@ -135,5 +133,5 @@
     </div>
 </div>
 </body>
-<script src="resources/js/controlDisplay.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/controlDisplay.js"></script>
 </html>

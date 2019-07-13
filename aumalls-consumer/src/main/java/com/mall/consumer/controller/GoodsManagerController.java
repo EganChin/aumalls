@@ -5,7 +5,6 @@ import com.mall.common.domain.Goods;
 import com.mall.common.service.IGoodsManagerService;
 import com.mall.common.utils.R;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
