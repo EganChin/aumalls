@@ -1,0 +1,319 @@
+.chat-dialog {
+    margin: 0;
+    padding: 0;
+    font-family: "Glyphicons Halflings", "Microsoft YaHei";
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.chat-dialog a, a:hover, label, input[type="checkbox"] {
+    cursor: pointer;
+}
+
+.msg-content {
+    /*width: 500px;*/
+    height: 300px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    border-bottom: 1px solid #cccccc;
+    padding-top: 30px;
+}
+
+.msg-box {
+    /*width: 500px;*/
+    height: 100px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    border-bottom: 1px solid #cccccc;
+    padding-top: 30px;
+}
+
+
+.chat-msg{
+    font-size: 20px;
+    margin-left: 5%;
+    display: inherit;
+    height: 90%;
+    width: 90%;
+    border: 0px;
+    margin-top: -15px;
+    font-family: Consolas, serif;
+    overflow: hidden;
+}
+
+/*.clearfix:after {*/
+    /*content: '';*/
+    /*height: 0;*/
+    /*display: block;*/
+    /*visibility: hidden;*/
+    /*clear: both;*/
+/*}*/
+
+/*.clearfix {*/
+    /*zoom: 1;*/
+/*}*/
+
+.chat-dialog a {
+    text-decoration: none;
+}
+
+.chat-dialog button {
+    width: 180px;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    border-radius: 6px;
+    border: none;
+    background: linear-gradient(#749dcf, #1c7ecf);
+    color: #FFFFff;
+    cursor: pointer;
+    outline: none;
+}
+
+.chat-dialog button:hover {
+    background: #1c7ecf;
+    cursor: pointer;
+}
+.gray-screen {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .6);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9;
+}
+
+.chat-box {
+    width: 600px;
+    padding-bottom: 30px;
+    border-radius: 6px;
+    background: #FFFFff;
+    position: absolute;
+    left: 50%;
+    margin-left: -250px;
+    top: 5%;
+    z-index: 19;
+}
+
+.chat-top {
+    width: 100%;
+    height: 35px;
+    line-height: 120px;
+    text-align: center;
+    border-bottom: 1px solid #F2F2F2;
+    position: relative;
+}
+
+
+.chat-top h3 {
+    font-size: 32px;
+    font-weight: 600;
+    color: #749dcf;
+}
+
+.chat-top a.close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 20px;
+    font-weight: bold;
+    width: 36px;
+    height: 36px;
+    background: grey;
+    line-height: 35px;
+    color: #fff2f3;
+    font-family: "Arial Unicode MS";
+}
+
+.msg-content {
+    padding: 20px 50px;
+}
+
+.msg-content .group {
+    position: relative;
+}
+
+.msg-content .group input[type="text"], input[type='password'] {
+    color: #999999;
+}
+
+.msg-content .group i {
+    position: absolute;
+    left: 12px;
+    top: 28px;
+    font-size: 20px;
+    color: #bbbbbb;
+}
+
+.msg-content input[type="text"], input[type='password'] {
+    width: 100%;
+    height: 36px;
+    line-height: 36px;
+    border-radius: 26px;
+    margin-top: 20px;
+    padding: 0 10px 0 40px;
+    border: none;
+    background: #f0f0f0;
+}
+
+.msg-content input:focus {
+    outline: none;
+    background: #DDDDDD;
+}
+
+/*点击输入框之后图标颜色改变*/
+.msg-content .group input:focus + i {
+    color: #749dcf;
+}
+
+.msg-content .remember {
+    font-size: 12px;
+    margin-top: 15px;
+    color: #749dcf;
+}
+
+.msg-content .remember .remember-con {
+    width: 50%;
+    display: block;
+    float: left;
+}
+
+.msg-content input[type="checkbox"] {
+    vertical-align: -1px;
+    margin-right: -2px;
+}
+
+/*自定义checked样式*/
+.msg-content .remember .inputbox {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+    border: 1px solid #749dcf;
+    background: #FFFFff;
+}
+
+/*自定义checked选中之后的样式*/
+.msg-content .remember .inputbox:checked {
+    border: 1px solid #749dcf;
+    background: #FFFFff url("images/dh.png") center no-repeat;
+    cursor: pointer;
+}
+
+.msg-content .remember .code {
+    display: block;
+    float: right;
+    font-size: 14px;
+    color: #749dcf;
+}
+
+.msg-content .remember .code:hover {
+    text-decoration: underline;
+    color: #749dcf;
+}
+
+.msg-content .remember .fa-question-circle {
+    color: #749dcf;
+    margin-right: 3px;
+}
+
+.chatbtn {
+    width: 260px;
+    margin: 20px auto 0;
+}
+
+.chatbtn .btn {
+    display: block;
+    float: left;
+    width: 120px;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    border-radius: 6px;
+    background: #eeeeee;
+    color: #464646;
+}
+
+.chatbtn .btn:hover {
+    background: #DDDDDD;
+}
+
+.chatbtn .send {
+    background: #749dcf;
+    margin-left: 20px;
+    color: #FFFFff;
+}
+
+.chatbtn .send:hover {
+    background: #5e8ecf;
+}
+
+.lis_lf span{
+    background: url('/images/koala.png') no-repeat;
+    background-size: cover;
+    float: left;
+    margin: 0 15px 0 5px;
+}
+.lis_lf p{
+    float: left;
+    background: #fff;
+}
+.msg-content .lis_lf p:before{
+    background: #fff;
+    left: -5px;
+    border-top: 0;
+    border-right: 0;
+}
+
+.lis_rt span{
+    background: url('/images/cservice.png') no-repeat;
+    background-size: cover;
+    float: right;
+    margin: 0 5px 0 15px;
+}
+.lis_rt p{
+    float: right;
+    background: lightgreen;
+}
+.msg-content .lis_rt p:before{
+    background: lightgreen;
+    right: -5px;
+    border-left: 0;
+    border-bottom: 0;
+}
+
+.msg-content div{
+    padding: 10px 0;
+    width: 100%;
+}
+.msg-content div span{
+    display: inline-block;
+    width: 48px;
+    height: 48px;
+}
+.msg-content div p{
+    max-width:150px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    line-height: 20px;
+    padding: 5px 10px;
+    border-radius: 10px;
+    position: relative;
+}
+.msg-content div:after{
+    display: block;
+    content: " ";
+    clear: both;
+}
+.msg-content div p:before{
+    display: block;
+    content: "";
+    width: 10px;
+    height: 10px;
+    border: 1px solid #ccc;
+    position: absolute;
+    top: 10px;
+    transform: rotate(45deg);
+}

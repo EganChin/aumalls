@@ -8,6 +8,7 @@
     <meta charset="UTF-8">
     <title>列表-澳猫团</title>
     <link rel="stylesheet" href="resources/css/dialog.css">
+    <link rel="stylesheet" href="resources/css/chat.css">
     <!--<link rel="shortcut icon" href="favicon.ico">-->
     <link rel="stylesheet" href="resources/css/reset.css">
     <link rel="stylesheet" href="resources/css/base.css">
@@ -897,6 +898,7 @@
 <script src="resources/js/base.js"></script>
 <script src="resources/js/controller/paging.js"></script>-->
 <script src="resources/js/controller/login.js"></script>
+<script src="resources/js/controller/chat.js"></script>
 <script>
     addPageBtn(${goodsPage.ps}, ${goodsPage.total})
 </script>

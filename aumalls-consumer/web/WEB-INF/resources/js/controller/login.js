@@ -53,6 +53,7 @@ $(function () {
     if(AWLHttp.getParam("login-status")==="401"){
 
         openDialog();
+        logoutStatus();
     }
 
     if(AWLStorage.get("user")!=null){
