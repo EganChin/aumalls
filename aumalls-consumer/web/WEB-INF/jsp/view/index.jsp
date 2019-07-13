@@ -1,7 +1,7 @@
-﻿<%--@elvariable id="typeList" type="java.util.List<com.mall.common.utils.PageWrapper<com.mall.common.vo.goods.QueryGoodsVO>>"--%>
-<%--@elvariable id="typeList" type="java.util.List<com.mall.common.utils.PageWrapper<com.mall.common.vo.goods.QueryGoodsVO>>"--%>
-<%
-%>
+﻿<%--@elvariable id="goodsPage" type="com.mall.common.utils.PageWrapper<com.mall.common.vo.goods.QueryGoodsVO>"--%>
+<%--@elvariable id="goods" type="com.mall.common.vo.goods.QueryGoodsVO"--%>
+<%--@elvariable id="typeList" type="java.util.List<com.mall.common.vo.goods.GoodsTypeVO>"--%>
+<%@ include file="base.jsp" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,8 +19,8 @@
     <script src="resources/js/framework/AWLHttp.js"></script>
 </head>
 <body>
-<div class="login-dialog" id="login-dialog" style="display: block">
-    <div class="graybox" ></div>
+<div class="login-dialog" id="login-dialog" style="display: none">
+    <div class="graybox"></div>
     <div class="popbox">
         <div class="poptop">
             <h3>登录</h3>
@@ -29,11 +29,12 @@
         <div class="popcon">
             <div>
                 <div class="group">
-                    <input type="text" id="account" value="请输入帐号" onFocus="if(value=='请输入帐号') {value=''}" onBlur="if(value==''){value='请输入帐号'}">
+                    <input type="text" id="account" value="请输入帐号" onFocus="if(value=='请输入帐号') {value=''}"
+                           onBlur="if(value==''){value='请输入帐号'}">
                     <i class="fa fa-user"></i>
                 </div>
                 <div class="group">
-                    <input type="password" id="password" placeholder="请输入密码" >
+                    <input type="password" id="password" placeholder="请输入密码">
                     <i class="fa fa-lock"></i>
                 </div>
             </div>
@@ -592,164 +593,19 @@
             <div class="classify">
                 <h3>美妆个护</h3>
                 <div class="ClaCont" id="type-list">
-
-                    <!--<dl>-->
-                    <!--<dt><a href="#">护肤</a></dt>-->
-                    <!--<dd class="cli">-->
-                    <!--<em></em>-->
-                    <!--<ul>-->
-                    <!--<li><a href="#">·&nbsp;&nbsp;面部洗护</a></li>-->
-                    <!--<li><a href="#">·&nbsp;&nbsp;眼部护理</a></li>-->
-                    <!--<li><a href="#">·&nbsp;&nbsp;唇部护理</a></li>-->
-                    <!--<li><a href="#">·&nbsp;&nbsp;祛斑祛痘</a></li>-->
-                    <!--<li><a href="#">·&nbsp;&nbsp;手足洗护</a></li>-->
-                    <!--<li><a href="#">·&nbsp;&nbsp;眼部护理</a></li>-->
-                    <!--<li><a href="#">·&nbsp;&nbsp;防晒修复</a></li>-->
-                    <!--</ul>-->
-                    <!--</dd>-->
-                    <!--<dt><a href="#">个人洗护</a></dt>-->
-                    <!--<dd>-->
-                    <!--<em></em>-->
-                    <!--<ul>-->
-                    <!--<li><a href="#">·&nbsp;&nbsp;沐浴护肤</a></li>-->
-                    <!--<li><a href="#">·&nbsp;&nbsp;洗发护发</a></li>-->
-                    <!--<li><a href="#">·&nbsp;&nbsp;口腔护理</a></li>-->
-                    <!--</ul>-->
-                    <!--</dd>-->
-                    <!--<dt><a href="#">健康生活</a></dt>-->
-                    <!--<dd>-->
-                    <!--<em></em>-->
-                    <!--<ul>-->
-                    <!--<li><a href="#">·&nbsp;&nbsp;消毒液</a></li>-->
-                    <!--<li><a href="#">·&nbsp;&nbsp;洗洁精</a></li>-->
-                    <!--</ul>-->
-                    <!--</dd>&lt;!&ndash;-->
-                    <!--<dt><a href="#">个人洗护</a></dt>-->
-                    <!--<dd>-->
-                    <!--<em></em>-->
-                    <!--<ul>-->
-                    <!--<li><a href="#">·&nbsp;&nbsp;口腔护理</a></li>-->
-                    <!--<li><a href="#">·&nbsp;&nbsp;沐浴护肤</a></li>-->
-                    <!--<li><a href="#">·&nbsp;&nbsp;洗发护发</a></li>-->
-                    <!--</ul>-->
-                    <!--</dd>-->
-                    <!--<dt><a href="#">护肤</a></dt>-->
-                    <!--<dd>-->
-                    <!--<em></em>-->
-                    <!--<ul>-->
-                    <!--<li><a href="#">·&nbsp;&nbsp;防晒修复</a></li>-->
-                    <!--<li><a href="#">·&nbsp;&nbsp;面部洗护</a></li>-->
-                    <!--<li><a href="#">·&nbsp;&nbsp;祛斑祛痘</a></li>-->
-                    <!--<li><a href="#">·&nbsp;&nbsp;手足洗护</a></li>-->
-                    <!--<li><a href="#">·&nbsp;&nbsp;眼、唇部护理</a></li>-->
-                    <!--</ul>-->
-                    <!--</dd>-->
-                    <!--<dt><a href="#">健康生活</a></dt>-->
-                    <!--<dd>-->
-                    <!--<em></em>-->
-                    <!--<ul>-->
-                    <!--<li><a href="#">·&nbsp;&nbsp;洗洁精</a></li>-->
-                    <!--<li><a href="#">·&nbsp;&nbsp;消毒液</a></li>-->
-                    <!--</ul>-->
-                    <!--</dd>-->
-                    <!--<dt><a href="#">美容养颜</a></dt>-->
-                    <!--<dd>-->
-                    <!--<em></em>-->
-                    <!--<ul>-->
-                    <!--<li><a href="#">·&nbsp;&nbsp;补气养血</a></li>-->
-                    <!--<li><a href="#">·&nbsp;&nbsp;胶原蛋白</a></li>-->
-                    <!--<li><a href="#">·&nbsp;&nbsp;排毒养颜</a></li>-->
-                    <!--<li><a href="#">·&nbsp;&nbsp;完美身材</a></li>-->
-                    <!--</ul>-->
-                    <!--</dd>-->
-                    <!--<dt><a href="#">女性护理</a></dt>-->
-                    <!--<dd>-->
-                    <!--<em></em>-->
-                    <!--<ul>-->
-                    <!--<li><a href="#">·&nbsp;&nbsp;私处洗液</a></li>-->
-                    <!--<li><a href="#">·&nbsp;&nbsp;卫生巾</a></li>-->
-                    <!--</ul>-->
-                    <!--</dd>-->
-                    <!--<dt><a href="#">宝宝用品</a></dt>-->
-                    <!--<dd>-->
-                    <!--<em></em>-->
-                    <!--<ul>-->
-                    <!--<li><a href="#">·&nbsp;&nbsp;护肤</a></li>-->
-                    <!--<li><a href="#">·&nbsp;&nbsp;驱蚊</a></li>-->
-                    <!--<li><a href="#">·&nbsp;&nbsp;洗漱</a></li>-->
-                    <!--</ul>-->
-                    <!--</dd>-->
-                    <!--<dt><a href="#">辅食营养</a></dt>-->
-                    <!--<dd>-->
-                    <!--<em></em>-->
-                    <!--<ul>-->
-                    <!--<li><a href="#">·&nbsp;&nbsp;辅食代餐</a></li>-->
-                    <!--<li><a href="#">·&nbsp;&nbsp;抗感冒/止咳</a></li>-->
-                    <!--<li><a href="#">·&nbsp;&nbsp;营养品</a></li>-->
-                    <!--</ul>-->
-                    <!--</dd>-->
-                    <!--<dt><a href="#">奶粉</a></dt>-->
-                    <!--<dd>-->
-                    <!--<em></em>-->
-                    <!--<ul>-->
-                    <!--<li><a href="#">·&nbsp;&nbsp;1段 0-6个月</a></li>-->
-                    <!--<li><a href="#">·&nbsp;&nbsp;2段 6-12个月</a></li>-->
-                    <!--<li><a href="#">·&nbsp;&nbsp;3段 1-3岁</a></li>-->
-                    <!--<li><a href="#">·&nbsp;&nbsp;4段 3-6岁</a></li>-->
-                    <!--</ul>-->
-                    <!--</dd>-->
-                    <!--<dt><a href="#">孕妈专用</a></dt>-->
-                    <!--<dd>-->
-                    <!--<em></em>-->
-                    <!--<ul>-->
-                    <!--<li><a href="#">·&nbsp;&nbsp;哺乳期</a></li>-->
-                    <!--<li><a href="#">·&nbsp;&nbsp;孕期营养</a></li>-->
-                    <!--<li><a href="#">·&nbsp;&nbsp;孕前备孕</a></li>-->
-                    <!--</ul>-->
-                    <!--</dd>-->
-                    <!--<dt><a href="#">心脑血管</a></dt>-->
-                    <!--<dd>-->
-                    <!--<em></em>-->
-                    <!--<ul>-->
-                    <!--<li><a href="#">·&nbsp;&nbsp;降糖</a></li>-->
-                    <!--<li><a href="#">·&nbsp;&nbsp;养心</a></li>-->
-                    <!--</ul>-->
-                    <!--</dd>-->
-                    <!--<dt><a href="#">滋补养生</a></dt>-->
-                    <!--<dd>-->
-                    <!--<em></em>-->
-                    <!--<ul>-->
-                    <!--<li><a href="#">·&nbsp;&nbsp;高钙奶粉</a></li>-->
-                    <!--<li><a href="#">·&nbsp;&nbsp;维骨力</a></li>-->
-                    <!--</ul>-->
-                    <!--</dd>-->
-                    <!--<dt><a href="#">男士保健</a></dt>-->
-                    <!--<dd>-->
-                    <!--<em></em>-->
-                    <!--<ul>-->
-                    <!--<li><a href="#">·&nbsp;&nbsp;前列康</a></li>-->
-                    <!--<li><a href="#">·&nbsp;&nbsp;强精补肾</a></li>-->
-                    <!--</ul>-->
-                    <!--</dd>-->
-                    <!--<dt><a href="#">营养保健</a></dt>-->
-                    <!--<dd>-->
-                    <!--<em></em>-->
-                    <!--<ul>-->
-                    <!--<li><a href="#">·&nbsp;&nbsp;蜂蜜/蜂胶</a></li>-->
-                    <!--<li><a href="#">·&nbsp;&nbsp;维生素/矿物质</a></li>-->
-                    <!--<li><a href="#">·&nbsp;&nbsp;鱼油</a></li>-->
-                    <!--</ul>-->
-                    <!--</dd>-->
-                    <!--<dt><a href="#">职场白领</a></dt>-->
-                    <!--<dd class="last">-->
-                    <!--<em></em>-->
-                    <!--<ul>-->
-                    <!--<li><a href="#">·&nbsp;&nbsp;护肝</a></li>-->
-                    <!--<li><a href="#">·&nbsp;&nbsp;护眼</a></li>-->
-                    <!--<li><a href="#">·&nbsp;&nbsp;其他</a></li>-->
-                    <!--</ul>-->
-                    <!--</dd> &ndash;&gt;-->
-                    <!--</dl>-->
+                    <dl>
+                        <c:forEach var="type" items="${typeList}">
+                            <dt><a href="#">${type.typeName}</a></dt>
+                            <dd class="cli">
+                                <em></em>
+                                <ul>
+                                    <c:forEach var="child" items="${type.children}">
+                                        <li><a>·&nbsp;&nbsp;${child.typeName}</a></li>
+                                    </c:forEach>
+                                </ul>
+                            </dd>
+                        </c:forEach>
+                    </dl>
                 </div>
             </div>
             <!-- 热卖排行榜 -->
@@ -888,28 +744,32 @@
             <!-- 商品内容 -->
             <div class="product">
                 <ul class="clearfix" id="product-table">
-                    <!--<li>-->
-                    <!--<div class="hoverShow collect"><em></em>收藏</div>-->
-                    <!--&lt;!&ndash; <div class="hoverShow wish"><em></em>加入心愿单</div> &ndash;&gt;-->
-                    <!--<div class="show">-->
-                    <!--<a class="add" href="#">加入购物车</a>-->
-                    <!--<a class="contrast" href="#">商品对比</a>-->
-                    <!--</div>-->
-                    <!--<div class="proImg">-->
-                    <!--<a href="#">-->
-                    <!--<img class="lazy" src="js/lazyload/grey.gif" data-original="images/product2L.jpg"-->
-                    <!--alt="">-->
-                    <!--</a>-->
-                    <!--</div>-->
-                    <!--<div class="proTxt">-->
-                    <!--<p><a href="#">Blackmores EPO月见草 澳洲澳佳宝 190粒...</a></p>-->
-                    <!--<p class="num">已售出1000件</p>-->
-                    <!--<p>-->
-                    <!--<strong>￥178.00</strong>-->
-                    <!--<s>￥256.00</s>-->
-                    <!--</p>-->
-                    <!--</div>-->
-                    <!--</li>-->
+                    <c:forEach var="goods" items="${goodsPage.list}">
+
+                        <li>
+                            <div class="hoverShow collect"><em></em>收藏</div>
+                            <!-- <div class="hoverShow wish"><em></em>加入心愿单</div> -->
+                            <div class="show">
+                                <a class="add" href="#">加入购物车</a>
+                                <a class="contrast" href="#">商品对比</a>
+                            </div>
+                            <div class="proImg">
+                                <a href="#">
+                                    <img class="lazy" src="resources/js/lazyload/grey.gif" height='165' width='183'
+                                         data-original="images/${goods.goodsImg}"
+                                         alt="">
+                                </a>
+                            </div>
+                            <div class="proTxt">
+                                <p><a href="#">${goods.goodsName}</a></p>
+                                <p class="num">已售出${goods.goodsNum}件</p>
+                                <p>
+                                    <strong>￥${goods.goodsPrice}</strong>
+                                        <%--<s>￥256.00</s>--%>
+                                </p>
+                            </div>
+                        </li>
+                    </c:forEach>
                 </ul>
 
             </div>
@@ -1068,7 +928,10 @@
 <script src="resources/js/jquery-1.7.2.min.js"></script>
 <script src="resources/js/jquery.lazyload.min.js"></script>
 <script src="resources/js/base.js"></script>
-<!--<script src="js/controller/goods.js"></script>-->
+<script src="resources/js/controller/paging.js"></script>-->
 <script src="resources/js/controller/login.js"></script>
+<script>
+    addPageBtn(${goodsPage.ps}, ${goodsPage.total})
+</script>
 </body>
 </html>

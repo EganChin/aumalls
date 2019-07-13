@@ -29,6 +29,7 @@ public class IndexController {
 
         model.put("typeList", goodsService.getSeniorTypes());
         model.put("goodsPage", goodsService.getPage(new QueryGoodsForm()));
+        model.put("ttt", 1234);
 
         return "index";
     }

@@ -28,6 +28,7 @@ public class ShiroConfig {
 //        "/**/**",
         "/",
         "/resources",
+        "/images",
         "/shopcart/**",
         "/login",
         "/**/*.ico",
