@@ -1,6 +1,9 @@
 package com.mall.common.service;
 
+import com.baomidou.mybatisplus.core.conditions.query.Query;
 import com.mall.common.domain.Goods;
+import com.mall.common.form.goods.ManagerGoodsForm;
+import com.mall.common.utils.PageWrapper;
 
 import java.util.List;
 
@@ -14,14 +17,14 @@ public interface IGoodsManagerService {
      * @date 2019/7/12
      * @return 商品上架状态为0的所有商品信息
      */
-    List<Goods> getGoodsByStateE0();
+    PageWrapper<Goods> getGoodsByStateE0(ManagerGoodsForm query);
 
     /**
      * 查询
      * @date2019/7/13
      * @return 商品上架状态为1的所有商品信息
      */
-    List<Goods> getGoodsByStateE1();
+    List<Goods> getGoodsByStateE1(ManagerGoodsForm query);
 
     /**
      * 更新商品状态为1，即上架商品
@@ -33,4 +36,10 @@ public interface IGoodsManagerService {
      * @return
      */
     int updateGoodsStateTo0(List ids);
+
+    /**
+     * 查询注册用户数
+     * @return
+     */
+    int getUserCount();
 }
