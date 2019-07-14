@@ -22,6 +22,7 @@
 <body>
 <jsp:include page="login.jsp"/>
 <jsp:include page="chat.jsp"/>
+<jsp:include page="order.jsp"/>
 <header class="wrap-all">
     <div class="head center_1200">
         <!-- 头部左边 -->
@@ -49,7 +50,7 @@
         <!-- 头部右边 -->
         <div class="headRight">
             <ul>
-                <li><a href="#">我的订单</a></li>
+                <li><a target="_blank" id="order">我的订单</a></li>
                 <span>|</span>
                 <li class="erWrap">
                     <strong></strong>

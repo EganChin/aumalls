@@ -40,4 +40,10 @@ public interface GoodsManagerDao extends BaseMapper<Goods> {
      * @return
      */
     public List<Goods> getAllGoodsState1();
+
+    /**
+     * 查询注册用户数
+     * @return 返回注册用户数
+     */
+    public Integer getUserCount();
 }

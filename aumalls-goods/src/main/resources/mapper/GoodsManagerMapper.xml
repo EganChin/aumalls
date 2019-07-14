@@ -16,4 +16,7 @@
     <select id="getGoodsByState1" resultType="com.mall.common.domain.Goods">
         SELECT * FROM goods WHERE 1 = goods.goods_state
     </select>
+    <select id="getUserCount" resultType="java.lang.Integer">
+        select count(*) from user;
+    </select>
 </mapper>

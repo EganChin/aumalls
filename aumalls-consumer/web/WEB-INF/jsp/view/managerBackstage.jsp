@@ -105,7 +105,9 @@
                 <div class="tab-content">
                     <div id="home" class="container tab-pane active"><br>
                         <h5>请审批</h5>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <c:forEach items="${goodsE0.list}" var="goods">
+                            <p>${goods.getGoodsName}</p>
+                        </c:forEach>
                     </div>
                     <div id="menu1" class="container tab-pane fade"><br>
                         <h3>Menu 1</h3>
@@ -133,5 +135,9 @@
     </div>
 </div>
 </body>
+<script src="${pageContext.request.contextPath}/resources/js/controller/paging.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/controlDisplay.js"></script>
+<script>
+    addPageBtn(${goodsE0.ps}, ${goodsE0.total})
+</script>
 </html>
