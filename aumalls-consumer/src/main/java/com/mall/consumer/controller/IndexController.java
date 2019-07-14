@@ -15,7 +15,7 @@ import java.util.Map;
 @Controller
 public class IndexController {
 
-    @Reference
+//    @Reference
     private GoodsService goodsService;
 
 //    @Autowired
@@ -25,8 +25,8 @@ public class IndexController {
     public String index(Map<String, Object> model, QueryGoodsForm form){
 
 
-        model.put("typeList", goodsService.getSeniorTypes());
-        model.put("goodsPage", goodsService.getPage(form));
+//        model.put("typeList", goodsService.getSeniorTypes());
+//        model.put("goodsPage", goodsService.getPage(form));
 
         return "index";
     }

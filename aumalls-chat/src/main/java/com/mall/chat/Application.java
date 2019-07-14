@@ -4,6 +4,7 @@ import com.alibaba.dubbo.spring.boot.annotation.EnableDubboConfiguration;
 import com.mall.chat.server.WebSocketServer;
 import com.mall.common.config.annotation.SecurityConfig;
 import org.mybatis.spring.annotation.MapperScan;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -25,9 +26,17 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 public class Application {
 
 
+    private static WebSocketServer webSocketServer;
+
+    @Autowired
+    public Application(WebSocketServer webSocketServer) {
+        Application.webSocketServer = webSocketServer;
+    }
+
+
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
-        new WebSocketServer(8900).start();
+        webSocketServer.start();
     }
 }
 

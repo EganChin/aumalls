@@ -1,7 +1,6 @@
 package com.mall.admin;
 
 import com.alibaba.dubbo.spring.boot.annotation.EnableDubboConfiguration;
-import com.mall.admin.socket.WebSocketServer;
 import com.mall.common.config.annotation.SecurityConfig;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
@@ -26,7 +25,7 @@ public class Application {
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
-        new WebSocketServer().start();
+//        new WebSocketServer().start();
     }
 }
 

@@ -13,7 +13,7 @@ import java.util.List;
 @Controller
 @RequestMapping("manager")
 public class GoodsManagerController {
-    @Reference
+//    @Reference
     private IGoodsManagerService iGoodsManagerService;
     @RequestMapping("goodsE0")
     public void getGoodsStateE0(ManagerGoodsForm query){

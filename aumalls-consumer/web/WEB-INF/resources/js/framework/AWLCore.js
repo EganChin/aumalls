@@ -81,11 +81,14 @@ var AWLStorage = (function () {
         return getLocalStorage(key);
     };
     AWLStorageObj.save = function (key, value) {
-        localStorage.setItem(key, value);
+        // localStorage.setItem(key, value);
+        // return true;
+        setLocalStorage(key, value);
         return true;
     };
     AWLStorageObj.get = function (key) {
-        return localStorage.getItem(key);
+        return getLocalStorage(key);
+        // return localStorage.getItem(key);
     };
     AWLStorageObj.remove = function (key) {
         localStorage.removeItem(key);
