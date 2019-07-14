@@ -25,6 +25,16 @@ public class ShoppingCartItem implements Serializable{
 
     private String goodsNum;
 
+    private double goodsPrice;
+
+    public double getGoodsPrice() {
+        return goodsPrice;
+    }
+
+    public void setGoodsPrice(double goodsPrice) {
+        this.goodsPrice = goodsPrice;
+    }
+
     private double goodsTotalPrice;
 
     public Integer getItermId() {

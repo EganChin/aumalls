@@ -18,12 +18,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("user")
 public class UserController {
 
-    @Reference
-    private IUserService userService;
+//    @Reference
+//    private IUserService userService;
 
-    @RequestMapping(value = "login", method = RequestMethod.POST)
-    public R login(@RequestBody LoginForm form){
-        ValidatorUtils.validate(form);
-        return R.ok().put("vo", userService.login(form));
-    }
+//    @RequestMapping(value = "login", method = RequestMethod.POST)
+//    public R login(@RequestBody LoginForm form){
+//        ValidatorUtils.validate(form);
+//        return R.ok().put("vo", userService.login(form));
+//    }
 }
