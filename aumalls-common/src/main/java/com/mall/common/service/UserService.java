@@ -7,7 +7,7 @@ import com.mall.common.vo.user.LoginVO;
  * @author Egan
  * @date 2019/7/10 10:09
  **/
-public interface IUserService {
+public interface UserService {
 
 
     /**
