@@ -6,7 +6,7 @@ import com.mall.common.config.AuthConfig;
 import com.mall.common.domain.User;
 import com.mall.common.exception.RRException;
 import com.mall.common.form.user.LoginForm;
-import com.mall.common.service.IUserService;
+import com.mall.common.service.UserService;
 import com.mall.common.utils.HashUtils;
 import com.mall.common.utils.RedisWrapper;
 import com.mall.common.vo.user.LoginVO;
@@ -19,10 +19,9 @@ import javax.annotation.Resource;
  * @author Egan
  * @date 2019/7/10 10:08
  **/
-@Service(timeout = 50000)
+@Service(timeout = 50000, interfaceName = "com.mall.common.service.UserService")
 @org.springframework.stereotype.Service
-public class UserService implements IUserService {
-
+public class UserServiceImpl implements UserService {
 
     @Autowired
     private RedisWrapper redisWrapper;
@@ -53,11 +52,15 @@ public class UserService implements IUserService {
         if (user != null) {
                 // 生成临时身份令牌
                 String token = HashUtils.md5Digest(form.getAccount() + System.currentTimeMillis());
-                redisWrapper.value().set(token, user, configuration.getTimeout());
+//                redisWrapper.value().set(token, user, configuration.getTimeout());
 
-                redisWrapper.addToken(user.getUserId(), token);
+//                redisWrapper.addToken(user.getUserId(), token);
 
-                return new LoginVO(user, token);
+                user.setUserAddress(String.valueOf(System.currentTimeMillis()));
+                userDao.updateById(user);
+
+                throw new RRException("测试异常");
+//                return new LoginVO(user, token);
 
         }
 

@@ -24,11 +24,11 @@ public class IndexController {
 //    private HttpServletRequest request;
 
     @RequestMapping("/")
-    public String index(Map<String, Object> model){
+    public String index(Map<String, Object> model, QueryGoodsForm form){
 
 
         model.put("typeList", goodsService.getSeniorTypes());
-        model.put("goodsPage", goodsService.getPage(new QueryGoodsForm()));
+        model.put("goodsPage", goodsService.getPage(form));
 
         return "index";
     }

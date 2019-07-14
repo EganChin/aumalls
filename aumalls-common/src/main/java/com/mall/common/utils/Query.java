@@ -8,7 +8,7 @@ public class Query {
 
     private Integer pn = 1;
 
-    private Integer ps = 10;
+    private Integer ps = 8;
 
     private Integer offset;
 
