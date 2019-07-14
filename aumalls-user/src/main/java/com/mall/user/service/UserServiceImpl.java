@@ -52,15 +52,14 @@ public class UserServiceImpl implements UserService {
         if (user != null) {
                 // 生成临时身份令牌
                 String token = HashUtils.md5Digest(form.getAccount() + System.currentTimeMillis());
-//                redisWrapper.value().set(token, user, configuration.getTimeout());
+                redisWrapper.value().set(token, user, configuration.getTimeout());
 
-//                redisWrapper.addToken(user.getUserId(), token);
+                redisWrapper.addToken(user.getUserId(), token);
 
                 user.setUserAddress(String.valueOf(System.currentTimeMillis()));
                 userDao.updateById(user);
 
-                throw new RRException("测试异常");
-//                return new LoginVO(user, token);
+                return new LoginVO(user, token);
 
         }
 
