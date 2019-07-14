@@ -31,7 +31,7 @@ public class GoodsService implements IGoodsService {
     private GoodsTypeDao typeDao;
 
     @Override
-    public PageWrapper getPage(QueryGoodsForm form) {
+    public PageWrapper<QueryGoodsVO> getPage(QueryGoodsForm form) {
         Page page = new Page(form.getPn(), form.getPs());
 
         QueryWrapper<QueryGoodsVO> goodsWrapper = new QueryWrapper<>();

@@ -1,6 +1,7 @@
 package com.mall.common.config;
 
 import com.alibaba.dubbo.remoting.TimeoutException;
+import com.alibaba.dubbo.rpc.RpcException;
 import com.mall.common.utils.R;
 import com.mall.common.exception.RRException;
 import org.apache.shiro.authz.AuthorizationException;
@@ -25,9 +26,10 @@ public class ExceptionHandlerConfig {
 
     private static final Logger log = LoggerFactory.getLogger(ExceptionHandlerConfig.class);
 
-    @ExceptionHandler(TimeoutException.class)
-    public R handlerTimeoutException(){
-        return R.error("连接超时");
+    @ExceptionHandler({RpcException.class, TimeoutException.class})
+    public R handlerTimeoutException(Exception e){
+        log.warn("dubbo连接超时", e);
+        return R.error("连接超时或失败");
     }
 
     @ExceptionHandler(RRException.class)

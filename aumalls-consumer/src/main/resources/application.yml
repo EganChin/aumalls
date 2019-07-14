@@ -5,6 +5,7 @@ server:
     max-http-post-size: 20MB
   port: 80
 
+
 spring:
   profiles:
     active: dev
@@ -17,6 +18,16 @@ spring:
       max-request-size: 20MB
       max-file-size: 20MB
       enabled: true
+#  mvc:
+#    view:
+#      suffix: .jsp
+#      prefix: /WEB-INF/jsp/view/
+  view:
+    suffix: .jsp
+    prefix: /WEB-INF/jsp/view/
+
+
+
 
 
 mybatis-plus:

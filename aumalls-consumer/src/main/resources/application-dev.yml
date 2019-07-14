@@ -1,10 +1,12 @@
 spring:
 
   dubbo:
+
     appname: consumer
     registry: zookeeper://127.0.0.1:2181
     protocol: dubbo
     port: 20880
+
 
   redis:
     database: 0
@@ -17,6 +19,11 @@ spring:
         min-idle: 2
         max-active: 8
         max-idle: 4
+#  mvc:
+#    view:
+#      prefix: /WEB-INF/jsp/view
+#      suffix: .jsp
+
 
 management:
   endpoints:
@@ -28,5 +35,3 @@ logging:
   level:
     com.golddak.web.dao: debug
     com.golddak.config: debug
-
-swagger: true

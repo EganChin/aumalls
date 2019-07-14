@@ -14,12 +14,24 @@ public class LoginVO implements Serializable{
 
     private Integer userId;
 
+    private String userName;
+
     public LoginVO() {
     }
 
     public LoginVO(User user, String token) {
         setUserId(user.getUserId());
         setToken(token);
+        setUserName(user.getUserName());
+        setUserId(1);
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public String getToken() {

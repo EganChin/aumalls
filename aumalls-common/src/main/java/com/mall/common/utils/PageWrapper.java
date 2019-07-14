@@ -14,7 +14,7 @@ public class PageWrapper<T> implements Serializable{
 	private Long pn;
 	private Long ps;
 	private Long total;
-	private List<?> list;
+	private List<T> list;
 
     public PageWrapper() {
     }
@@ -23,14 +23,14 @@ public class PageWrapper<T> implements Serializable{
 		this(page, page.getRecords());
 	}
 
-	public PageWrapper(IPage page, List<?> list) {
+	public PageWrapper(IPage page, List<T> list) {
 		this.pn = page.getCurrent();
 		this.ps = page.getSize();
 		this.total = page.getTotal();
 		this.list = list;
 	}
 
-	public PageWrapper(Query query, List<?> list) {
+	public PageWrapper(Query query, List<T> list) {
 		this.pn = query.getPn().longValue();
 		this.ps = query.getPs().longValue();
 		this.total = query.getTotal().longValue();
@@ -65,7 +65,7 @@ public class PageWrapper<T> implements Serializable{
 		return list;
 	}
 
-	public void setList(List<?> list) {
+	public void setList(List<T> list) {
 		this.list = list;
 	}
 }
