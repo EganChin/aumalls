@@ -11,7 +11,7 @@ import java.util.List;
  * @author Egan
  * @date 2019/7/9 14:12
  **/
-public interface IGoodsService {
+public interface GoodsService {
 
     /**
      * 获取商品分页

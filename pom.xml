@@ -17,6 +17,7 @@
         <module>aumalls-consumer</module>
         <module>aumalls-order</module>
         <module>aumalls-admin</module>
+        <module>aumalls-chat</module>
     </modules>
 
     <parent>

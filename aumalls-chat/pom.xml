@@ -9,8 +9,8 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.mall.order</groupId>
-    <artifactId>aumalls-order</artifactId>
+    <groupId>com.mall.chat</groupId>
+    <artifactId>aumalls-chat</artifactId>
 
     <dependencies>
         <dependency>
@@ -86,25 +86,9 @@
             <groupId>de.codecentric</groupId>
             <artifactId>spring-boot-admin-starter-client</artifactId>
         </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.12</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-test</artifactId>
-            <version>5.1.8.RELEASE</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-test</artifactId>
-        </dependency>
     </dependencies>
-
     <build>
-        <finalName>order</finalName>
+        <finalName>chat</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
@@ -120,4 +104,5 @@
             </plugin>
         </plugins>
     </build>
+
 </project>

@@ -2,12 +2,10 @@ package com.mall.consumer.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.mall.common.form.goods.QueryGoodsForm;
-import com.mall.common.service.IGoodsService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.mall.common.service.GoodsService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 
 /**
@@ -18,17 +16,17 @@ import java.util.Map;
 public class IndexController {
 
     @Reference
-    private IGoodsService goodsService;
+    private GoodsService goodsService;
 
 //    @Autowired
 //    private HttpServletRequest request;
 
     @RequestMapping("/")
-    public String index(Map<String, Object> model){
+    public String index(Map<String, Object> model, QueryGoodsForm form){
 
 
         model.put("typeList", goodsService.getSeniorTypes());
-        model.put("goodsPage", goodsService.getPage(new QueryGoodsForm()));
+        model.put("goodsPage", goodsService.getPage(form));
 
         return "index";
     }
