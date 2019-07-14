@@ -15,9 +15,9 @@ import java.util.List;
 /**
  * Created by zzy on 2019/7/11.
  */
-@Service
+@Service(interfaceName = "com.mall.common.service.IUserShopCartService")
 @org.springframework.stereotype.Service
-public class UserCartService implements IUserShopCartService {
+public class UserCartServiceImpl implements IUserShopCartService {
 
     @Resource
     private GoodsDao goodsDao;

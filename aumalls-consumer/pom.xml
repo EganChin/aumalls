@@ -126,12 +126,15 @@
         <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
             <artifactId>tomcat-embed-jasper</artifactId>
+<<<<<<< HEAD
+=======
             <exclusions>
                 <exclusion>
                     <groupId>org.apache.tomcat.embed</groupId>
                     <artifactId>tomcat-embed-el</artifactId>
                 </exclusion>
             </exclusions>
+>>>>>>> beabade5097337ab237e39871efa19e3ce235ce8
             <!--<scope>provided</scope>-->
         </dependency>
     </dependencies>

@@ -13,7 +13,8 @@
             gi.img_goods AS goodsImgPath,
             s.item_id AS itermId,
             s.item_price AS goodsTotalPrice,
-            s.item_num AS goodsNum
+            s.item_num AS goodsNum,
+            g.goods_price AS goodsPrice
         FROM
             goods g
         LEFT JOIN goods_img gi ON gi.img_goods = g.goods_id
