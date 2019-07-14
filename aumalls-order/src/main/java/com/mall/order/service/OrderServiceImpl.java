@@ -7,7 +7,6 @@ import com.mall.common.domain.Order;
 import com.mall.common.domain.OrderDetail;
 import com.mall.common.domain.OrderStatus;
 import com.mall.common.form.order.QueryOrdersForm;
-import com.mall.common.service.IOrderService;
 import com.mall.common.utils.PageWrapper;
 import com.mall.common.vo.order.OrderDetailVO;
 import com.mall.common.vo.order.OrderVO;
@@ -20,9 +19,9 @@ import java.util.List;
  * @author 10653
  * @date 2019/7/13
  */
-@Service
+@Service(interfaceName = "com.mall.common.service.OrderService")
 @org.springframework.stereotype.Service
-public class OrderService implements IOrderService {
+public class OrderServiceImpl implements com.mall.common.service.OrderService {
 
     @Resource
     private OrderDao orderDao;
@@ -38,7 +37,7 @@ public class OrderService implements IOrderService {
 
         Page page = new Page(queryOrdersForm.getPn(),queryOrdersForm.getPs());
 
-        QueryWrapper<Order> orderWrapper = new QueryWrapper<>();
+        QueryWrapper<OrderVO> orderWrapper = new QueryWrapper<>();
 
         orderWrapper.eq("order_user",userId);
 

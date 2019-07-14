@@ -13,7 +13,7 @@ import java.util.List;
  * @author 10653
  * @date 2019/7/11
  */
-public interface IOrderService {
+public interface OrderService {
 
     /**
      * 根据用户id获取订单基本信息集和

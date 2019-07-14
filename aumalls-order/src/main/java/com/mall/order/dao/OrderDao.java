@@ -7,6 +7,7 @@ import com.mall.common.domain.Order;
 import com.mall.common.domain.OrderDetail;
 import com.mall.common.domain.OrderRecipient;
 import com.mall.common.domain.OrderStatus;
+import com.mall.common.vo.order.OrderStatusVO;
 import com.mall.common.vo.order.OrderVO;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -16,7 +17,7 @@ import java.util.List;
 
 /**
  * @author 10653
- * @date 2019/7/11
+ * @date 2019/7/14
  */
 public interface OrderDao extends BaseMapper<Order> {
 
@@ -33,6 +34,6 @@ public interface OrderDao extends BaseMapper<Order> {
     List<OrderDetail> selectODByOrderId(@Param("ew") Wrapper wrapper);
 
     @Select("select * from order_status ${ew.customSqlSegment}")
-    OrderStatus selectStatusName(@Param("ew") Wrapper wrapper);
+    OrderStatusVO selectStatusName(@Param("ew") Wrapper wrapper);
 
 }

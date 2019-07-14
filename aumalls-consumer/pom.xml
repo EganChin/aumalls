@@ -134,6 +134,12 @@
             </exclusions>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>com.mall.order</groupId>
+            <artifactId>aumalls-order</artifactId>
+            <version>2.0-beta</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
     <build>
         <finalName>goods</finalName>
