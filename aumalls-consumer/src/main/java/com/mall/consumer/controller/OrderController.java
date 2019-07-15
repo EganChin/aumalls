@@ -30,12 +30,12 @@ public class OrderController extends  BaseController{
     }
 
     @RequestMapping("orderDetail")
-    public OrderDetailVO getOrderDetail(@RequestParam("orderId")String orderId){
+    public R getOrderDetail(@RequestParam("orderId")String orderId){
 
         OrderDetailVO orderDetailVO = orderService.getOrderDetail(orderId);
 
         System.out.println("获取对象结果：\t"+orderDetailVO);
 
-        return orderDetailVO;
+        return R.ok().put("orderDetail",orderDetailVO);
     }
 }

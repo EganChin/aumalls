@@ -17,6 +17,7 @@ var httpAddress = {
     "login": "user/login",
     "getSeniorGoodsTypeList": "goods/type/senior",
     "getGoodsPage": "goods/page",
+    "orderDetail":"order/orderDetail",
 };
 (function () {
     for (var objSub in httpAddress) {
