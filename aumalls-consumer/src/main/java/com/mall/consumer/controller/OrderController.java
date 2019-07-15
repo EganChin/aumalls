@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("order")
 public class OrderController extends  BaseController{
 
-    @Reference
+//    @Reference
     private OrderService orderService;
 
     @RequestMapping(value = "ordersPage", method = RequestMethod.GET)

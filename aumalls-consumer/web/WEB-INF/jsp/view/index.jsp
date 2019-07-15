@@ -7,7 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <title>列表-澳猫团</title>
-    <link rel="stylesheet" href="resources/css/dialog.css">
+    <%--<link rel="stylesheet" href="resources/css/dialog.css">--%>
     <link rel="stylesheet" href="resources/css/chat.css">
     <!--<link rel="shortcut icon" href="favicon.ico">-->
     <link rel="stylesheet" href="resources/css/reset.css">
@@ -20,7 +20,7 @@
     <script src="resources/js/framework/AWLHttp.js"></script>
 </head>
 <body>
-<jsp:include page="login.jsp"/>
+<%--<jsp:include page="login.jsp"/>--%>
 <jsp:include page="chat.jsp"/>
 <jsp:include page="order.jsp"/>
 <header class="wrap-all">
@@ -67,7 +67,7 @@
                     <a href="#">客户服务</a>
                     <em></em>
                     <p class="headEr">
-                        <a href="#">联系客服</a>
+                        <a href="javascript:void(0)" id="link-cservice">联系客服</a>
                         <a href="#">购物指南</a>
                         <a href="#">下单与配送</a>
                         <a href="#">售后服务</a>
@@ -898,8 +898,10 @@
 <script src="resources/js/jquery.lazyload.min.js"></script>
 <script src="resources/js/base.js"></script>
 <script src="resources/js/controller/paging.js"></script>-->
-<script src="resources/js/controller/login.js"></script>
+<%--<script src="resources/js/controller/login.js"></script>--%>
 <script src="resources/js/controller/chat.js"></script>
+<script src="resources/js/controller/index.js"></script>
+
 <script>
     addPageBtn(${goodsPage.ps}, ${goodsPage.total})
 </script>

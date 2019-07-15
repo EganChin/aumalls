@@ -3,6 +3,7 @@ package com.mall.user.service;
 import com.alibaba.dubbo.config.annotation.Service;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.mall.common.config.AuthConfig;
+import com.mall.common.domain.Admin;
 import com.mall.common.domain.User;
 import com.mall.common.exception.RRException;
 import com.mall.common.form.user.LoginForm;
@@ -10,6 +11,7 @@ import com.mall.common.service.UserService;
 import com.mall.common.utils.HashUtils;
 import com.mall.common.utils.RedisWrapper;
 import com.mall.common.vo.user.LoginVO;
+import com.mall.user.dao.AdminDao;
 import com.mall.user.dao.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -19,7 +21,7 @@ import javax.annotation.Resource;
  * @author Egan
  * @date 2019/7/10 10:08
  **/
-@Service(timeout = 50000, interfaceName = "com.mall.common.service.UserService")
+@Service(timeout = 5000, interfaceName = "com.mall.common.service.UserService")
 @org.springframework.stereotype.Service
 public class UserServiceImpl implements UserService {
 
@@ -29,11 +31,14 @@ public class UserServiceImpl implements UserService {
     @Resource
     private UserDao userDao;
 
+    @Resource
+    private AdminDao adminDao;
+
     @Autowired
     private AuthConfig configuration;
 
     @Override
-    public LoginVO login(LoginForm form) {
+    public LoginVO UserLogin(LoginForm form) {
 
 //        String ip = IPUtils.getIP();
 //		if (!StringUtils.isBlank(ip)) {
@@ -63,6 +68,6 @@ public class UserServiceImpl implements UserService {
 
         }
 
-        throw new RRException("用户名或密码不一致");
+        throw new RRException("账号和密码不一致");
     }
 }

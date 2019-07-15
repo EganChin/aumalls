@@ -21,10 +21,10 @@ public class GoodsManagerServiceImpl implements IGoodsManagerService {
     private GoodsManagerDao goodsManagerDao;
     @Override
     public PageWrapper<Goods> getGoodsByStateE0(ManagerGoodsForm query) {
-        Page page = new Page(query.getPn(),6);
+//        Page page = new Page(query.getPn(),6);
         List<Goods> goods = new ArrayList<Goods>();
         goods=goodsManagerDao.getGoodsByState0();
-        return new PageWrapper<>(page,goods);
+        return new PageWrapper<>(query,goods);
     }
 
     @Override

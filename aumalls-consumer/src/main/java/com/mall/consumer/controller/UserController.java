@@ -15,11 +15,14 @@ public class UserController {
 
     @Reference
     private UserService userService;
+<<<<<<< HEAD
 
+=======
+>>>>>>> b4db1c4b5dd85a3c97ba593f393e614f7f87d8d8
 
-//    @RequestMapping(value = "login", method = RequestMethod.POST)
-//    public R login(@RequestBody LoginForm form){
-//        ValidatorUtils.validate(form);
-//        return R.ok().put("vo", userService.login(form));
-//    }
+    @RequestMapping(value = "login", method = RequestMethod.POST)
+    public R login(@RequestBody LoginForm form){
+        ValidatorUtils.validate(form);
+        return R.ok().put("vo", userService.UserLogin(form));
+    }
 }

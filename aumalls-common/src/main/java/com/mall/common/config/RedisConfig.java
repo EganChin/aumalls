@@ -3,6 +3,8 @@ package com.mall.common.config;
 import com.mall.common.utils.RedisWrapper;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.CacheManager;
+import org.springframework.cache.annotation.CachingConfigurerSupport;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
@@ -21,7 +23,8 @@ import java.time.Duration;
  * @date 2019-01-06
  */
 @Configuration
-public class RedisConfig {
+@EnableCaching
+public class RedisConfig extends CachingConfigurerSupport {
 
     @Bean
     public RedisTemplate<String, Object> redisTemplate(LettuceConnectionFactory lettuceConnectionFactory) {
@@ -38,6 +41,8 @@ public class RedisConfig {
 
         return redisTemplate;
     }
+
+
 
     @Bean
     public RedisWrapper redisWrapper(RedisTemplate<String, Object> template) {

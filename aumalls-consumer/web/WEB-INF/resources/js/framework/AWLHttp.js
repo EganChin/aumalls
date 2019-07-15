@@ -105,10 +105,9 @@ var AWLHttp = (function () {
                 // $("#loadingDiv").fadeOut(200);
                 // 用户未登录，显示登录框
                 if (message.code === httpCode.unauthorized){
-                    alert("请先登录");
-                    $("#login-dialog").css("style", "display:block");
-                    AWLStorage.remove("user");
                     // AWLPage.redirectTo("/login.html");
+                    AWLStorage.remove("user");
+                    document.cookie = "token=xxx&expire=-10000";
                     return;
                 }
                 if (message.code !== httpCode.success) {

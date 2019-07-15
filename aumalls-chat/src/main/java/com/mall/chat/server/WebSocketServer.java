@@ -13,9 +13,11 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.codec.http.HttpObjectAggregator;
 import io.netty.handler.codec.http.HttpServerCodec;
 import io.netty.handler.codec.http.websocketx.WebSocketServerProtocolHandler;
+import io.netty.handler.logging.LoggingHandler;
 import io.netty.handler.stream.ChunkedWriteHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
@@ -29,14 +31,10 @@ public class WebSocketServer {
 
     private final static Logger logger = LoggerFactory.getLogger(WebSocketServer.class);
 
-    private int port;
+    private int port = 8900;
 
-    public WebSocketServer() {
-    }
-
-    public WebSocketServer(int port) {
-        this.port = port;
-    }
+    @Autowired
+    private WebSocketHandler webSocketHandler;
 
     public void start(){
         EventLoopGroup boss = new NioEventLoopGroup();
@@ -51,6 +49,7 @@ public class WebSocketServer {
                     @Override
                     protected void initChannel(SocketChannel socketChannel) throws Exception {
                         logger.info("A new connection has been established.");
+                        socketChannel.pipeline().addLast(new LoggingHandler("DEBUG"));
                         socketChannel.pipeline().addLast(new HttpServerCodec());
                         socketChannel.pipeline().addLast(new ChunkedWriteHandler());
                         socketChannel.pipeline().addLast(new HttpObjectAggregator(8192));
@@ -58,7 +57,7 @@ public class WebSocketServer {
                         /**
                          * 如果WebSocketHandler的次序在WebSocketServerProtocolHandler之下，会导致使用url引发连接断开的异常
                          **/
-                        socketChannel.pipeline().addLast(new WebSocketHandler());
+                        socketChannel.pipeline().addLast(webSocketHandler);
                         socketChannel.pipeline().addLast(
                             new WebSocketServerProtocolHandler("/ws", null, true, 65536*10));
                     }
