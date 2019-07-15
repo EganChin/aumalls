@@ -15,18 +15,16 @@ import java.util.Map;
 @Controller
 public class IndexController {
 
-//    @Reference
+    @Reference
     private GoodsService goodsService;
 
-//    @Autowired
-//    private HttpServletRequest request;
 
     @RequestMapping("/")
     public String index(Map<String, Object> model, QueryGoodsForm form){
 
 
-//        model.put("typeList", goodsService.getSeniorTypes());
-//        model.put("goodsPage", goodsService.getPage(form));
+        model.put("typeList", goodsService.getSeniorTypes());
+        model.put("goodsPage", goodsService.getPage(form));
 
         return "index";
     }

@@ -19,7 +19,7 @@ import javax.annotation.Resource;
  * @author Egan
  * @date 2019/7/10 10:08
  **/
-@Service(timeout = 50000, interfaceName = "com.mall.common.service.UserService")
+@Service(timeout = 5000, interfaceName = "com.mall.common.service.UserService")
 @org.springframework.stereotype.Service
 public class UserServiceImpl implements UserService {
 

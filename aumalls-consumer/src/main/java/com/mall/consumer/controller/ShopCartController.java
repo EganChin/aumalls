@@ -21,7 +21,7 @@ import java.util.List;
 @RequestMapping("shopcart")
 public class ShopCartController extends BaseController{
 
-   @Reference
+//   @Reference
     private IUserShopCartService shopCartService;
 
   @RequestMapping("getUserShopCartIterm")

@@ -12,6 +12,7 @@ import com.mall.common.vo.goods.GoodsTypeVO;
 import com.mall.common.vo.goods.QueryGoodsVO;
 import com.mall.goods.dao.GoodsDao;
 import com.mall.goods.dao.GoodsTypeDao;
+import org.springframework.cache.annotation.Cacheable;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -47,6 +48,7 @@ public class GoodsServiceImpl implements GoodsService {
         return new PageWrapper<>(page, list);
     }
 
+    @Cacheable(value = "goods-type")
     @Override
     public List<GoodsTypeVO> getSeniorTypes() {
 
