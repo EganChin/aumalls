@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <title>managerGoods</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/bootstrap-4.3.1-dist/css/bootstrap.min.css">
-    <script src="${pageContext.request.contextPath}/resources/js/jquery-1.7.2.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/manager/jquery-3.4.1.js"></script>
     <script src="${pageContext.request.contextPath}/resources/bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/adminnistrators.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/manager.css">
@@ -83,6 +83,39 @@
             <div class="card bg-warning text-white col-2 card-modify">
                 <div id="systemManager" class="card-body cardBody-modify">系统管理</div>
             </div>
+            <div>
+                <div class="system-info col-3">
+                    <label class="system-item1">系统现状</label>
+                    <div class="system-div">
+                        <span class="system-item2">注册用户数:</span>
+                        <span>${userNumber}</span>
+                    </div>
+                    <div class="system-div">
+                        <span class="system-item2">注册店铺数:</span>
+                        <span>3</span>
+                    </div>
+                </div>
+                <div class="system-info col-3">
+                    <label class="system-item1">系统运营</label>
+                    <div class="system-div">
+                        <span class="system-item2">系统运营时长:</span>
+                        <span>50</span>
+                    </div>
+                    <div class="system-div">
+                        <span class="system-item2">系统运营时长:</span>
+                        <span>50</span>
+                    </div>
+                </div>
+                <div class="system-info col-4">
+                    <label class="system-item1">系统管理员</label>
+                    <div class="system-div">
+                        <span class="system-item2">昵称:</span>
+                        <span>李大拿</span>
+                        <span class="system-item2" style="margin-left: 20px">角色:</span>
+                        <span>李大拿</span>
+                    </div>
+                </div>
+            </div>
         </div>
         <div id="managerGoods" class="context-container controlDisplay">
             <div class="container">
@@ -105,13 +138,34 @@
                 <div class="tab-content">
                     <div id="home" class="container tab-pane active"><br>
                         <h5>请审批</h5>
-                        <c:forEach items="${goodsE0.list}" var="goods">
-                            <p>${goods.getGoodsName}</p>
-                        </c:forEach>
+                        <table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th>商品名</th>
+                                <th>商品价格</th>
+                                <th>商品数量</th>
+                                <th>商品类型</th>
+                            </tr>
+                            </thead>
+                            <tbody id="goods-apply">
+                            <!--动态生成-->
+                            </tbody>
+                        </table>
                     </div>
                     <div id="menu1" class="container tab-pane fade"><br>
-                        <h3>Menu 1</h3>
-                        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>商品名</th>
+                                <th>商品价格</th>
+                                <th>商品数量</th>
+                                <th>商品类型</th>
+                            </tr>
+                            </thead>
+                            <tbody id="goods-manager">
+                            <!--动态生成-->
+                            </tbody>
+                        </table>
                     </div>
                     <div id="menu2" class="container tab-pane fade"><br>
                         <h3>Menu 2</h3>
@@ -135,9 +189,6 @@
     </div>
 </div>
 </body>
-<script src="${pageContext.request.contextPath}/resources/js/controller/paging.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/manager/managerGoods.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/controlDisplay.js"></script>
-<script>
-    addPageBtn(${goodsE0.ps}, ${goodsE0.total})
-</script>
 </html>
