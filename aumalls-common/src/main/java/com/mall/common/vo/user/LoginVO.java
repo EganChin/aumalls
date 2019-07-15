@@ -1,5 +1,6 @@
 package com.mall.common.vo.user;
 
+import com.mall.common.domain.Admin;
 import com.mall.common.domain.User;
 
 import java.io.Serializable;
@@ -24,6 +25,12 @@ public class LoginVO implements Serializable{
         setToken(token);
         setUserName(user.getUserName());
         setUserId(1);
+    }
+
+    public LoginVO(Admin admin, String token) {
+        setUserName(admin.getAdminName());
+        setUserId(admin.getAdminId());
+        setToken(token);
     }
 
     public String getUserName() {

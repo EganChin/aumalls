@@ -7,14 +7,14 @@ import com.mall.common.vo.user.LoginVO;
  * @author Egan
  * @date 2019/7/10 10:09
  **/
-public interface UserService {
+public interface AdminService {
 
 
     /**
-     * 用户登录
-     * @date 2019/7/10 10:20
-     * @param form 登录表单
+     * 管理员登录
+     * @date 2019/7/15 14:01
+     * @param form
      **/
-    LoginVO UserLogin(LoginForm form);
+    LoginVO adminLogin(LoginForm form);
 
 }

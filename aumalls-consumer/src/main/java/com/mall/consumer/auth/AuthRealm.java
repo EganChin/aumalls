@@ -79,13 +79,14 @@ public class AuthRealm extends AuthorizingRealm {
         /*
          * 管理员在使用时，刷新令牌过期时间
          */
-        User user = (User) redisTemplate.opsForValue().get(accessToken);
+        Object user = redisTemplate.opsForValue().get(accessToken);
         if (user == null) {
             //token过期
+            throw new RRException("TOKEN过期", 401);
 //            request.getSession().setAttribute("status", 401);
-            return null;
         }
 
+        redisTemplate.expire(accessToken, configuration.getTimeout().getSeconds(), TimeUnit.SECONDS);
 
         return new SimpleAuthenticationInfo(user, accessToken, getName());
     }

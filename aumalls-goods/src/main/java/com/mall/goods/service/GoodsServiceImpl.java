@@ -31,6 +31,7 @@ public class GoodsServiceImpl implements GoodsService {
     @Resource
     private GoodsTypeDao typeDao;
 
+    @Cacheable(value = "goods-cache", key = "#form.pn+'-'+#form.ps+'-'+#form.getMaxPrice()+'-'+#form.minPrice")
     @Override
     public PageWrapper<QueryGoodsVO> getPage(QueryGoodsForm form) {
         Page page = new Page(form.getPn(), form.getPs());

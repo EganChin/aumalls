@@ -6,8 +6,21 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%--@elvariable id="status" type="java.lang.Integer"--%>
-<%@page pageEncoding="UTF-8"%>
-<div class="login-dialog" id="login-dialog" style=${status==401?"display:block":"display:none"}>
+<%@page pageEncoding="UTF-8" %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户登录-澳猫团</title>
+    <link rel="stylesheet" href="resources/css/dialog.css">
+    <base target="_blank">
+
+    <script src="resources/js/framework/AWLCore.js"></script>
+    <script src="resources/js/framework/AWLConst.js"></script>
+    <script src="resources/js/framework/AWLHttp.js"></script>
+</head>
+<body>
+<div class="login-dialog" id="login-dialog" style="display:block">
     <div class="graybox"></div>
     <div class="popbox">
         <div class="poptop">
@@ -42,3 +55,9 @@
         </div>
     </div>
 </div>
+<script src="resources/js/jquery-1.7.2.min.js"></script>
+<script src="resources/js/jquery.lazyload.min.js"></script>
+<script src="resources/js/base.js"></script>
+<script src="resources/js/controller/login.js"></script>
+</body>
+</html>
