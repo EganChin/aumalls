@@ -52,6 +52,8 @@ public class UserServiceImpl implements UserService {
         User user = userDao.selectOne(ew);
 
         if (user != null) {
+            if(user.getUserWhitetime() < System.currentTimeMillis())
+                throw new RRException("您已被禁止登录");
             // 生成临时身份令牌
             String token = HashUtils.md5Digest(form.getAccount() + System.currentTimeMillis());
             redisWrapper.value().set(token, new Operator(user), configuration.getTimeout());

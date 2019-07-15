@@ -27,7 +27,7 @@ public class Operator {
     }
 
     public Operator(User user) {
-        this(user.getUserId(), user.getUserName(), user.getUserPass(), null, user.getUserAddress(), user.getUserPhone(), null, false);
+        this(user.getUserId(), user.getUserName(), user.getUserPass(), null, user.getUserAddress(), user.getUserPhone(), user.getUserWhitetime(), false);
     }
 
     public Admin toAdmin() {
@@ -50,6 +50,7 @@ public class Operator {
         user.setUserPass(getPass());
         user.setUserAddress(getAddress());
         user.setUserPhone(getPhone());
+        user.setUserWhitetime(getWhiteTime());
         return user;
     }
 
@@ -62,7 +63,7 @@ public class Operator {
             throw new ClassCastException("不能将非User和非Admin的实体转换为Operator");
     }
 
-    public Operator(Integer id, String name, String pass, Integer role, String address, String phone, Long whiteTime, boolean isAdmin) {
+    private Operator(Integer id, String name, String pass, Integer role, String address, String phone, Long whiteTime, boolean isAdmin) {
         this.id = id;
         this.name = name;
         this.pass = pass;
