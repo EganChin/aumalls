@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.mall.admin.dao.AdminDao;
 import com.mall.common.config.AuthConfig;
 import com.mall.common.domain.Admin;
+import com.mall.common.domain.Operator;
 import com.mall.common.exception.RRException;
 import com.mall.common.form.user.LoginForm;
 import com.mall.common.service.AdminService;
@@ -42,7 +43,7 @@ public class AdminServiceImpl implements AdminService {
         if (admin != null) {
             // 生成临时身份令牌
             String token = HashUtils.md5Digest(form.getAccount() + System.currentTimeMillis());
-            redisWrapper.value().set(token, admin, configuration.getTimeout());
+            redisWrapper.value().set(token, new Operator(admin), configuration.getTimeout());
 
             redisWrapper.addToken(admin.getAdminId(), token);
 
