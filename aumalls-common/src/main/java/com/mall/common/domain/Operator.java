@@ -1,10 +1,12 @@
 package com.mall.common.domain;
 
+import java.io.Serializable;
+
 /**
  * @author Egan
  * @date 2019/7/15 23:58
  **/
-public class Operator {
+public class Operator implements Serializable{
 
     private Integer id;
 
