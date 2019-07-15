@@ -13,7 +13,7 @@ import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
 
-@Service
+@Service(interfaceName ="com.mall.common.service.IGoodsManagerService" )
 @org.springframework.stereotype.Service
 public class GoodsManagerServiceImpl implements IGoodsManagerService {
 
