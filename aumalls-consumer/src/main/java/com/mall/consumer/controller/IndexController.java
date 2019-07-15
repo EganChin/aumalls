@@ -15,7 +15,7 @@ import java.util.Map;
 @Controller
 public class IndexController {
 
-    @Reference
+    //@Reference
     private GoodsService goodsService;
 
 //    @Autowired
