@@ -56,7 +56,7 @@ management:
 
 logging:
   level:
-#    com.mall.admin.: debug
+    com.mall.admin.dao: debug
     com.mall.admin.server: info
 
 swagger: true

@@ -21,7 +21,11 @@ import java.util.List;
 @Controller
 @RequestMapping("manager")
 public class GoodsManagerController {
+<<<<<<< HEAD
+    //@Reference
+=======
 //    @Reference
+>>>>>>> b4db1c4b5dd85a3c97ba593f393e614f7f87d8d8
     private IGoodsManagerService iGoodsManagerService;
 
 
