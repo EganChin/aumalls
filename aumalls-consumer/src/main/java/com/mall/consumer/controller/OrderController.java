@@ -1,12 +1,15 @@
 package com.mall.consumer.controller;
 
+import com.alibaba.dubbo.config.annotation.Reference;
 import com.mall.common.form.order.QueryOrdersForm;
 import com.mall.common.service.OrderService;
 import com.mall.common.utils.R;
-import jdk.nashorn.internal.ir.annotations.Reference;
+import com.mall.common.vo.order.OrderDetailVO;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  * @author 10653
@@ -24,5 +27,15 @@ public class OrderController extends  BaseController{
     public R getPage(QueryOrdersForm form){
         int userId=getUser().getUserId();
         return R.ok().put("page", orderService.getOrdersByUserId(userId,form));
+    }
+
+    @RequestMapping("orderDetail")
+    public OrderDetailVO getOrderDetail(@RequestParam("orderId")String orderId){
+
+        OrderDetailVO orderDetailVO = orderService.getOrderDetail(orderId);
+
+        System.out.println("获取对象结果：\t"+orderDetailVO);
+
+        return orderDetailVO;
     }
 }

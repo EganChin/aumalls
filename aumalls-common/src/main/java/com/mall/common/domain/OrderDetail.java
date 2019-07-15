@@ -3,7 +3,9 @@ package com.mall.common.domain;
 
 import com.baomidou.mybatisplus.annotation.TableId;
 
-public class OrderDetail {
+import java.io.Serializable;
+
+public class OrderDetail implements Serializable {
 
     @TableId
     private Integer detailId;
@@ -57,4 +59,12 @@ public class OrderDetail {
         this.detailNum = detailNum;
     }
 
+    @Override
+    public String toString() {
+        return "订单详情编号："+detailId+
+                "\n订单Id："+detailOrder+
+                "\n子商品种类："+detailGoods+
+                "\n子商品总价："+detailPrice+
+                "\n子商品数量："+detailNum;
+    }
 }

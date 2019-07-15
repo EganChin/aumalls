@@ -50,7 +50,7 @@
         <!-- 头部右边 -->
         <div class="headRight">
             <ul>
-                <li><a target="_blank" id="order">我的订单</a></li>
+                <li><a target="_self" id="order" >我的订单</a></li>
                 <span>|</span>
                 <li class="erWrap">
                     <strong></strong>
@@ -900,6 +900,7 @@
 <script src="resources/js/controller/paging.js"></script>-->
 <script src="resources/js/controller/login.js"></script>
 <script src="resources/js/controller/chat.js"></script>
+<script src="resources/js/controller/order.js"></script>
 <script>
     addPageBtn(${goodsPage.ps}, ${goodsPage.total})
 </script>

@@ -117,5 +117,17 @@ public class OrderDetailVO implements Serializable {
     public void setOrderDetails(List<OrderDetail> orderDetails) {
         this.orderDetails = orderDetails;
     }
+
+    @Override
+    public String toString() {
+        return "订单id："+orderId+
+                "\n用户id："+orderUser+
+                "\n订单地址："+orderAddress+
+                "\n订单电话："+orderPhone+
+                "\n订单名称："+orderName+
+                "\n订单状态："+orderStatus+
+                "\n订单价格："+orderPrice+
+                "\n订单时间："+orderTime;
+    }
 }
 
