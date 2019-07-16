@@ -16,4 +16,6 @@ public interface ShopItermDao extends BaseMapper<Shopitem>{
     List<ShoppingCartItem> getAllShopCartIterms(@Param("userId") int userId);
 
     void updateItermNum();
+
+    int updateItermByGoodsAndUserID(@Param("userId") int userId, @Param("goodsId") int goodsId, @Param("goodsNum") int goodsNum, @Param("price") double goodsPrice);
 }

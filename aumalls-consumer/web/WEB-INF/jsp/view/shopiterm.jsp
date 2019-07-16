@@ -2,6 +2,8 @@
 <%--@elvariable id="goods" type="com.mall.common.vo.goods.QueryGoodsVO"--%>
 <%--@elvariable id="typeList" type="java.util.List<com.mall.common.vo.goods.GoodsTypeVO>"--%>
 <%@ include file="base.jsp" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<meta http-equiv=“Content-Type” content=“text/html; charset=UTF-8″>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -884,11 +886,10 @@
         alert(del_id)
 
         if (confirm("确认将其移除购物车吗？")) {
-            //发送ajax请求删除
-            $.ajax({
-                url: "http://127.0.0.1/shopcart/flushCartIterm?itermid=" + del_id,
-                success: function (result) {
-                    alert("111111111111")
+
+            AWLHttp.post("flushCartIterm?itermid=" + del_id,{}, {
+                success:function (result) {
+
                     th.parents("li").remove()
                     alert("删除成功！");
                     var total = $("#total").text()
@@ -896,7 +897,23 @@
                     $("#total").text(parseInt(total) - parseInt(itermtotal))
 
                 }
-            });
+
+            })
+
+
+            //发送ajax请求删除
+//            $.ajax({
+//                url: "http://127.0.0.1/shopcart/flushCartIterm?itermid=" + del_id,
+//                success: function (result) {
+//                    alert("111111111111")
+//                    th.parents("li").remove()
+//                    alert("删除成功！");
+//                    var total = $("#total").text()
+//                    var itermtotal = th.parent().parent().parent().parent().attr("data_obj")
+//                    $("#total").text(parseInt(total) - parseInt(itermtotal))
+//
+//                }
+//            });
         }
 
     })
@@ -914,10 +931,8 @@
             var goodsprice = tl.parent().next().children().attr("data_obj")
             alert(goodsprice)
 
-            $.ajax({
-                url:"http://127.0.0.1/shopcart/updataCartNum?itermid="+ id + "&goodsnum=" + (num - 1),
-
-                success:function(result){
+            AWLHttp.post("updataCartNum?itermid="+ id + "&goodsnum=" + (num - 1),{}, {
+                success:function (result) {
 
                     tl.next().val(num -1)
                     tl.parent().next().children().children().text(goodsprice * (num - 1))
@@ -926,9 +941,26 @@
 
                     $("#total").text(parseInt(total) - parseInt(goodsprice))
 
-
                 }
-            });
+
+            })
+
+
+//            $.ajax({
+//                url:"http://127.0.0.1/shopcart/updataCartNum?itermid="+ id + "&goodsnum=" + (num - 1),
+//
+//                success:function(result){
+//
+//                    tl.next().val(num -1)
+//                    tl.parent().next().children().children().text(goodsprice * (num - 1))
+//
+//                    var total = $("#total").text()
+//
+//                    $("#total").text(parseInt(total) - parseInt(goodsprice))
+//
+//
+//                }
+//            });
 
         }
 
@@ -946,20 +978,29 @@
 
         var goodsprice = tl.parent().next().children().attr("data_obj")
 
-
-        $.ajax({
-         url:"http://127.0.0.1/shopcart/updataCartNum?itermid="+ id + "&goodsnum=" + (num + 1),
-
-         success:function(result){
-             alert("+++++++++")
+        AWLHttp.post("updataCartNum?itermid="+ id + "&goodsnum=" + (num + 1),{}, {
+            success:function (result) {
                 tl.prev().val(num + 1)
              tl.parent().next().children().children().text(goodsprice * (num + 1))
-             }
-         });
 
-        var total = $("#total").text()
+                var total = $("#total").text()
 
-        $("#total").text(parseInt(total) + parseInt(goodsprice))
+                $("#total").text(parseInt(total) + parseInt(goodsprice))
+            }
+
+        })
+
+//        $.ajax({
+//         url:"http://127.0.0.1/shopcart/updataCartNum?itermid="+ id + "&goodsnum=" + (num + 1),
+//
+//         success:function(result){
+//             alert("+++++++++")
+//                tl.prev().val(num + 1)
+//             tl.parent().next().children().children().text(goodsprice * (num + 1))
+//             }
+//         });
+
+
 
     })
 
@@ -971,17 +1012,16 @@
         var tl = $(this)
         if(num <= 0){
             alert("数据失败！！！")
-            window.location.href="http://127.0.0.1/shopcart/getUserShopCartIterm?userid=1";
+            window.location.href="getUserShopCartIterm?userid=1";
         }else{
             var oldtotal = tl.parent().parent().parent().attr("data_obj")
             alert(oldtotal)
-            $.ajax({
 
-                url:"http://127.0.0.1/shopcart/updataCartNum?itermid="+ id + "&goodsnum=" + num,
-
-                success:function(result){
+            AWLHttp.post("updataCartNum?itermid="+ id + "&goodsnum=" + num,{}, {
+                success:function (result) {
 
                     var goodsprice = tl.parent().next().children().attr("data_obj")
+
                     alert(goodsprice)
 
                     tl.parent().next().children().children().text(parseInt(goodsprice) * parseInt(num))
@@ -990,8 +1030,28 @@
                     alert(total)
 
                     $("#total").text(parseInt(total) - parseInt(oldtotal) + parseInt(goodsprice) * parseInt(num))
+
                 }
-            });
+
+            })
+
+//            $.ajax({
+//
+//                url:"http://127.0.0.1/shopcart/updataCartNum?itermid="+ id + "&goodsnum=" + num,
+//
+//                success:function(result){
+//
+//                    var goodsprice = tl.parent().next().children().attr("data_obj")
+//                    alert(goodsprice)
+//
+//                    tl.parent().next().children().children().text(parseInt(goodsprice) * parseInt(num))
+//
+//                    var total = $("#total").text()
+//                    alert(total)
+//
+//                    $("#total").text(parseInt(total) - parseInt(oldtotal) + parseInt(goodsprice) * parseInt(num))
+//                }
+//            });
         }
 
 

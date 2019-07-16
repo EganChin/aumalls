@@ -1,8 +1,13 @@
 package com.mall.consumer.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
+import com.mall.common.form.user.LoginForm;
 import com.mall.common.service.UserService;
+import com.mall.common.utils.R;
+import com.mall.common.validator.ValidatorUtils;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -15,10 +20,7 @@ public class UserController {
 
     @Reference
     private UserService userService;
-<<<<<<< HEAD
 
-=======
->>>>>>> b4db1c4b5dd85a3c97ba593f393e614f7f87d8d8
 
     @RequestMapping(value = "login", method = RequestMethod.POST)
     public R login(@RequestBody LoginForm form){
