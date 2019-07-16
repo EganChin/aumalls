@@ -10,7 +10,7 @@ $(function () {
 
     function getsec(str)
     {
-        alert(str);
+        // alert(str);
         var str1=str.substring(1,str.length)*1;
         var str2=str.substring(0,1);
         if (str2=="s")
@@ -87,7 +87,7 @@ $(function () {
                 setCookie("token", vo.token, "d7");
                 closeDialog();
 
-                AWLStorage.save("user", msg.data.vo);
+                AWLStorage.save("user", vo);
 
                 loginStatus(vo.userName);
             }

@@ -1,7 +1,7 @@
 package test;
 
 import com.mall.goods.Application;
-import com.mall.goods.service.UserCartService;
+import com.mall.goods.service.UserCartServiceImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -17,7 +17,7 @@ import javax.annotation.Resource;
 public class TestShopcart {
 
     @Resource
-    private UserCartService userCartService;
+    private UserCartServiceImpl userCartService;
 
     @Test
     public void test01(){
@@ -39,7 +39,7 @@ public class TestShopcart {
     @Test
     public void test03(){
 
-        System.out.println(userCartService.updateShoppingItermNum(1, 3));
+        System.out.println(userCartService.updateShoppingItermNum(8, 3));
 
     }
 

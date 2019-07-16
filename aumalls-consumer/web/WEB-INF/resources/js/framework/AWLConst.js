@@ -18,6 +18,8 @@ var httpAddress = {
     "getSeniorGoodsTypeList": "goods/type/senior",
     "getGoodsPage": "goods/page",
     "orderDetail":"order/orderDetail",
+    "ordersPage":"order/ordersPage",
+    "order":"order/order",
 };
 (function () {
     for (var objSub in httpAddress) {

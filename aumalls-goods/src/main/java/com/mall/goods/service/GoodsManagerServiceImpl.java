@@ -13,7 +13,7 @@ import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
 
-@Service(interfaceName ="com.mall.common.service.IGoodsManagerService" )
+@Service(interfaceName = "com.mall.common.service.IGoodsManagerService")
 @org.springframework.stereotype.Service
 public class GoodsManagerServiceImpl implements IGoodsManagerService {
 
@@ -21,10 +21,10 @@ public class GoodsManagerServiceImpl implements IGoodsManagerService {
     private GoodsManagerDao goodsManagerDao;
     @Override
     public PageWrapper<Goods> getGoodsByStateE0(ManagerGoodsForm query) {
-        Page page = new Page(query.getPn(),6);
+//        Page page = new Page(query.getPn(),6);
         List<Goods> goods = new ArrayList<Goods>();
         goods=goodsManagerDao.getGoodsByState0();
-        return new PageWrapper<>(page,goods);
+        return new PageWrapper<>(query,goods);
     }
 
     @Override

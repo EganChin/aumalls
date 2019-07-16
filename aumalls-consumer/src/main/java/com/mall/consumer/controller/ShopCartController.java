@@ -4,9 +4,12 @@ import com.alibaba.dubbo.config.annotation.Reference;
 import com.mall.common.service.IUserShopCartService;
 import com.mall.common.utils.R;
 import com.mall.common.vo.shoppingcart.ShoppingCartItem;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -14,22 +17,27 @@ import java.util.List;
 /**
  * Created by zzy on 2019/7/12.
  */
-@RestController
+@Controller
 @RequestMapping("shopcart")
-public class ShopCartController {
+public class ShopCartController extends BaseController{
 
-//    @Reference
+   @Reference
     private IUserShopCartService shopCartService;
 
-    @RequestMapping("getUserShopCartIterm")
-    public R getUserShopCartIterm(@RequestParam("userid") int userid){
+  @RequestMapping("getUserShopCartIterm")
+    public ModelAndView getUserShopCartIterm(@RequestParam("userid") int userid){
+
+        ModelAndView modelAndView = new ModelAndView();
 
         List<ShoppingCartItem> userShoppingIterms = shopCartService.getUserShoppingIterms(userid);
+        modelAndView.addObject("data", userShoppingIterms);
+        modelAndView.setViewName("shopiterm");
 
-        return R.ok().put("data", userShoppingIterms);
+        return modelAndView;
 
     }
 
+    @ResponseBody
     @RequestMapping("addTouserCart")
     public R addToUserCart(@RequestParam("userid") int userid
             , @RequestParam("goodsnum") int goodsnum, @RequestParam("goodsid") int goodsid){
@@ -44,6 +52,7 @@ public class ShopCartController {
 
     }
 
+    @ResponseBody
     @RequestMapping("updataCartNum")
     public R updataCartNum(@RequestParam("itermid") int itermid, @RequestParam("goodsnum") int goodsnum){
 
@@ -66,10 +75,11 @@ public class ShopCartController {
     }
 
     @RequestMapping("flushCart")
-    public R flushCart(@RequestParam("userid") int userid){
-        return R.ok().put("data", shopCartService.updateFlushCart(userid));
+    public void flushCart(@RequestParam("userid") int userid){
+        shopCartService.updateFlushCart(userid);
     }
 
+    @ResponseBody
     @RequestMapping("flushCartIterm")
     public R flushCartIterm(@RequestParam("itermid") int itermid){
         return R.ok().put("data", shopCartService.updateFlushOneShopiterm(itermid));

@@ -1,4 +1,4 @@
-﻿<%--@elvariable id="goodsPage" type="com.mall.common.utils.PageWrapper<com.mall.common.vo.goods.QueryGoodsVO>"--%>
+<%--@elvariable id="goodsPage" type="com.mall.common.utils.PageWrapper<com.mall.common.vo.goods.QueryGoodsVO>"--%>
 <%--@elvariable id="goods" type="com.mall.common.vo.goods.QueryGoodsVO"--%>
 <%--@elvariable id="typeList" type="java.util.List<com.mall.common.vo.goods.GoodsTypeVO>"--%>
 <%@ include file="base.jsp" %>
@@ -7,24 +7,21 @@
 <head>
     <meta charset="UTF-8">
     <title>列表-澳猫团</title>
-    <link rel="stylesheet" href="resources/css/dialog.css">
-    <link rel="stylesheet" href="resources/css/chat.css">
+    <link rel="stylesheet" href="../../resources/css/dialog.css">
     <!--<link rel="shortcut icon" href="favicon.ico">-->
-    <link rel="stylesheet" href="resources/css/reset.css">
-    <link rel="stylesheet" href="resources/css/base.css">
-    <link rel="stylesheet" href="resources/css/list.css">
-
+    <link rel="stylesheet" href="../../resources/css/reset.css">
+    <link rel="stylesheet" href="../../resources/css/base.css">
+    <link rel="stylesheet" href="../../resources/css/list.css">
     <base target="_blank">
 
-    <script src="resources/js/framework/AWLCore.js"></script>
-    <script src="resources/js/framework/AWLConst.js"></script>
-    <script src="resources/js/framework/AWLHttp.js"></script>
-
+    <script src="../../resources/js/framework/AWLCore.js"></script>
+    <script src="../../resources/js/framework/AWLConst.js"></script>
+    <script src="../../resources/js/framework/AWLHttp.js"></script>
 </head>
 <body>
 <jsp:include page="login.jsp"/>
-<jsp:include page="chat.jsp"/>
 <header class="wrap-all">
+    <c:set var="APP_PATH" value="${pageContext.request.contextPath}" />
     <div class="head center_1200">
         <!-- 头部左边 -->
         <div class="headLeft">
@@ -51,7 +48,7 @@
         <!-- 头部右边 -->
         <div class="headRight">
             <ul>
-                <li><a target="_blank" id="order">我的订单</a></li>
+                <li><a href="#">我的订单</a></li>
                 <span>|</span>
                 <li class="erWrap">
                     <strong></strong>
@@ -68,7 +65,7 @@
                     <a href="#">客户服务</a>
                     <em></em>
                     <p class="headEr">
-                        <a href="javascript:void(0)" id="link-cservice">联系客服</a>
+                        <a href="#">联系客服</a>
                         <a href="#">购物指南</a>
                         <a href="#">下单与配送</a>
                         <a href="#">售后服务</a>
@@ -265,7 +262,8 @@
             <ul class="one_nav">
                 <li>
                     <dl>
-                        <dt><h4>营养保健</h4></dt>
+                        <dt>
+                        <h4>营养保健</h4></dt>
                         <dd>
                             <span><a target="_blank" href="http://www.aumalls.com/Store/Search/?q=维生素&crossStore=true">维生素</a></span>
                             <span><a target="_blank" href="http://www.aumalls.com/Store/Search/?q=矿物质&crossStore=true">矿物质</a></span>
@@ -277,7 +275,8 @@
                     <ul class="two_nav">
                         <li>
                             <dl>
-                                <dt><h4>营养补充</h4></dt>
+                                <dt>
+                                <h4>营养补充</h4></dt>
                                 <dd>
                                     <a target="_blank"
                                        href="http://www.aumalls.com/Store/Search/?q=维生素&crossStore=true">维生素</a><i>|</i>
@@ -291,7 +290,8 @@
                         </li>
                         <li>
                             <dl>
-                                <dt><h4>男士保健</h4></dt>
+                                <dt>
+                                <h4>男士保健</h4></dt>
                                 <dd>
                                     <a target="_blank"
                                        href="http://www.aumalls.com/Store/Search/?q=前列腺&crossStore=true">前列腺</a><i>|</i>
@@ -303,7 +303,8 @@
                         </li>
                         <li>
                             <dl>
-                                <dt><h4>职场白领</h4></dt>
+                                <dt>
+                                <h4>职场白领</h4></dt>
                                 <dd>
                                     <a target="_blank" href="http://www.aumalls.com/Store/Search/?q=护肝&crossStore=true">护肝</a><i>|</i>
                                     <a target="_blank" href="http://www.aumalls.com/Store/Search/?q=护眼&crossStore=true">护眼</a><i>|</i>
@@ -314,7 +315,8 @@
                         </li>
                         <li>
                             <dl>
-                                <dt><h4>滋补养生</h4></dt>
+                                <dt>
+                                <h4>滋补养生</h4></dt>
                                 <dd>
                                     <a target="_blank"
                                        href="http://www.aumalls.com/Store/Search/?q=维骨力&crossStore=true">维骨力</a><i>|</i>
@@ -329,7 +331,8 @@
                 </li>
                 <li>
                     <dl>
-                        <dt><h4>母婴特卖</h4></dt>
+                        <dt>
+                        <h4>母婴特卖</h4></dt>
                         <dd>
                             <span><a href="#">奶粉</a></span>
                             <span><a target="_blank" href="http://www.aumalls.com/Store/Search/?q=孕前备孕&crossStore=true">孕前备孕</a></span>
@@ -340,7 +343,8 @@
                     <ul class="two_nav">
                         <li>
                             <dl>
-                                <dt><h4>孕妈专用</h4></dt>
+                                <dt>
+                                <h4>孕妈专用</h4></dt>
                                 <dd>
                                     <a target="_blank"
                                        href="http://www.aumalls.com/Store/Search/?q=孕期营养&crossStore=true">孕期营养</a><i>|</i>
@@ -353,7 +357,8 @@
                         </li>
                         <li>
                             <dl>
-                                <dt><h4>辅食营养</h4></dt>
+                                <dt>
+                                <h4>辅食营养</h4></dt>
                                 <dd>
                                     <a target="_blank"
                                        href="http://www.aumalls.com/Store/Search/?q=营养品&crossStore=true">营养品</a><i>|</i>
@@ -368,7 +373,8 @@
                         </li>
                         <li>
                             <dl>
-                                <dt><h4>奶粉</h4></dt>
+                                <dt>
+                                <h4>奶粉</h4></dt>
                                 <dd>
                                     <a target="_blank"
                                        href="http://www.aumalls.com/Store/Search/?q=奶粉1段&crossStore=true">1段
@@ -385,7 +391,8 @@
                         </li>
                         <li>
                             <dl>
-                                <dt><h4>宝宝用品</h4></dt>
+                                <dt>
+                                <h4>宝宝用品</h4></dt>
                                 <dd>
                                     <a target="_blank" href="#">洗漱</a><i>|</i>
                                     <a target="_blank"
@@ -400,7 +407,8 @@
                 </li>
                 <li>
                     <dl>
-                        <dt><h4>魅力女性</h4></dt>
+                        <dt>
+                        <h4>魅力女性</h4></dt>
                         <dd>
                             <span><a target="_blank" class="last"
                                      href="http://www.aumalls.com/Store/Search/?q=补气养血&crossStore=true">补气养血</a></span>
@@ -411,7 +419,8 @@
                     <ul class="two_nav">
                         <li>
                             <dl>
-                                <dt><h4>美容养颜</h4></dt>
+                                <dt>
+                                <h4>美容养颜</h4></dt>
                                 <dd>
                                     <a target="_blank"
                                        href="http://www.aumalls.com/Store/Search/?q=排毒养颜&crossStore=true">排毒养颜</a>
@@ -426,7 +435,8 @@
                         </li>
                         <li>
                             <dl>
-                                <dt><h4>女性护理</h4></dt>
+                                <dt>
+                                <h4>女性护理</h4></dt>
                                 <dd>
                                     <a target="_blank" href="#">卫生巾</a><i>|</i>
                                     <a target="_blank" class="last" href="#">洗液</a><i>|</i>
@@ -437,7 +447,8 @@
                 </li>
                 <li>
                     <dl>
-                        <dt><h4>美妆个护</h4></dt>
+                        <dt>
+                        <h4>美妆个护</h4></dt>
                         <dd>
                             <span><a href="#">面部</a></span>
                             <span><a href="#">防嗮</a></span>
@@ -447,7 +458,8 @@
                     <ul class="two_nav">
                         <li>
                             <dl>
-                                <dt><h4>护肤</h4></dt>
+                                <dt>
+                                <h4>护肤</h4></dt>
                                 <dd>
                                     <a target="_blank"
                                        href="http://www.aumalls.com/Store/Search/?q=面部洗护&crossStore=true">面部洗护</a><i>|</i>
@@ -466,7 +478,8 @@
                         </li>
                         <li>
                             <dl>
-                                <dt><h4>个人洗护</h4></dt>
+                                <dt>
+                                <h4>个人洗护</h4></dt>
                                 <dd>
                                     <a target="_blank"
                                        href="http://www.aumalls.com/Store/Search/?q=沐浴护肤&crossStore=true">沐浴护肤</a><i>|</i>
@@ -479,7 +492,8 @@
                         </li>
                         <li>
                             <dl>
-                                <dt><h4>健康生活</h4></dt>
+                                <dt>
+                                <h4>健康生活</h4></dt>
                                 <dd>
                                     <a target="_blank"
                                        href="http://www.aumalls.com/Store/Search/?q=消毒液&crossStore=true">消毒液</a><i>|</i>
@@ -492,7 +506,8 @@
                 </li>
                 <li>
                     <dl>
-                        <dt><h4>个人洗护</h4></dt>
+                        <dt>
+                        <h4>个人洗护</h4></dt>
                         <dd>
                             <span><a href="#">沐浴</a></span>
                             <span><a href="#">洗发</a></span>
@@ -503,7 +518,8 @@
                     <ul class="two_nav">
                         <li>
                             <dl>
-                                <dt><h4>健康生活</h4></dt>
+                                <dt>
+                                <h4>健康生活</h4></dt>
                                 <dd>
                                     <a target="_blank"
                                        href="http://www.aumalls.com/Store/Search/?q=消毒液&crossStore=true">消毒液</a><i>|</i>
@@ -649,93 +665,33 @@
         </div>
         <!-- 主要内容 -->
         <div class="mianContent">
-            <!-- 商品筛选 -->
-            <div class="screen">
-                <!-- <h4 class="srenTitle clearfix">
-                    <span class="sreA">美可卓<em>×</em></span>
-                    <span class="sreA">0-199<em>×</em></span>
-                </h4> -->
-                <div class="srenArea">
-                    <div class="brand clearfix">
-                        <h5>品牌</h5>
-                        <ul class="clearfix">
-                            <li><a href="#">swisse</a><em>×</em></li>
-                            <li><a href="#">blackmore</a><em>×</em></li>
-                            <li><a href="#">natures,way</a><em>×</em></li>
-                            <li><a href="#">healthy care</a><em>×</em></li>
-                            <li><a href="#">bio island</a><em>×</em></li>
-                            <li><a href="#">美可卓</a><em>×</em></li>
-                        </ul>
-                    </div>
-                    <div class="price clearfix">
-                        <h5>价格</h5>
-                        <ul class="clearfix">
-                            <li><a href="#">0-199</a></li>
-                            <li><a href="#">200-399</a></li>
-                            <li><a href="#">400-599</a></li>
-                            <li><a href="#">600-799</a></li>
-                            <li><a href="#">800以上</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <!-- 筛选排序 -->
-            <div class="sort clearfix">
-                <ul class="condition clearfix">
-                    <li><a href="#">默认</a></li>
-                    <li><a href="#">销量</a></li>
-                    <li><a href="#">评价</a></li>
-                    <li><a href="#">新品</a></li>
-                    <li><a href="#">价格</a></li>
-                </ul>
-                <div class="change" id="pn">
-                    <span class="left" id="left">&lt;</span>
-                    <span class="right" id="right">&gt;</span>
-                    <!--<div class="dataTables_paginate paging_simple_numbers" id="sku-table_paginate">-->
-                    <!--<ul class="pagination" id="pn">-->
-                    <!--<li class="paginate_button page-item previous" id="sku-table_previous">-->
-                    <!--<a href="#" aria-controls="sku-table" data-dt-idx="0" tabindex="0" class="page-link">-->
-                    <!--<i class="mdi mdi-chevron-left"></i></a></li>-->
-                    <!--<li value="1" class="paginate_button page-item active" name="pNumber">-->
-                    <!--<a href="admin-skufamily-list.html?pn=1&amp;ps=100" aria-controls="products-datatable"-->
-                    <!--data-dt-idx="1" tabindex="0" class="page-link">1</a>-->
-                    <!--</li>-->
-                    <!--<li class="paginate_button page-item next" id="sku-table_next">-->
-                    <!--<a href="#" aria-controls="sku-table"-->
-                    <!--data-dt-idx="1" tabindex="0"-->
-                    <!--class="page-link">-->
-                    <!--<i class="mdi mdi-chevron-right"></i>-->
-                    <!--</a>-->
-                    <!--</li>-->
-                    <!--</ul>-->
-                    <!--</div>-->
-                </div>
-            </div>
+
             <!-- 商品内容 -->
             <div class="product">
-                <ul class="clearfix" id="product-table">
-                    <c:forEach var="goods" items="${goodsPage.list}">
+                <ul class="" id="product-table">
+                    <c:forEach var="iterm" items="${data}">
 
-                        <li>
-                            <div class="hoverShow collect"><em></em>收藏</div>
-                            <!-- <div class="hoverShow wish"><em></em>加入心愿单</div> -->
-                            <div class="show">
-                                <a class="add" href="#">加入购物车</a>
-                                <a class="contrast" href="#">商品对比</a>
-                            </div>
+                        <li data_obj="${iterm.goodsTotalPrice}">
                             <div class="proImg">
                                 <a href="#">
                                     <img class="lazy" src="resources/js/lazyload/grey.gif" height='165' width='183'
-                                         data-original="images/${goods.goodsImg}"
+                                         data-original="images/${iterm.goodsImgPath}"
                                          alt="">
                                 </a>
                             </div>
                             <div class="proTxt">
-                                <p><a href="#">${goods.goodsName}</a></p>
-                                <p class="num">已售出${goods.goodsNum}件</p>
+                                <p><a href="#">${iterm.goodsName}</a></p>
                                 <p>
-                                    <strong>￥${goods.goodsPrice}</strong>
-                                        <%--<s>￥256.00</s>--%>
+                                    数量：<span id="num-jian" class="num-jian" data_obj="${iterm.itermId}">-</span>
+                                        <input type="text" class="input-num" size="5" value="${iterm.goodsNum}"/>
+                                        <span id="num-jia" class="num-jia" data_obj="${iterm.itermId}">+</span>
+                                </p>
+                                <p>
+                                    <strong data_obj="${iterm.goodsPrice}">小计：<b>${iterm.goodsTotalPrice}</b>￥</strong>
+                                </p>
+                                <p>
+                                    <input type="hidden" value="${iterm.itermId}">
+                                    <strong><a class="deleteiterm" size="10">移除购物车</a></strong>
                                 </p>
                             </div>
                         </li>
@@ -744,8 +700,26 @@
 
             </div>
 
+            <div>
+                <p>
+                    <c:set var="total" value="0"></c:set>
+                    <c:forEach var="iterm" items="${data}">
+                        <c:set var="total" value="${total + iterm.goodsTotalPrice}"></c:set>
+                    </c:forEach>>
+
+                    <c:if test="${total > 0}">
+                        总价：<b id="total">${total}</b> , <a href="http://127.0.0.1/shopcart/flushCart?userid=${param.userid}">清空购物车</a>
+                    </c:if>
+
+                </p>
+            </div>
 
         </div>
+
+
+
+
+
     </div>
 </div>
 <!-- 底部 -->
@@ -895,16 +869,135 @@
         </div>
     </div>
 </footer>
-<script src="resources/js/jquery-1.7.2.min.js"></script>
-<script src="resources/js/jquery.lazyload.min.js"></script>
-<script src="resources/js/base.js"></script>
-<script src="resources/js/controller/paging.js"></script>-->
-<script src="resources/js/controller/login.js"></script>
-<script src="resources/js/controller/chat.js"></script>
-<script src="resources/js/controller/index.js"></script>
-
+<script src="../../resources/js/jquery-1.7.2.min.js"></script>
+<script src="../../resources/js/jquery.lazyload.min.js"></script>
+<script src="../../resources/js/base.js"></script>
+<script src="../../resources/js/controller/paging.js"></script>
+<script src="../../resources/js/controller/login.js"></script>
 <script>
-    addPageBtn(${goodsPage.ps}, ${goodsPage.total})
+
+    $(".deleteiterm").click(function () {
+
+        var del_id = $(this).parent().prev("input").val()
+        var th = $(this);
+
+        alert(del_id)
+
+        if (confirm("确认将其移除购物车吗？")) {
+            //发送ajax请求删除
+            $.ajax({
+                url: "http://127.0.0.1/shopcart/flushCartIterm?itermid=" + del_id,
+                success: function (result) {
+                    alert("111111111111")
+                    th.parents("li").remove()
+                    alert("删除成功！");
+                    var total = $("#total").text()
+                    var itermtotal = th.parent().parent().parent().parent().attr("data_obj")
+                    $("#total").text(parseInt(total) - parseInt(itermtotal))
+
+                }
+            });
+        }
+
+    })
+
+    $(".num-jian").click(function () {
+
+        var num = parseInt($(this).next().val())
+
+        if(num == 1){
+            alert("数量不能为负数！！！")
+        }else{
+            alert(${APP_PATH})
+            var id = $(this).attr("data_obj")
+            var tl = $(this)
+            var goodsprice = tl.parent().next().children().attr("data_obj")
+            alert(goodsprice)
+
+            $.ajax({
+                url:"http://127.0.0.1/shopcart/updataCartNum?itermid="+ id + "&goodsnum=" + (num - 1),
+
+                success:function(result){
+
+                    tl.next().val(num -1)
+                    tl.parent().next().children().children().text(goodsprice * (num - 1))
+
+                    var total = $("#total").text()
+
+                    $("#total").text(parseInt(total) - parseInt(goodsprice))
+
+
+                }
+            });
+
+        }
+
+
+
+
+    })
+
+    $(".num-jia").click(function () {
+
+        var num = parseInt($(this).prev().val())
+
+        var id = $(this).attr("data_obj")
+        var tl = $(this)
+
+        var goodsprice = tl.parent().next().children().attr("data_obj")
+
+
+        $.ajax({
+         url:"http://127.0.0.1/shopcart/updataCartNum?itermid="+ id + "&goodsnum=" + (num + 1),
+
+         success:function(result){
+             alert("+++++++++")
+                tl.prev().val(num + 1)
+             tl.parent().next().children().children().text(goodsprice * (num + 1))
+             }
+         });
+
+        var total = $("#total").text()
+
+        $("#total").text(parseInt(total) + parseInt(goodsprice))
+
+    })
+
+
+    $(".input-num").change(function () {
+        alert("进入")
+        var id = $(this).prev().attr("data_obj")
+        var num = $(this).val()
+        var tl = $(this)
+        if(num <= 0){
+            alert("数据失败！！！")
+            window.location.href="http://127.0.0.1/shopcart/getUserShopCartIterm?userid=1";
+        }else{
+            var oldtotal = tl.parent().parent().parent().attr("data_obj")
+            alert(oldtotal)
+            $.ajax({
+
+                url:"http://127.0.0.1/shopcart/updataCartNum?itermid="+ id + "&goodsnum=" + num,
+
+                success:function(result){
+
+                    var goodsprice = tl.parent().next().children().attr("data_obj")
+                    alert(goodsprice)
+
+                    tl.parent().next().children().children().text(parseInt(goodsprice) * parseInt(num))
+
+                    var total = $("#total").text()
+                    alert(total)
+
+                    $("#total").text(parseInt(total) - parseInt(oldtotal) + parseInt(goodsprice) * parseInt(num))
+                }
+            });
+        }
+
+
+    })
+
+
 </script>
 </body>
 </html>

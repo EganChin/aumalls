@@ -42,15 +42,15 @@
 }
 
 /*.clearfix:after {*/
-    /*content: '';*/
-    /*height: 0;*/
-    /*display: block;*/
-    /*visibility: hidden;*/
-    /*clear: both;*/
+/*content: '';*/
+/*height: 0;*/
+/*display: block;*/
+/*visibility: hidden;*/
+/*clear: both;*/
 /*}*/
 
 /*.clearfix {*/
-    /*zoom: 1;*/
+/*zoom: 1;*/
 /*}*/
 
 .chat-dialog a {
@@ -230,6 +230,7 @@
     width: 120px;
     height: 36px;
     line-height: 36px;
+    font-size: 14px;
     text-align: center;
     border-radius: 6px;
     background: #eeeeee;
@@ -242,7 +243,7 @@
 
 .chatbtn .send {
     background: #749dcf;
-    margin-left: 20px;
+    margin-left: 50px;
     color: #FFFFff;
 }
 
@@ -277,6 +278,7 @@
     float: right;
     background: lightgreen;
 }
+
 .msg-content .lis_rt p:before{
     background: lightgreen;
     right: -5px;
@@ -296,7 +298,7 @@
 .msg-content div p{
     max-width:150px;
     border: 1px solid #ccc;
-    font-size: 14px;
+    /*font-size: 14px;*/
     line-height: 20px;
     padding: 5px 10px;
     border-radius: 10px;
@@ -316,4 +318,15 @@
     position: absolute;
     top: 10px;
     transform: rotate(45deg);
+}
+
+.lis_md p{
+    /*float: right;*/
+    text-align: center;
+    margin-left: 30%;
+    background: lightgrey;
+    width: 60%;
+    height: 15px;
+    font-size: 10px;
+    color: grey;
 }

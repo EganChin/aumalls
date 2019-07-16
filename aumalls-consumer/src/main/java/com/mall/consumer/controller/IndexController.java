@@ -18,8 +18,6 @@ public class IndexController {
     @Reference
     private GoodsService goodsService;
 
-//    @Autowired
-//    private HttpServletRequest request;
 
     @RequestMapping("/")
     public String index(Map<String, Object> model, QueryGoodsForm form){
