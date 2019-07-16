@@ -29,6 +29,10 @@ public class UserController {
 
     @Reference
     private UserService userService;
+<<<<<<< HEAD
+
+=======
+>>>>>>> 6a824b9d5b405c1dcf0e4b6c7bc4deb345086543
 
     @RequestMapping(value = "login", method = RequestMethod.POST)
     public R login(@RequestBody LoginForm form){
