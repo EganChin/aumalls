@@ -38,6 +38,9 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserDao userMapper;
 
+    @Autowired
+    private AuthConfig authConfig;
+
     @Override
     public LoginVO UserLogin(LoginForm form) {
 
@@ -50,7 +53,7 @@ public class UserServiceImpl implements UserService {
 //		}
 
         QueryWrapper<User> ew = new QueryWrapper<User>()
-            .eq("user_pass", form.getPassword())
+            .eq("user_pass", HashUtils.sha256Digest(form.getPassword() + authConfig.getSalt()))
             .and(w -> w.eq("user_name", form.getAccount())
                 .or().eq("user_phone", form.getAccount()));
         User user = userDao.selectOne(ew);

@@ -55,7 +55,7 @@ var screenPrice = function (minP, maxP, ele) {
     else if(minP === 0)
         minP = "&minPrice=0";
     else minP = "";
-    if (maxPrice)
+    if (maxP)
         maxP = "&maxPrice=" + maxP;
     else maxP = "";
     if (cls === "price-active"){
