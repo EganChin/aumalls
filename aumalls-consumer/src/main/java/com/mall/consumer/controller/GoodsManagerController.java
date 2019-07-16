@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.Map;
+
 @Controller
 @RequestMapping("manager")
 public class GoodsManagerController {
@@ -17,6 +19,18 @@ public class GoodsManagerController {
     @Reference
     private IGoodsManagerService iGoodsManagerService;
 
+    /**
+     * 进入管理员界面
+     * @param query
+     * @return
+     */
+    @RequestMapping("/")
+    public ModelAndView toManager(ManagerGoodsForm query){
+        //创建一个模型视图对象
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("managerBackstage");
+        return mav;
+    }
 
     @RequestMapping(value = "goodsE0")
     @ResponseBody
@@ -31,10 +45,15 @@ public class GoodsManagerController {
 
         return R.ok().put("page", iGoodsManagerService.getGoodsByStateE0(query));
     }
+
     @RequestMapping("goodsE1")
     @ResponseBody
-    public String getGoodsStateE1(ManagerGoodsForm query){
-        return "";
+    public R getGoodsStateE1(Map<String, Object> model,@RequestParam int pn, @RequestParam int ps){
+        ManagerGoodsForm query = new ManagerGoodsForm();
+        query.setPn(pn);
+        query.setPs(ps);
+        model.put("page",iGoodsManagerService.getGoodsByStateE1(query));
+        return R.ok().put("page",iGoodsManagerService.getGoodsByStateE1(query));
     }
 
     @RequestMapping("addGoods")
@@ -51,11 +70,16 @@ public class GoodsManagerController {
         return "delete success";
     }
 
-    @RequestMapping("/")
-    public ModelAndView toManager(ManagerGoodsForm query){
-        //创建一个模型视图对象
-        ModelAndView mav = new ModelAndView();
-        mav.setViewName("managerBackstage");
-        return mav;
+    /**
+     * 管理员下架商品
+     * ls=lower shelf（下架）
+     * @return
+     */
+    @RequestMapping("ls")
+    @ResponseBody
+    public String lsGoods(@RequestParam int id){
+
+        return "下架成功";
     }
+
 }

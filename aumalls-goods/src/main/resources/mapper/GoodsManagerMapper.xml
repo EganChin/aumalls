@@ -7,15 +7,16 @@
     <update id="updateGoodsState" parameterType="java.lang.Integer">
         UPDATE goods SET goods.goods_state=1 where goods.goods_id = #{id,jdbcType=INTEGER}
     </update>
-    <update id="updateGoodsStateTo0" parameterType="list">
-        UPDATE goods SET goods.goods_state=0 where goods.goods_id in
-        <foreach collection="list" index="index" item="item" open="(" separator="," close=")">
-            #{item}
-        </foreach>
+    <update id="updateGoodsStateTo0" parameterType="java.lang.Integer">
+<!--        UPDATE goods SET goods.goods_state=0 where goods.goods_id in-->
+<!--        <foreach collection="list" index="index" item="item" open="(" separator="," close=")">-->
+<!--            #{item}-->
+<!--        </foreach>-->
+    UPDATE goods SET goods.goods_state=0 where goods.goods_id = #{id,jdbcType=INTEGER}
     </update>
-    <select id="getGoodsByState1" resultType="com.mall.common.domain.Goods">
-        SELECT * FROM goods WHERE 1 = goods.goods_state
-    </select>
+<!--    <select id="getGoodsByState1" resultType="com.mall.common.domain.Goods">-->
+<!--        SELECT * FROM goods WHERE 1 = goods.goods_state-->
+<!--    </select>-->
     <select id="getUserCount" resultType="java.lang.Integer">
         select count(*) from user;
     </select>

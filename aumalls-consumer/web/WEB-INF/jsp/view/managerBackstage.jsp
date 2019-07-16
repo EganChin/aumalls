@@ -148,10 +148,10 @@
                 <br>
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs" role="tablist">
-                    <li class="nav-item">
+                    <li class="nav-item" id="homeManager">
                         <a class="nav-link active" data-toggle="tab" href="#home">商品审批</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" id="menu1Manager">
                         <a class="nav-link" data-toggle="tab" href="#menu1">商品管理</a>
                     </li>
                     <li class="nav-item">
@@ -181,6 +181,10 @@
                         </table>
                     </div>
                     <div id="menu1" class="container tab-pane fade"><br>
+                        <div class="change" id="menulPn">
+                            <span class="left" id="menu1Left">&lt;</span>
+                            <span class="right" id="menu1Right">&gt;</span>
+                        </div>
                         <table>
                             <thead>
                             <tr>
@@ -191,7 +195,18 @@
                             </tr>
                             </thead>
                             <tbody id="goods-manager">
-                            <!--动态生成-->
+                            <c:forEach items="${page.list}" var="goods">
+                                <tr>
+                                    <td>${goods.goodsName}</td>
+                                    <td>${goods.goodsPrice}</td>
+                                    <td>${goods.goodsNum}</td>
+                                    <td>${goods.typeName}</td>
+                                    <td>
+                                        <button id="goodsView-${goods.goodsId}">查看</button>
+                                        <button id="goodsLs-${goods.goodsId}">下架</button>
+                                    </td>
+                                </tr>
+                            </c:forEach>
                             </tbody>
                         </table>
                     </div>
@@ -220,5 +235,8 @@
 </body>
 <script src="${pageContext.request.contextPath}/resources/js/controlDisplay.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/manager/managerGoods.js"></script>
-
+<script src="${pageContext.request.contextPath}/resources/js/manager/managerGoodsIn.js"></script>
+<script>
+    addPageBtn(${page.ps}, ${page.total})
+</script>
 </html>
