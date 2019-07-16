@@ -11,11 +11,11 @@
     <script src="${pageContext.request.contextPath}/resources/bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/adminnistrators.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/manager.css">
-    <link rel="stylesheet" href="resources/css/chat.css">
-    <script src="resources/js/framework/AWLCore.js"></script>
-    <script src="resources/js/framework/AWLConst.js"></script>
-    <script src="resources/js/framework/AWLHttp.js"></script>
-    <script src="resources/js/controller/chat.js"></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/chat.css">
+    <script src="${pageContext.request.contextPath}/resources/js/framework/AWLCore.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/framework/AWLConst.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/framework/AWLHttp.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/manager/manageUtil.js"></script>
 
 </head>
 <body>
