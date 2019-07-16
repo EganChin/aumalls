@@ -4,6 +4,13 @@
     <update id="updateItermNum">
         update
     </update>
+    <update id="updateItermByGoodsAndUserID">
+        UPDATE shopitem s
+            SET s.item_num = s.item_num + #{goodsNum}, s.item_price = #{price} * (s.item_num + #{goodsNum})
+            WHERE
+                s.item_user = #{userId}
+            AND s.item_goods = #{goodsId}
+    </update>
 
 
     <select id="getAllShopCartIterms" resultType="com.mall.common.vo.shoppingcart.ShoppingCartItem">

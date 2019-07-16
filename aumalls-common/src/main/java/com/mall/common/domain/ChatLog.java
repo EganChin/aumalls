@@ -13,7 +13,6 @@ public class ChatLog implements Serializable{
     @TableId
     private Integer chatId;
     private Integer senderId;
-    private Integer receiverId;
     private String content;
     private Integer type;
     private Long createTime;
@@ -34,13 +33,6 @@ public class ChatLog implements Serializable{
         this.senderId = senderId;
     }
 
-    public Integer getReceiverId() {
-        return receiverId;
-    }
-
-    public void setReceiverId(Integer receiverId) {
-        this.receiverId = receiverId;
-    }
 
     public Integer getChatId() {
         return chatId;

@@ -15,7 +15,7 @@ import java.util.List;
 /**
  * Created by zzy on 2019/7/11.
  */
-@Service(interfaceName = "com.mall.common.service.IUserShopCartService")
+@Service(interfaceName = "com.mall.common.service.IUserShopCartService", timeout = 5000)
 @org.springframework.stereotype.Service
 public class UserCartServiceImpl implements IUserShopCartService {
 
@@ -40,16 +40,30 @@ public class UserCartServiceImpl implements IUserShopCartService {
             return -1;
         }
 
-        Shopitem shopitem = new Shopitem();
+        //判断是否存在此商品
+        QueryWrapper<Shopitem> shopitemQueryWrapper = new QueryWrapper<>();
 
-        shopitem.setItemNum(goodsNum);
-        shopitem.setItemPrice(goodsNum * goods.getGoodsPrice());
-        shopitem.setItemGoods(goodsId);
-        shopitem.setItemUser(userId);
+        shopitemQueryWrapper.eq("item_goods",goodsId).eq("item_user",userId);
+        Integer flag = shopItermDao.selectCount(shopitemQueryWrapper);
 
-        shopItermDao.insert(shopitem);
+        Shopitem shopitem = null;
+        int re = 0;
+        if (flag == 1){
+            re = shopItermDao.updateItermByGoodsAndUserID(userId,goodsId, goodsNum, goods.getGoodsPrice());
+        }else{
+            shopitem = new Shopitem();
 
-        return shopitem.getItemId();
+            shopitem.setItemNum(goodsNum);
+            shopitem.setItemPrice(goodsNum * goods.getGoodsPrice());
+            shopitem.setItemGoods(goodsId);
+            shopitem.setItemUser(userId);
+
+            re = shopItermDao.insert(shopitem);
+        }
+
+
+
+        return re;
     }
 
     @Override
@@ -106,6 +120,17 @@ public class UserCartServiceImpl implements IUserShopCartService {
     public int updateFlushOneShopiterm(int iterm) {
         return shopItermDao.deleteById(iterm);
 
+    }
+
+    @Override
+    public int getUserShopItermNum(int userid) {
+
+        QueryWrapper<Shopitem> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("item_user", userid);
+
+        Integer num = shopItermDao.selectCount(queryWrapper);
+
+        return num;
     }
 
 

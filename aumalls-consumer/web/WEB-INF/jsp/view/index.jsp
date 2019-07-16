@@ -5,6 +5,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script language="JavaScript">
+        var isUser = true;
+    </script>
     <meta charset="UTF-8">
     <title>列表-澳猫团</title>
     <%--<link rel="stylesheet" href="resources/css/dialog.css">--%>
@@ -241,9 +244,9 @@
         </div>
     </div>
     <!--购物车-->
-    <a href="#" class="buy_car">
+    <a href="/shopcart/getUserShopCartIterm" class="buy_car">
         <p>购物车</p>
-        <em>0</em>
+        <em id="gouwuchenum">0</em>
     </a>
     <!-- 新会员 -->
     <div class="app">
@@ -719,7 +722,7 @@
                             <div class="hoverShow collect"><em></em>收藏</div>
                             <!-- <div class="hoverShow wish"><em></em>加入心愿单</div> -->
                             <div class="show">
-                                <a class="add" href="#">加入购物车</a>
+                                <a class="add" data_obj="${goods.goodsId}">加入购物车</a>
                                 <a class="contrast" href="#">商品对比</a>
                             </div>
                             <div class="proImg">
@@ -904,6 +907,51 @@
 
 <script>
     addPageBtn(${goodsPage.ps}, ${goodsPage.total})
+
+        $(function () {
+            var num = 0;
+            if(AWLStorage.get("user") != null){
+                AWLHttp.get("shopcart/getUserItermNum", {},{
+                    success:function (result) {
+                        num = parseInt(result.data.num)
+                        $("#gouwuchenum").text(num)
+                        alert(num)
+                    }
+
+                })
+            }else{
+                alert("请先进行登录")
+            }
+
+
+        })
+
+
+        $(".add").click(function () {
+        
+        ///shopcart/addTouserCart?goodsnum=1&goodsid=${goods.goodsId}
+
+        var old = $("#gouwuchenum").text()
+        var th = $("#gouwuchenum")
+        var id = $(this).attr("data_obj")
+            if(AWLStorage.get("user") != null){
+                AWLHttp.post("shopcart/addTouserCart?goodsnum=1&goodsid=" + id,{}, {
+                    success:function (result) {
+
+                        alert("添加成功！！！")
+                        th.text(parseInt(old) + 1)
+
+                    }
+
+                })
+
+            }else{
+                alert("请先进行登录")
+            }
+    })
+
+
+
 </script>
 </body>
 </html>

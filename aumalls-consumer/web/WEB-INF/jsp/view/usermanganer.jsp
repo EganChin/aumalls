@@ -1,12 +1,13 @@
 <%@ page import="com.mall.common.utils.DateUtils" %>
 <%--@elvariable id="DateUtils" type="com.mall.common.utils.DateUtils"--%>
-<%@page pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="base.jsp" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>managerGoods</title>
+    <link rel="stylesheet" href="../../resources/css/list.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/bootstrap-4.3.1-dist/css/bootstrap.min.css">
     <script src="${pageContext.request.contextPath}/resources/js/jquery-1.7.2.min.js"></script>
     <script src="${pageContext.request.contextPath}/resources/bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
@@ -16,6 +17,7 @@
     <script src="../../resources/js/framework/AWLCore.js"></script>
     <script src="../../resources/js/framework/AWLConst.js"></script>
     <script src="../../resources/js/framework/AWLHttp.js"></script>
+
 </head>
 <body>
 <nav class="navigation-back fixed-top">
@@ -76,31 +78,22 @@
         </div>
     </div>
     <div class="col-9" style="background: #f4f4f4;margin-left: 10px;margin-top: 20px">
-        <div id="managerHomePage" class="context-container controlDisplay">
-            <div class="card bg-info text-white col-2 card-modify">
-                <div id="userManager" class="card-body cardBody-modify">用户管理</div>
-            </div>
-            <div class="card bg-primary text-white col-2 card-modify">
-                <div id="goodsManager" class="card-body cardBody-modify">商品管理</div>
-            </div>
-            <div class="card bg-success text-white col-2 card-modify">
-                <div id="ordersManager" class="card-body cardBody-modify">订单管理</div>
-            </div>
-            <div class="card bg-warning text-white col-2 card-modify">
-                <div id="systemManager" class="card-body cardBody-modify">系统管理</div>
-            </div>
-        </div>
-
         <div id="managerUser" class="">
-            <ul id="userdata">
 
+
+            <ul id="userdata">
+                <li>
+                    <p style="display: inline-table">用户名            </p>
+                    <p style="display: inline-table">用户地址          </p>
+                    <p style="display: inline-table">用户电话          </p>
+                    <p style="display: inline-table">用户限制时间       </p>
+                </li>
                 <c:forEach var="item" items="${data.list}">
                     <li>
-                        <p>${item.userName}</p>
-                        <p>${item.userAddress}</p>
-                        <p>${item.userPhone}</p>
-                        <p>${item.userWhitetime}</p>
-                        <p data_obj="${item.userId}"><input class="usertime" type="datetime-local" min="2017-06-30T00:00" value="${item.userWhitetime}"></p>
+                        <p style="display: inline-table">${item.userName}         </p>
+                        <p style="display: inline-table">${item.userAddress}      </p>
+                        <p style="display: inline-table">${item.userPhone}        </p>
+                        <p style="display: inline-table" data_obj="${item.userId}"><input class="usertime" type="datetime-local" min="2017-06-30T00:00" value="${item.userWhitetime}"></p>
 
                     </li>
 

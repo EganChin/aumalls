@@ -13,6 +13,8 @@ import java.util.Optional;
  */
 public class BaseController {
 
+    public Integer getUserId(){return getUser().getUserId();}
+
     public Admin getAdmin() {
         return getOperator().toAdmin();
     }

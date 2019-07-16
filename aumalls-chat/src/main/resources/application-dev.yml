@@ -58,5 +58,6 @@ logging:
   level:
     com.mall.chat.server: info
     com.mall.chat.handler: info
+    com.mall.chat.dao: debug
 
 swagger: true
