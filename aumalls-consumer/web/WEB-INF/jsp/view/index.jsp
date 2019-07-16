@@ -912,13 +912,14 @@
                     success:function (result) {
                         num = parseInt(result.data.num)
                         $("#gouwuchenum").text(num)
-                        alert(num)
+                        // alert(num)
                     }
 
                 })
-            }else{
-                alert("请先进行登录")
             }
+            // else{
+            //     alert("请先进行登录")
+            // }
 
 
         })
