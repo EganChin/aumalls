@@ -669,11 +669,11 @@
                     <div class="price clearfix">
                         <h5>价格</h5>
                         <ul class="clearfix">
-                            <li><a href="/?maxPrice=199">0-199</a></li>
-                            <li><a href="/?maxPrice=399&minPrice=200">200-399</a></li>
-                            <li><a href="/?maxPrice=599&minPrice=400">400-599</a></li>
-                            <li><a href="/?maxPrice=799&minPrice=600">600-799</a></li>
-                            <li><a href="/?minPrice=800">800以上</a></li>
+                            <li><a onclick="screenPrice(0,199,this)" id="price-0">0-199</a></li>
+                            <li><a onclick="screenPrice(200,399,this)" id="price-200">200-399</a></li>
+                            <li><a onclick="screenPrice(400,599,this)" id="price-400">400-599</a></li>
+                            <li><a onclick="screenPrice(600,799,this)" id="price-600">600-799</a></li>
+                            <li><a onclick="screenPrice(800,null,this)" id="price-800">800以上</a></li>
                         </ul>
                     </div>
                 </div>
@@ -897,6 +897,7 @@
 <script src="resources/js/jquery-1.7.2.min.js"></script>
 <script src="resources/js/jquery.lazyload.min.js"></script>
 <script src="resources/js/base.js"></script>
+<%--<script src="resources/js/index.js"></script>--%>
 <script src="resources/js/controller/paging.js"></script>-->
 <%--<script src="resources/js/controller/login.js"></script>--%>
 <script src="resources/js/controller/chat.js"></script>
@@ -922,7 +923,7 @@
             // }
 
 
-        })
+        });
 
 
         $(".add").click(function () {
@@ -936,7 +937,7 @@
                 AWLHttp.post("shopcart/addTouserCart?goodsnum=1&goodsid=" + id,{}, {
                     success:function (result) {
 
-                        alert("添加成功！！！")
+                        console.log("添加成功！！！")
                         th.text(parseInt(old) + 1)
 
                     }
@@ -944,7 +945,7 @@
                 })
 
             }else{
-                alert("请先进行登录")
+                console.log("请先进行登录")
             }
     })
 
