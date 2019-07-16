@@ -14,7 +14,10 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("manager")
 public class GoodsManagerController {
 
+<<<<<<< HEAD
+=======
     @Reference
+>>>>>>> 6a824b9d5b405c1dcf0e4b6c7bc4deb345086543
     private IGoodsManagerService iGoodsManagerService;
 
 

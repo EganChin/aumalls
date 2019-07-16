@@ -15,6 +15,7 @@ import com.mall.user.dao.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * @author Egan
@@ -33,6 +34,9 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private AuthConfig configuration;
+
+    @Autowired
+    private UserDao userMapper;
 
     @Override
     public LoginVO UserLogin(LoginForm form) {
@@ -69,4 +73,29 @@ public class UserServiceImpl implements UserService {
 
         throw new RRException("账号和密码不一致");
     }
+
+    public User findUserByTel(String phone){
+        return userMapper.findUserByTel(phone);
+    }
+
+    public User findUserByName(String user_name){
+        return userMapper.findUserByName(user_name);
+    }
+
+    public int addUser(User user){
+        return userMapper.addUser(user);
+    }
+
+    public int modifyUserinfo(User user){
+        return userMapper.modifyUserinfo(user);
+    }
+    public void deleteUserinfo(int user_id)  {userMapper.deleteUserinfo(user_id);
+    }
+    public List<User> findUserByUserId(int user_id){
+        return userMapper.findUserByUserId(user_id);
+    }
+    public List<User> getUserList(){
+        return userMapper.selectAll();
+    }
+
 }

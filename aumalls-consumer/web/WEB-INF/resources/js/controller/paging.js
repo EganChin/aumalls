@@ -34,6 +34,7 @@
 
     var userPageBtn = function (ps, total) {
     var pn = AWLHttp.getParam("pagenum");
+
     if (!pn) pn = 1;
 
     //分页功能
