@@ -1,7 +1,7 @@
 var managerGoods=(function () {
     $("#list3").click(function () {
         getGoodsE0()
-    })
+    });
     function getGoodsE0() {
         $.ajax({
             url:"../manager/goodsE0",
@@ -29,8 +29,8 @@ var managerGoods=(function () {
     }
 
     var inform = $('#chat-inform');
-    $('#chat-span').hover(function(e) {
-        console.log("hover");
-        inform.children().stop().slideToggle();
-    })
+    // $('#chat-cservicen').hover(function(e) {
+    //     console.log("hover");
+    //     inform.children().stop().slideToggle();
+    // })
 })();

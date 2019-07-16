@@ -11,8 +11,15 @@
     <script src="${pageContext.request.contextPath}/resources/bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/adminnistrators.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/manager.css">
+    <link rel="stylesheet" href="resources/css/chat.css">
+    <script src="resources/js/framework/AWLCore.js"></script>
+    <script src="resources/js/framework/AWLConst.js"></script>
+    <script src="resources/js/framework/AWLHttp.js"></script>
+    <script src="resources/js/controller/chat.js"></script>
+
 </head>
 <body>
+<jsp:include page="chat.jsp"/>
 <nav class="navigation-back fixed-top">
     <div class="navbar navbar-expand-sm" style="width:1024px;margin: 0 auto;">
         <a class="nav-logo col-1" style="margin-right: 50px" href="#">
@@ -43,7 +50,7 @@
             </button>
             <button type="button" id="Popover9-toggle" aria-haspopup="true" aria-expanded="false"
                     aria-owns="Popover9-content" class="Button Messages-icon Button--plain">
-                <span  id="chat-span" style="display: inline-flex; align-items: center;">&#8203;
+                <span id="chat-cservice" style="display: inline-flex; align-items: center;">&#8203;
                 <svg class="Zi Zi--Comments"
                      fill="currentColor"
                      viewBox="0 0 24 24" width="22"
