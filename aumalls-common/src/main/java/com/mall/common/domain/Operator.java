@@ -23,6 +23,8 @@ public class Operator implements Serializable{
 
     private boolean isAdmin = false;
 
+    public Operator() {
+    }
 
     public Operator(Admin admin) {
         this(admin.getAdminId(), admin.getAdminName(), admin.getAdminPass(), admin.getAdminRole(), null, null, null, true);
