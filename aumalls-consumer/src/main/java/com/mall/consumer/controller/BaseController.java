@@ -1,5 +1,7 @@
 package com.mall.consumer.controller;
 
+import com.mall.common.domain.Admin;
+import com.mall.common.domain.Operator;
 import com.mall.common.domain.User;
 import org.apache.shiro.SecurityUtils;
 
@@ -11,11 +13,18 @@ import java.util.Optional;
  */
 public class BaseController {
 
-    public User getUser() {
-        return (User) SecurityUtils.getSubject().getPrincipal();
+    public Integer getUserId(){return getUser().getUserId();}
+
+    public Admin getAdmin() {
+        return getOperator().toAdmin();
     }
 
-    public Integer getUserId() {
-        return Optional.ofNullable(this.getUser()).map(User::getUserId).orElse(null);
+    public User getUser() {
+        return getOperator().toUser();
     }
+
+    public Operator getOperator() {
+        return (Operator) SecurityUtils.getSubject().getPrincipal();
+    }
+
 }

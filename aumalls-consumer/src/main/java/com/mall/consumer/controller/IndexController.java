@@ -3,6 +3,7 @@ package com.mall.consumer.controller;
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.mall.common.form.goods.QueryGoodsForm;
 import com.mall.common.service.GoodsService;
+import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -29,4 +30,8 @@ public class IndexController {
         return "index";
     }
 
+    @RequestMapping("login")
+    public String login(){
+        return "login";
+    }
 }

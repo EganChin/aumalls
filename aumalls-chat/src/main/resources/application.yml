@@ -5,6 +5,9 @@ server:
     max-http-post-size: 20MB
   port: 8990
 
+netty:
+  port: 8900
+
 spring:
   profiles:
     active: dev

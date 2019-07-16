@@ -1,9 +1,14 @@
-var isUser = true;
+
+
 
 $(function () {
 
-    var me = isUser ? "lis_lf" : "lis_rt";
-    var other = isUser ? "lis_rt" : "lis_lf";
+    var operator = AWLStorage.get("user");
+    var isUser;
+    if(operator)
+        isUser = !operator.isAdmin;
+    var userCss = "lis_lf";
+    var adminCss = "lis_rt";
 
     var dialog = $("#chat-dialog");
     var content = $("#msg-content");
@@ -18,8 +23,18 @@ $(function () {
         return (user != null ? user.token : null);
     };
 
+    var getUserName = function () {
+        var user = AWLStorage.get("user");
+        return (user != null ? user.userName : null);
+    };
 
 
+    var packetMessage = function (token, isAdmin, name, msg) {
+
+
+        return "(" + token + ")" + "(" + isAdmin + ")" + "(" + name + ")" + msg;
+
+    };
 
     var sendMessage = function () {
 
@@ -30,11 +45,10 @@ $(function () {
             return;
         }
 
-        ws.send("(" + getUserToken() + ")" + msg);
+        ws.send(packetMessage(getUserToken(), !isUser, getUserName(), msg));
 
         chatMsg.val("");
     };
-
 
     sendBtn.click(function () {
         console.log("click");
@@ -45,9 +59,17 @@ $(function () {
         $("#chat-dialog").css("display", "none");
     });
 
+    var appendChatContent = function (msg, isAdmin, name) {
+        content.append("<div class='" + (isAdmin ? adminCss : userCss) + "'><span class=\"peo\">" + name + "</span><p class=\"lis_txt\">" + msg + "</p></div>");
+    };
+
+    var appendSystemContent = function (msg) {
+        content.append("<div class=\"lis_md\"><p class=\"lis_txt\">" + msg + "</p></div>");
+    };
+
     $("#link-cservice").click(function () {
 
-        if (!AWLStorage.get("user")){
+        if (!AWLStorage.get("user")) {
             $("#login-dialog").css("display", "block");
             return;
         }
@@ -59,14 +81,23 @@ $(function () {
             return;
         }
 
+
+
         ws = new WebSocket("ws://127.0.0.1:8900/ws");
 
         ws.onmessage = function (event) {
-            var typePattern = /^\(.*\)/g;
+            var pattern = /^\(.*\)\(.*\)\(.*\)/g;
             var rawMsg = event.data;
             console.log("接收数据：" + rawMsg);
-            var type = rawMsg.match(typePattern)[0];
-            var msg = rawMsg.split(typePattern)[1];
+            var header = rawMsg.match(pattern)[0];
+            var msg = rawMsg.split(pattern)[1];
+
+            var headerPattern = /\([^\)]{0,}\)/g;
+
+            var type = header.match(headerPattern)[0];
+            var admin = header.match(headerPattern)[1];
+            var name = header.match(headerPattern)[2];
+
             if (type === "(system)") {
                 //系统消息
                 //用户未登录
@@ -74,10 +105,9 @@ $(function () {
                     sendBtn.attr("disabled", true);
                     AWLStorage.remove("user");
                 }
-                content.append("<div class=\"lis_md\"><p class=\"lis_txt\">" + msg + "</p></div>");
+                appendSystemContent(msg);
             } else {
-                var role = ("(" + getUserToken() + ")" === type ? me : other);
-                content.append("<div class='" + role + "'><span class=\"peo\"></span><p class=\"lis_txt\">" + msg + "</p></div>");
+                appendChatContent(msg, admin === "(true)", name);
             }
         };
 
@@ -91,4 +121,28 @@ $(function () {
             console.log("关闭连接")
         };
     });
+
+    var getChatLog = function(){
+        AWLHttp.get(httpAddress.chatLogDetail, {}, {
+            success:function (response) {
+                var list  = response.data.vo;
+                for(var i=0; i<list.length; i++){
+                    var pattern = /^\(.*\)\(.*\)\(.*\)/g;
+                    var rawMsg = list[i].content;
+                    console.log("接收数据：" + rawMsg);
+                    var header = rawMsg.match(pattern)[0];
+                    var msg = rawMsg.split(pattern)[1];
+
+                    var headerPattern = /\([^\)]{0,}\)/g;
+                    var admin = header.match(headerPattern)[1];
+                    var name = header.match(headerPattern)[2];
+
+                    appendChatContent(msg, admin === ("(true)"), name);
+                }
+            }
+        })
+    };
+
+    if(AWLStorage.get("user"))
+        getChatLog();
 });

@@ -323,9 +323,10 @@
 }
 
 .page-link{
-    color: #fff;
+    /*color: #f3faf2;*/
     z-index: 1;
     display: block;
+	padding: 0;
 }
 
 .change .page{
@@ -604,4 +605,10 @@ a.add:hover{
 	background: #FFF;
 	outline: none;
 	border:1px solid #999;
+}
+
+.price-active{
+    border-radius:3px;
+    background:#00AAEE;
+    color:white !important;
 }

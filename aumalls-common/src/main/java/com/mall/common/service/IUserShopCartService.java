@@ -56,4 +56,10 @@ public interface IUserShopCartService {
      */
       int updateFlushOneShopiterm(int iterm);
 
+
+    /**
+     * 得到此用户的购物车数量
+     */
+    int getUserShopItermNum(int userid);
+
 }

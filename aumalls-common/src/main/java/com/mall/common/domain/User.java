@@ -3,7 +3,9 @@ package com.mall.common.domain;
 
 import com.baomidou.mybatisplus.annotation.TableId;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable{
 
     @TableId
     private Integer userId;
@@ -11,7 +13,15 @@ public class User {
     private String userPass;
     private String userAddress;
     private String userPhone;
+    public Long userWhitetime;
 
+    public Long getUserWhitetime() {
+        return userWhitetime;
+    }
+
+    public void setUserWhitetime(Long userWhitetime) {
+        this.userWhitetime = userWhitetime;
+    }
 
     public Integer getUserId() {
         return userId;
@@ -57,4 +67,15 @@ public class User {
         this.userPhone = userPhone;
     }
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "userId=" + userId +
+                ", userName='" + userName + '\'' +
+                ", userPass='" + userPass + '\'' +
+                ", userAddress='" + userAddress + '\'' +
+                ", userPhone='" + userPhone + '\'' +
+                ", userWhitetime=" + userWhitetime +
+                '}';
+    }
 }

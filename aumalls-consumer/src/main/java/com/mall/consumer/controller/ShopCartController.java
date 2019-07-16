@@ -25,11 +25,11 @@ public class ShopCartController extends BaseController{
     private IUserShopCartService shopCartService;
 
   @RequestMapping("getUserShopCartIterm")
-    public ModelAndView getUserShopCartIterm(@RequestParam("userid") int userid){
+    public ModelAndView getUserShopCartIterm(){
 
         ModelAndView modelAndView = new ModelAndView();
 
-        List<ShoppingCartItem> userShoppingIterms = shopCartService.getUserShoppingIterms(userid);
+        List<ShoppingCartItem> userShoppingIterms = shopCartService.getUserShoppingIterms(getUserId());
         modelAndView.addObject("data", userShoppingIterms);
         modelAndView.setViewName("shopiterm");
 
@@ -39,10 +39,10 @@ public class ShopCartController extends BaseController{
 
     @ResponseBody
     @RequestMapping("addTouserCart")
-    public R addToUserCart(@RequestParam("userid") int userid
-            , @RequestParam("goodsnum") int goodsnum, @RequestParam("goodsid") int goodsid){
+    public R addToUserCart(
+             @RequestParam("goodsnum") int goodsnum, @RequestParam("goodsid") int goodsid){
 
-        int i = shopCartService.addUserShopItermCart(userid, goodsnum, goodsid);
+        int i = shopCartService.addUserShopItermCart(getUserId(), goodsnum, goodsid);
 
         if(i < 0){
             return R.error("商品获取失败！");
@@ -75,14 +75,21 @@ public class ShopCartController extends BaseController{
     }
 
     @RequestMapping("flushCart")
-    public void flushCart(@RequestParam("userid") int userid){
-        shopCartService.updateFlushCart(userid);
+    public void flushCart(){
+        shopCartService.updateFlushCart(getUserId());
     }
 
     @ResponseBody
     @RequestMapping("flushCartIterm")
     public R flushCartIterm(@RequestParam("itermid") int itermid){
         return R.ok().put("data", shopCartService.updateFlushOneShopiterm(itermid));
+    }
+
+    @ResponseBody
+    @RequestMapping("getUserItermNum")
+    public R getUseritermNum(){
+
+        return R.ok().put("num", shopCartService.getUserShopItermNum(getUserId()));
     }
 
 }

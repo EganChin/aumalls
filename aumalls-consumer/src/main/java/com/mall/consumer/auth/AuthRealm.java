@@ -3,6 +3,7 @@ package com.mall.consumer.auth;
 
 import com.mall.common.auth.AuthToken;
 import com.mall.common.config.AuthConfig;
+import com.mall.common.domain.Operator;
 import com.mall.common.domain.User;
 import com.mall.common.exception.RRException;
 import com.mall.common.utils.RedisWrapper;
@@ -22,6 +23,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -37,7 +40,7 @@ public class AuthRealm extends AuthorizingRealm {
     private AuthConfig configuration;
 
     @Autowired
-    private RedisTemplate<String,Object> redisTemplate;
+    private RedisTemplate<String, Object> redisTemplate;
 
     @Autowired
     private HttpServletRequest request;
@@ -55,16 +58,12 @@ public class AuthRealm extends AuthorizingRealm {
      */
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
-//		User user = (User) principals.getPrimaryPrincipal();
-//		Set<String> roles = new HashSet<>();
-//		for (EnumRole value : EnumRole.values()) {
-//			if (user.getRoleId() == value.value()) {
-//				roles.add(value.toString());
-//			}
-//		}
+        Operator operator = (Operator) principals.getPrimaryPrincipal();
+        Set<String> roles = new HashSet<>();
+        roles.add(operator.isAdmin() ? "ADMIN" : "USER");
 
-		SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
-//		info.setRoles(roles);
+        SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
+        info.setRoles(roles);
 
         return info;
     }
@@ -79,14 +78,15 @@ public class AuthRealm extends AuthorizingRealm {
         /*
          * 管理员在使用时，刷新令牌过期时间
          */
-        User user = (User) redisTemplate.opsForValue().get(accessToken);
-        if (user == null) {
+        Operator operator = (Operator) redisTemplate.opsForValue().get(accessToken);
+        if (operator == null) {
             //token过期
+            throw new RRException("TOKEN过期", 401);
 //            request.getSession().setAttribute("status", 401);
-            return null;
         }
 
+        redisTemplate.expire(accessToken, configuration.getTimeout().getSeconds(), TimeUnit.SECONDS);
 
-        return new SimpleAuthenticationInfo(user, accessToken, getName());
+        return new SimpleAuthenticationInfo(operator, accessToken, getName());
     }
 }

@@ -7,7 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <title>列表-澳猫团</title>
-    <link rel="stylesheet" href="resources/css/dialog.css">
+    <%--<link rel="stylesheet" href="resources/css/dialog.css">--%>
     <link rel="stylesheet" href="resources/css/chat.css">
     <!--<link rel="shortcut icon" href="favicon.ico">-->
     <link rel="stylesheet" href="resources/css/reset.css">
@@ -22,7 +22,7 @@
 
 </head>
 <body>
-<jsp:include page="login.jsp"/>
+<%--<jsp:include page="login.jsp"/>--%>
 <jsp:include page="chat.jsp"/>
 <header class="wrap-all">
     <div class="head center_1200">
@@ -40,10 +40,10 @@
                 <span>|</span>
                 <a target="_self" id="register">注册</a>
             </div>
-            <div class="phone">
-                <a href="#">
+            <div class="phone" id="logout-group" style="display:none">
+                <a href="javascript:void(0)" id="logout">
                     <em></em>
-                    <span>手机逛澳猫</span>
+                    <span>退出登录</span>
                 </a>
             </div>
         </div>
@@ -242,9 +242,9 @@
         </div>
     </div>
     <!--购物车-->
-    <a href="#" class="buy_car">
+    <a href="/shopcart/getUserShopCartIterm" class="buy_car">
         <p>购物车</p>
-        <em>0</em>
+        <em id="gouwuchenum">0</em>
     </a>
     <!-- 新会员 -->
     <div class="app">
@@ -670,11 +670,11 @@
                     <div class="price clearfix">
                         <h5>价格</h5>
                         <ul class="clearfix">
-                            <li><a href="#">0-199</a></li>
-                            <li><a href="#">200-399</a></li>
-                            <li><a href="#">400-599</a></li>
-                            <li><a href="#">600-799</a></li>
-                            <li><a href="#">800以上</a></li>
+                            <li><a onclick="screenPrice(0,199,this)" id="price-0">0-199</a></li>
+                            <li><a onclick="screenPrice(200,399,this)" id="price-200">200-399</a></li>
+                            <li><a onclick="screenPrice(400,599,this)" id="price-400">400-599</a></li>
+                            <li><a onclick="screenPrice(600,799,this)" id="price-600">600-799</a></li>
+                            <li><a onclick="screenPrice(800,null,this)" id="price-800">800以上</a></li>
                         </ul>
                     </div>
                 </div>
@@ -720,7 +720,7 @@
                             <div class="hoverShow collect"><em></em>收藏</div>
                             <!-- <div class="hoverShow wish"><em></em>加入心愿单</div> -->
                             <div class="show">
-                                <a class="add" href="#">加入购物车</a>
+                                <a class="add" data_obj="${goods.goodsId}">加入购物车</a>
                                 <a class="contrast" href="#">商品对比</a>
                             </div>
                             <div class="proImg">
@@ -898,13 +898,60 @@
 <script src="resources/js/jquery-1.7.2.min.js"></script>
 <script src="resources/js/jquery.lazyload.min.js"></script>
 <script src="resources/js/base.js"></script>
+<%--<script src="resources/js/index.js"></script>--%>
 <script src="resources/js/controller/paging.js"></script>-->
-<script src="resources/js/controller/login.js"></script>
+<%--<script src="resources/js/controller/login.js"></script>--%>
 <script src="resources/js/controller/chat.js"></script>
 <script src="resources/js/controller/index.js"></script>
 
 <script>
     addPageBtn(${goodsPage.ps}, ${goodsPage.total})
+
+        $(function () {
+            var num = 0;
+            if(AWLStorage.get("user") != null){
+                AWLHttp.get("shopcart/getUserItermNum", {},{
+                    success:function (result) {
+                        num = parseInt(result.data.num)
+                        $("#gouwuchenum").text(num)
+                        // alert(num)
+                    }
+
+                })
+            }
+            // else{
+            //     alert("请先进行登录")
+            // }
+
+
+        });
+
+
+        $(".add").click(function () {
+        
+        ///shopcart/addTouserCart?goodsnum=1&goodsid=${goods.goodsId}
+
+        var old = $("#gouwuchenum").text()
+        var th = $("#gouwuchenum")
+        var id = $(this).attr("data_obj")
+            if(AWLStorage.get("user") != null){
+                AWLHttp.post("shopcart/addTouserCart?goodsnum=1&goodsid=" + id,{}, {
+                    success:function (result) {
+
+                        console.log("添加成功！！！")
+                        th.text(parseInt(old) + 1)
+
+                    }
+
+                })
+
+            }else{
+                console.log("请先进行登录")
+            }
+    })
+
+
+
 </script>
 </body>
 </html>

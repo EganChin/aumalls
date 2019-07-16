@@ -8,6 +8,7 @@ import com.mall.common.form.goods.ManagerGoodsForm;
 import com.mall.common.service.IGoodsManagerService;
 import com.mall.common.utils.PageWrapper;
 import com.mall.common.utils.Query;
+import com.mall.common.vo.goods.ApplyGoodsVO;
 import com.mall.goods.dao.GoodsManagerDao;
 import javax.annotation.Resource;
 import java.util.ArrayList;
@@ -20,11 +21,14 @@ public class GoodsManagerServiceImpl implements IGoodsManagerService {
     @Resource
     private GoodsManagerDao goodsManagerDao;
     @Override
-    public PageWrapper<Goods> getGoodsByStateE0(ManagerGoodsForm query) {
-//        Page page = new Page(query.getPn(),6);
-        List<Goods> goods = new ArrayList<Goods>();
-        goods=goodsManagerDao.getGoodsByState0();
-        return new PageWrapper<>(query,goods);
+    public PageWrapper<ApplyGoodsVO> getGoodsByStateE0(ManagerGoodsForm query) {
+        System.out.println("query.ps:"+query.getPs());
+        List<ApplyGoodsVO> goods = new ArrayList<>();
+        System.out.println("goodsSize:"+goods.size()+"\t<br>+queryTotal:"+query.getTotal());
+//        query.setTotal(goods.size());
+        Page page = new Page(query.getPn(), query.getPs());
+        goods=goodsManagerDao.getGoodsByState0(page);
+        return new PageWrapper<>(page,goods);
     }
 
     @Override
@@ -48,6 +52,11 @@ public class GoodsManagerServiceImpl implements IGoodsManagerService {
     @Override
     public int getUserCount() {
         return goodsManagerDao.getUserCount();
+    }
+
+    @Override
+    public void deleteGoodsById(int id) {
+        goodsManagerDao.deleteGoods(id);
     }
 
 }

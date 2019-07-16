@@ -29,8 +29,10 @@ public class ShiroConfig {
             "/",
             "/resources",
             "/images",
-            "/shopcart/**",
+            "/useradmin/**",
             "/user/login",
+            "/admin/login",
+            "/login",
             "/**/*.ico",
             "/**/*.html",
             "/**/*.css",
@@ -51,7 +53,6 @@ public class ShiroConfig {
             "/metrics",
             "/actuator/**",
             "/v2/**",
-            "/manager/**"
     };
 
     private static final String[] CUSTOM_ANON_URLS = new String[]{
