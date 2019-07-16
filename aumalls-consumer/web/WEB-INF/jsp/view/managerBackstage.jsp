@@ -161,7 +161,10 @@
                 <!-- Tab panes -->
                 <div class="tab-content">
                     <div id="home" class="container tab-pane active"><br>
-                        <h5>请审批</h5>
+                        <div class="change" id="pn">
+                            <span class="left" id="left">&lt;</span>
+                            <span class="right" id="right">&gt;</span>
+                        </div>
                         <table class="table table-striped">
                             <thead>
                             <tr>
@@ -214,6 +217,7 @@
     </div>
 </div>
 </body>
-<script src="${pageContext.request.contextPath}/resources/js/manager/managerGoods.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/controlDisplay.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/manager/managerGoods.js"></script>
+
 </html>

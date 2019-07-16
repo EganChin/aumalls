@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.Query;
 import com.mall.common.domain.Goods;
 import com.mall.common.form.goods.ManagerGoodsForm;
 import com.mall.common.utils.PageWrapper;
+import com.mall.common.vo.goods.ApplyGoodsVO;
 
 import java.util.List;
 
@@ -17,7 +18,7 @@ public interface IGoodsManagerService {
      * @date 2019/7/12
      * @return 商品上架状态为0的所有商品信息
      */
-    PageWrapper<Goods> getGoodsByStateE0(ManagerGoodsForm query);
+    PageWrapper<ApplyGoodsVO> getGoodsByStateE0(ManagerGoodsForm query);
 
     /**
      * 查询
@@ -42,4 +43,10 @@ public interface IGoodsManagerService {
      * @return
      */
     int getUserCount();
+
+    /**
+     * 拒绝上架物，彻底删除
+     * @param id
+     */
+    void deleteGoodsById(int id);
 }

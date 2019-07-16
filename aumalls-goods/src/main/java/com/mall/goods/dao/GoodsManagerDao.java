@@ -1,7 +1,10 @@
 package com.mall.goods.dao;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.mall.common.domain.Goods;
+import com.mall.common.vo.goods.ApplyGoodsVO;
+import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -17,7 +20,13 @@ public interface GoodsManagerDao extends BaseMapper<Goods> {
      * 返回商品状态state为0的所有商品
      * @return
      */
-    public List<Goods> getGoodsByState0();
+    @Select("SELECT" +
+            "        goods.goods_id,goods.goods_name,goods.goods_price,goods.goods_num,goods.goods_type,goods_type.type_id,goods_type.type_name\n" +
+            "        FROM goods,goods_type\n" +
+            "        WHERE goods.goods_type = goods_type.type_id\n" +
+            "        and\n" +
+            "        0 = goods.goods_state")
+    public List<ApplyGoodsVO> getGoodsByState0(Page page);
 
     /**
      * 管理员同意商品上架
@@ -46,4 +55,10 @@ public interface GoodsManagerDao extends BaseMapper<Goods> {
      * @return 返回注册用户数
      */
     public Integer getUserCount();
+
+    /**
+     *
+     * @param id
+     */
+    public void deleteGoods(int id);
 }
