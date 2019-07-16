@@ -39,10 +39,10 @@
                 <span>|</span>
                 <a target="_self" id="register">注册</a>
             </div>
-            <div class="phone">
-                <a href="#">
+            <div class="phone" id="logout-group" style="display:none">
+                <a href="javascript:void(0)" id="logout">
                     <em></em>
-                    <span>手机逛澳猫</span>
+                    <span>退出登录</span>
                 </a>
             </div>
         </div>

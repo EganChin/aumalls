@@ -20,7 +20,7 @@ import java.util.Date;
 @RequestMapping("/useradmin")
 public class UserAdminController {
 
-    @Reference
+//    @Reference
     private IUserAdminService userAdminService;
 
     @RequestMapping("showAllUser")

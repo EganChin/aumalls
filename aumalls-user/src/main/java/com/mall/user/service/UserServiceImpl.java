@@ -3,7 +3,7 @@ package com.mall.user.service;
 import com.alibaba.dubbo.config.annotation.Service;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.mall.common.config.AuthConfig;
-import com.mall.common.domain.Admin;
+import com.mall.common.domain.Operator;
 import com.mall.common.domain.User;
 import com.mall.common.exception.RRException;
 import com.mall.common.form.user.LoginForm;
@@ -11,7 +11,6 @@ import com.mall.common.service.UserService;
 import com.mall.common.utils.HashUtils;
 import com.mall.common.utils.RedisWrapper;
 import com.mall.common.vo.user.LoginVO;
-import com.mall.user.dao.AdminDao;
 import com.mall.user.dao.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -31,8 +30,6 @@ public class UserServiceImpl implements UserService {
     @Resource
     private UserDao userDao;
 
-    @Resource
-    private AdminDao adminDao;
 
     @Autowired
     private AuthConfig configuration;
@@ -49,22 +46,24 @@ public class UserServiceImpl implements UserService {
 //		}
 
         QueryWrapper<User> ew = new QueryWrapper<User>()
-            .eq("user_pass",  form.getPassword())
+            .eq("user_pass", form.getPassword())
             .and(w -> w.eq("user_name", form.getAccount())
                 .or().eq("user_phone", form.getAccount()));
         User user = userDao.selectOne(ew);
 
         if (user != null) {
-                // 生成临时身份令牌
-                String token = HashUtils.md5Digest(form.getAccount() + System.currentTimeMillis());
-                redisWrapper.value().set(token, user, configuration.getTimeout());
+            if(user.getUserWhitetime() < System.currentTimeMillis())
+                throw new RRException("您已被禁止登录");
+            // 生成临时身份令牌
+            String token = HashUtils.md5Digest(form.getAccount() + System.currentTimeMillis());
+            redisWrapper.value().set(token, new Operator(user), configuration.getTimeout());
 
-                redisWrapper.addToken(user.getUserId(), token);
+            redisWrapper.addToken(user.getUserId(), token);
 
-                user.setUserAddress(String.valueOf(System.currentTimeMillis()));
-                userDao.updateById(user);
+            user.setUserAddress(String.valueOf(System.currentTimeMillis()));
+            userDao.updateById(user);
 
-                return new LoginVO(user, token);
+            return new LoginVO(user, token);
 
         }
 

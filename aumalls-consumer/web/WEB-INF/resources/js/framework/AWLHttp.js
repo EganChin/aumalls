@@ -108,6 +108,7 @@ var AWLHttp = (function () {
                     // AWLPage.redirectTo("/login.html");
                     AWLStorage.remove("user");
                     document.cookie = "token=xxx&expire=-10000";
+                    location.reload();
                     return;
                 }
                 if (message.code !== httpCode.success) {

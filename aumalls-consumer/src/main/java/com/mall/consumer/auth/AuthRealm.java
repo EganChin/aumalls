@@ -3,6 +3,7 @@ package com.mall.consumer.auth;
 
 import com.mall.common.auth.AuthToken;
 import com.mall.common.config.AuthConfig;
+import com.mall.common.domain.Operator;
 import com.mall.common.domain.User;
 import com.mall.common.exception.RRException;
 import com.mall.common.utils.RedisWrapper;
@@ -79,8 +80,8 @@ public class AuthRealm extends AuthorizingRealm {
         /*
          * 管理员在使用时，刷新令牌过期时间
          */
-        Object user = redisTemplate.opsForValue().get(accessToken);
-        if (user == null) {
+        Operator operator = (Operator) redisTemplate.opsForValue().get(accessToken);
+        if (operator == null) {
             //token过期
             throw new RRException("TOKEN过期", 401);
 //            request.getSession().setAttribute("status", 401);
@@ -88,6 +89,6 @@ public class AuthRealm extends AuthorizingRealm {
 
         redisTemplate.expire(accessToken, configuration.getTimeout().getSeconds(), TimeUnit.SECONDS);
 
-        return new SimpleAuthenticationInfo(user, accessToken, getName());
+        return new SimpleAuthenticationInfo(operator, accessToken, getName());
     }
 }
