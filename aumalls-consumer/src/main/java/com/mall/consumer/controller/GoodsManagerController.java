@@ -1,9 +1,6 @@
 package com.mall.consumer.controller;
 
-import com.alibaba.dubbo.common.json.JSONArray;
-import com.alibaba.dubbo.common.json.JSONObject;
 import com.alibaba.dubbo.config.annotation.Reference;
-import com.mall.common.domain.Goods;
 import com.mall.common.form.goods.ManagerGoodsForm;
 import com.mall.common.service.IGoodsManagerService;
 import com.mall.common.utils.R;
