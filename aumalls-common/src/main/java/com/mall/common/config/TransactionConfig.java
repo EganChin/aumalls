@@ -40,7 +40,7 @@ public class TransactionConfig {
         "remove*",
         "cancel*",
         "generate*",
-        "login",
+        "*Login",
         "close"
     };
 

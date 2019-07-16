@@ -1,27 +1,19 @@
-package com.mall.common.domain;
-
-
-import com.baomidou.mybatisplus.annotation.TableId;
+package com.mall.common.vo.user;
 
 import java.io.Serializable;
 
-public class User implements Serializable{
+/**
+ * Created by zzy on 2019/7/15.
+ */
+public class UserAdminVO implements Serializable{
 
-    @TableId
     private Integer userId;
     private String userName;
     private String userPass;
     private String userAddress;
     private String userPhone;
-    public Long userWhitetime;
 
-    public Long getUserWhitetime() {
-        return userWhitetime;
-    }
-
-    public void setUserWhitetime(Long userWhitetime) {
-        this.userWhitetime = userWhitetime;
-    }
+    private String userWhitetime;
 
     public Integer getUserId() {
         return userId;
@@ -31,7 +23,6 @@ public class User implements Serializable{
         this.userId = userId;
     }
 
-
     public String getUserName() {
         return userName;
     }
@@ -39,7 +30,6 @@ public class User implements Serializable{
     public void setUserName(String userName) {
         this.userName = userName;
     }
-
 
     public String getUserPass() {
         return userPass;
@@ -49,7 +39,6 @@ public class User implements Serializable{
         this.userPass = userPass;
     }
 
-
     public String getUserAddress() {
         return userAddress;
     }
@@ -57,7 +46,6 @@ public class User implements Serializable{
     public void setUserAddress(String userAddress) {
         this.userAddress = userAddress;
     }
-
 
     public String getUserPhone() {
         return userPhone;
@@ -67,15 +55,11 @@ public class User implements Serializable{
         this.userPhone = userPhone;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "userId=" + userId +
-                ", userName='" + userName + '\'' +
-                ", userPass='" + userPass + '\'' +
-                ", userAddress='" + userAddress + '\'' +
-                ", userPhone='" + userPhone + '\'' +
-                ", userWhitetime=" + userWhitetime +
-                '}';
+    public String getUserWhitetime() {
+        return userWhitetime;
+    }
+
+    public void setUserWhitetime(String userWhitetime) {
+        this.userWhitetime = userWhitetime;
     }
 }

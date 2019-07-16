@@ -72,13 +72,14 @@ public class AuthFilter extends AuthenticatingFilter {
         HttpServletRequest httpRequest = (HttpServletRequest) request;
         response.setContentType("application/json;charset=utf-8");
         try {
-//            Throwable throwable = e.getCause() == null ? e : e.getCause();
-//        httpRequest.getSession().setAttribute("status", 401);
-        httpResponse.sendRedirect("/?login-status=401");
-//            httpResponse.sendRedirect("index");
+            log.info("login failure:"+token);;
+            String redirect = httpRequest.getRequestURI();
+            if(redirect.contains("/manager"))
+                redirect += "&admin=true";
+            httpResponse.sendRedirect("/login?redirect=" + redirect);
             return false;
         } catch (IOException e1) {
-            log.info("user login failure");
+            log.info("user failure");
         }
 
         return true;

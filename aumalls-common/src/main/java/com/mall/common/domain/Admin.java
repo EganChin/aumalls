@@ -3,7 +3,9 @@ package com.mall.common.domain;
 
 import com.baomidou.mybatisplus.annotation.TableId;
 
-public class Admin {
+import java.io.Serializable;
+
+public class Admin implements Serializable {
 
     @TableId
     private Integer adminId;

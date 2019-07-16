@@ -2,6 +2,7 @@ package com.mall.chat.handler;
 
 import com.mall.chat.utils.SecurityUtils;
 import com.mall.common.domain.User;
+import com.mall.common.service.ChatLogService;
 import com.mall.common.utils.RedisWrapper;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandler;
@@ -25,9 +26,6 @@ import java.util.regex.Pattern;
 @ChannelHandler.Sharable
 public class WebSocketHandler extends SimpleChannelInboundHandler<TextWebSocketFrame> {
 
-    @Autowired
-    private RedisWrapper redisWrapper;
-
     private static Logger logger = LoggerFactory.getLogger(WebSocketHandler.class);
 
     @Override
@@ -49,7 +47,7 @@ public class WebSocketHandler extends SimpleChannelInboundHandler<TextWebSocketF
     protected void channelRead0(ChannelHandlerContext ctx, TextWebSocketFrame msg) throws Exception {
         Channel channel = ctx.channel();
 
-        if (!validate(channel, msg)) return;
+        if (!SecurityUtils.validate(channel, msg)) return;
 
         logger.info("客户端收到服务器数据：" + msg.text());
         sendAllMessage(msg.text());
@@ -60,26 +58,5 @@ public class WebSocketHandler extends SimpleChannelInboundHandler<TextWebSocketF
         WebSocketHandlerPool.channelGroup.writeAndFlush(new TextWebSocketFrame(message));
     }
 
-    private boolean validate(Channel channel, TextWebSocketFrame textWebSocketFrame) throws InterruptedException {
-        String token = getToken(textWebSocketFrame.text());
-        User user = null;
-        if (!StringUtils.isBlank(token))
-            user = (User) redisWrapper.value().get(token);
-        if (user == null) {
-            channel.writeAndFlush(new TextWebSocketFrame("(system)请先登录")).sync();
-            channel.close();
-            return false;
-        }
-        SecurityUtils.markAsLogin(channel);
 
-        return true;
-    }
-
-    private String getToken(String text) {
-        Pattern pattern = Pattern.compile("^\\(.{32}");
-        Matcher matcher = pattern.matcher(text);
-        if (matcher.find())
-            return matcher.group().replace("(", "");
-        return "";
-    }
 }

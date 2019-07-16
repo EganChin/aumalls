@@ -92,9 +92,6 @@ var managerGoods = (function () {
     }
 
 
-    /**
-     * 刷新页面
-     */
     var init = (function(){
         var pageName = util.param.page;
         if(pageName==="topage"){
@@ -102,4 +99,10 @@ var managerGoods = (function () {
             getGoodsE0();
         }
     })();
-})()
+
+    var inform = $('#chat-inform');
+    $('#chat-span').hover(function(e) {
+        console.log("hover");
+        inform.children().stop().slideToggle();
+    })
+})();

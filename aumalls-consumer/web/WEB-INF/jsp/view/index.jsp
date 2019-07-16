@@ -7,7 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <title>列表-澳猫团</title>
-    <link rel="stylesheet" href="resources/css/dialog.css">
+    <%--<link rel="stylesheet" href="resources/css/dialog.css">--%>
     <link rel="stylesheet" href="resources/css/chat.css">
     <!--<link rel="shortcut icon" href="favicon.ico">-->
     <link rel="stylesheet" href="resources/css/reset.css">
@@ -20,7 +20,7 @@
     <script src="resources/js/framework/AWLHttp.js"></script>
 </head>
 <body>
-<jsp:include page="login.jsp"/>
+<%--<jsp:include page="login.jsp"/>--%>
 <jsp:include page="chat.jsp"/>
 <jsp:include page="order.jsp"/>
 <header class="wrap-all">
@@ -39,10 +39,10 @@
                 <span>|</span>
                 <a target="_self" id="register">注册</a>
             </div>
-            <div class="phone">
-                <a href="#">
+            <div class="phone" id="logout-group" style="display:none">
+                <a href="javascript:void(0)" id="logout">
                     <em></em>
-                    <span>手机逛澳猫</span>
+                    <span>退出登录</span>
                 </a>
             </div>
         </div>
@@ -898,7 +898,7 @@
 <script src="resources/js/jquery.lazyload.min.js"></script>
 <script src="resources/js/base.js"></script>
 <script src="resources/js/controller/paging.js"></script>-->
-<script src="resources/js/controller/login.js"></script>
+<%--<script src="resources/js/controller/login.js"></script>--%>
 <script src="resources/js/controller/chat.js"></script>
 <script src="resources/js/controller/index.js"></script>
 

@@ -14,7 +14,8 @@ var roles = {
 
 };
 var httpAddress = {
-    "login": "user/login",
+    "userLogin": "user/login",
+    "adminLogin": "admin/login",
     "getSeniorGoodsTypeList": "goods/type/senior",
     "getGoodsPage": "goods/page",
 };

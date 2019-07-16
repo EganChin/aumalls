@@ -12,26 +12,80 @@
     margin-top: 50px;
     padding-bottom: 95px;
 }
+
 .list-box {
     background: #353535;
     padding-left: 12px;
     padding-right: 12px;
     padding-bottom: 90px;
 }
+
 .list-set {
     margin-top: 6px;
     background: #414141;
     color: #d5d5d5;
     font-size: 16px;
 }
-.context-container{
+
+.context-container {
     background: #f4f4f4;
 }
-.card-modify{
+
+.card-modify {
     display: inline-block;
     margin-top: 15px;
     margin-left: 60px;
 }
-.cardBody-modify{
+
+.cardBody-modify {
     text-align: center;
+}
+
+.all {
+    padding: 0;
+    list-style: none;
+    position: relative;
+    width: 250px;
+    /*     display: none; */
+}
+
+.all li {
+    width: 150px;
+    height: 50px;
+    /*     line-height:30px; */
+    text-align: left;
+    line-height: 50px;
+    float: left;
+    margin-right: 0px;
+    display: inline;
+    position: relative;
+    cursor: pointer;
+    border: 100px;
+    border-top: 1px solid grey;
+    font-size: 12px;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.all li:first-child {
+    border-top: none;
+}
+
+.all li h5 {
+    font-size: 12px;
+    float:left
+}
+
+.all ul {
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
+    /*margin-top: 500px;*/
+    position: absolute;
+    right: 180px;
+    top: 30px;
+    display: none;
+    border-radius:5px;
+    background-color: white;
+    border: 1px solid #363636;
+
 }
