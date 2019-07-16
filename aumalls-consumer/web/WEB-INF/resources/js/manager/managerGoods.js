@@ -101,6 +101,12 @@ var managerGoods = (function () {
     })();
 
     var inform = $('#chat-inform');
+
+    $("#logout").click(function () {
+        AWLStorage.setCookie("token", "token", "h-100");
+        AWLStorage.remove("user");
+        AWLPage.redirectTo("/");
+    })
     // $('#chat-cservicen').hover(function(e) {
     //     console.log("hover");
     //     inform.children().stop().slideToggle();

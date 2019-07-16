@@ -3,9 +3,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script language="JavaScript">
-        var isUser = false;
-    </script>
     <meta charset="UTF-8">
     <title>managerGoods</title>
     <link rel="stylesheet"
@@ -38,7 +35,7 @@
                     <a class="navigation-link" href="#"> </a>
                 </li>
                 <li class="nav-item">
-                    <a class="navigation-link" href="#">退出管理</a>
+                    <a class="navigation-link" href="javascript:void(0)" id="logout">退出管理</a>
                 </li>
             </ul>
         </div>

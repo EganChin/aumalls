@@ -42,6 +42,7 @@ $(function () {
                 AWLStorage.setCookie("token", vo.token, "d1");
                 closeDialog();
 
+                vo.isAdmin = isAdmin;
                 AWLStorage.save("user", vo);
 
                 closeDialog();

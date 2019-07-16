@@ -4,6 +4,7 @@ import com.mall.common.form.order.QueryOrdersForm;
 import com.mall.common.service.OrderService;
 import com.mall.common.utils.R;
 import jdk.nashorn.internal.ir.annotations.Reference;
+import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("order")
+@RequiresRoles("USER")
 public class OrderController extends  BaseController{
 
 //    @Reference

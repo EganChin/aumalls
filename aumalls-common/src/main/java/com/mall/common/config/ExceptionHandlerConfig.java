@@ -40,6 +40,7 @@ public class ExceptionHandlerConfig {
 
     @ExceptionHandler(AuthorizationException.class)
     public R handlerAuthorizationException() {
+        log.debug("无权限", AuthenticationException.class);
         return R.error(403, "无权限");
     }
 

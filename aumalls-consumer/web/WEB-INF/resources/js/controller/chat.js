@@ -1,6 +1,12 @@
 
+
+
 $(function () {
 
+    var operator = AWLStorage.get("user");
+    var isUser;
+    if(operator)
+        isUser = !operator.isAdmin;
     var userCss = "lis_lf";
     var adminCss = "lis_rt";
 
@@ -58,7 +64,7 @@ $(function () {
     };
 
     var appendSystemContent = function (msg) {
-        content.append("<div scro class=\"lis_md\"><p class=\"lis_txt\">" + msg + "</p></div>");
+        content.append("<div class=\"lis_md\"><p class=\"lis_txt\">" + msg + "</p></div>");
     };
 
     $("#link-cservice").click(function () {

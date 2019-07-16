@@ -4,6 +4,7 @@ import com.alibaba.dubbo.config.annotation.Reference;
 import com.mall.common.form.goods.ManagerGoodsForm;
 import com.mall.common.service.IGoodsManagerService;
 import com.mall.common.utils.R;
+import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -12,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping("manager")
+@RequiresRoles("ADMIN")
 public class GoodsManagerController {
 
     @Reference

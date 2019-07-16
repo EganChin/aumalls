@@ -5,9 +5,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script language="JavaScript">
-        var isUser = true;
-    </script>
     <meta charset="UTF-8">
     <title>列表-澳猫团</title>
     <%--<link rel="stylesheet" href="resources/css/dialog.css">--%>
@@ -672,11 +669,11 @@
                     <div class="price clearfix">
                         <h5>价格</h5>
                         <ul class="clearfix">
-                            <li><a href="#">0-199</a></li>
-                            <li><a href="#">200-399</a></li>
-                            <li><a href="#">400-599</a></li>
-                            <li><a href="#">600-799</a></li>
-                            <li><a href="#">800以上</a></li>
+                            <li><a href="/?maxPrice=199">0-199</a></li>
+                            <li><a href="/?maxPrice=399&minPrice=200">200-399</a></li>
+                            <li><a href="/?maxPrice=599&minPrice=400">400-599</a></li>
+                            <li><a href="/?maxPrice=799&minPrice=600">600-799</a></li>
+                            <li><a href="/?minPrice=800">800以上</a></li>
                         </ul>
                     </div>
                 </div>
