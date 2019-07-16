@@ -5,6 +5,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script language="JavaScript">
+        var isUser = true;
+    </script>
     <meta charset="UTF-8">
     <title>列表-澳猫团</title>
     <%--<link rel="stylesheet" href="resources/css/dialog.css">--%>

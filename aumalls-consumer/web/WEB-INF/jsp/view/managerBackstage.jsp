@@ -3,6 +3,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script language="JavaScript">
+        var isUser = false;
+    </script>
     <meta charset="UTF-8">
     <title>managerGoods</title>
     <link rel="stylesheet"
@@ -51,7 +54,7 @@
             </button>
             <button type="button" id="Popover9-toggle" aria-haspopup="true" aria-expanded="false"
                     aria-owns="Popover9-content" class="Button Messages-icon Button--plain">
-                <span id="chat-cservice" style="display: inline-flex; align-items: center;">&#8203;
+                <span id="link-cservice" style="display: inline-flex; align-items: center;">&#8203;
                 <svg class="Zi Zi--Comments"
                      fill="currentColor"
                      viewBox="0 0 24 24" width="22"
@@ -220,5 +223,6 @@
 </body>
 <script src="${pageContext.request.contextPath}/resources/js/controlDisplay.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/manager/managerGoods.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/controller/chat.js"></script>
 
 </html>
