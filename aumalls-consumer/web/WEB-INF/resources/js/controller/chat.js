@@ -137,5 +137,6 @@ $(function () {
         })
     };
 
-    getChatLog();
+    if(AWLStorage.get("user"))
+        getChatLog();
 });
