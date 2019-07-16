@@ -51,14 +51,21 @@ public class AuthFilter extends AuthenticatingFilter {
     protected boolean onAccessDenied(ServletRequest request, ServletResponse response) throws Exception {
         String token = getRequestToken((HttpServletRequest) request);
 
+        HttpServletRequest httpRequest = (HttpServletRequest) request;
         if (StringUtils.isBlank(token)) {
             HttpServletResponse httpResponse = (HttpServletResponse) response;
-            response.setContentType("application/json;charset=utf-8");
-            String json = new Gson().toJson(R.error(401, "invalid token"));
-            Writer writer = httpResponse.getWriter();
-            writer.write(json);
+//            response.setContentType("application/json;charset=utf-8");
+//            String json = new Gson().toJson(R.error(401, "invalid token"));
+//            Writer writer = httpResponse.getWriter();
+//            writer.write(json);
+//
+//            writer.close();
 
-            writer.close();
+            String redirect = httpRequest.getRequestURI();
+            if(redirect.contains("/manager"))
+                redirect += "&admin=true";
+            httpResponse.sendRedirect("/login?redirect=" + redirect);
+
             return false;
         }
 
