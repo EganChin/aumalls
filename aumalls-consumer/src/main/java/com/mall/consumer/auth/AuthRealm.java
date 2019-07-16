@@ -23,6 +23,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -38,7 +40,7 @@ public class AuthRealm extends AuthorizingRealm {
     private AuthConfig configuration;
 
     @Autowired
-    private RedisTemplate<String,Object> redisTemplate;
+    private RedisTemplate<String, Object> redisTemplate;
 
     @Autowired
     private HttpServletRequest request;
@@ -56,16 +58,12 @@ public class AuthRealm extends AuthorizingRealm {
      */
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
-//		User user = (User) principals.getPrimaryPrincipal();
-//		Set<String> roles = new HashSet<>();
-//		for (EnumRole value : EnumRole.values()) {
-//			if (user.getRoleId() == value.value()) {
-//				roles.add(value.toString());
-//			}
-//		}
+        Operator operator = (Operator) principals.getPrimaryPrincipal();
+        Set<String> roles = new HashSet<>();
+        roles.add(operator.isAdmin() ? "ADMIN" : "USER");
 
-		SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
-//		info.setRoles(roles);
+        SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
+        info.setRoles(roles);
 
         return info;
     }

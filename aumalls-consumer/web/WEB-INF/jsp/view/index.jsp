@@ -5,9 +5,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script language="JavaScript">
-        var isUser = true;
-    </script>
     <meta charset="UTF-8">
     <title>列表-澳猫团</title>
     <%--<link rel="stylesheet" href="resources/css/dialog.css">--%>
@@ -16,16 +13,17 @@
     <link rel="stylesheet" href="resources/css/reset.css">
     <link rel="stylesheet" href="resources/css/base.css">
     <link rel="stylesheet" href="resources/css/list.css">
+
     <base target="_blank">
 
     <script src="resources/js/framework/AWLCore.js"></script>
     <script src="resources/js/framework/AWLConst.js"></script>
     <script src="resources/js/framework/AWLHttp.js"></script>
+
 </head>
 <body>
 <%--<jsp:include page="login.jsp"/>--%>
 <jsp:include page="chat.jsp"/>
-<jsp:include page="order.jsp"/>
 <header class="wrap-all">
     <div class="head center_1200">
         <!-- 头部左边 -->
@@ -672,11 +670,11 @@
                     <div class="price clearfix">
                         <h5>价格</h5>
                         <ul class="clearfix">
-                            <li><a href="#">0-199</a></li>
-                            <li><a href="#">200-399</a></li>
-                            <li><a href="#">400-599</a></li>
-                            <li><a href="#">600-799</a></li>
-                            <li><a href="#">800以上</a></li>
+                            <li><a onclick="screenPrice(0,199,this)" id="price-0">0-199</a></li>
+                            <li><a onclick="screenPrice(200,399,this)" id="price-200">200-399</a></li>
+                            <li><a onclick="screenPrice(400,599,this)" id="price-400">400-599</a></li>
+                            <li><a onclick="screenPrice(600,799,this)" id="price-600">600-799</a></li>
+                            <li><a onclick="screenPrice(800,null,this)" id="price-800">800以上</a></li>
                         </ul>
                     </div>
                 </div>
@@ -900,6 +898,7 @@
 <script src="resources/js/jquery-1.7.2.min.js"></script>
 <script src="resources/js/jquery.lazyload.min.js"></script>
 <script src="resources/js/base.js"></script>
+<%--<script src="resources/js/index.js"></script>--%>
 <script src="resources/js/controller/paging.js"></script>-->
 <%--<script src="resources/js/controller/login.js"></script>--%>
 <script src="resources/js/controller/chat.js"></script>
@@ -915,16 +914,17 @@
                     success:function (result) {
                         num = parseInt(result.data.num)
                         $("#gouwuchenum").text(num)
-                        alert(num)
+                        // alert(num)
                     }
 
                 })
-            }else{
-                alert("请先进行登录")
             }
+            // else{
+            //     alert("请先进行登录")
+            // }
 
 
-        })
+        });
 
 
         $(".add").click(function () {
@@ -938,7 +938,7 @@
                 AWLHttp.post("shopcart/addTouserCart?goodsnum=1&goodsid=" + id,{}, {
                     success:function (result) {
 
-                        alert("添加成功！！！")
+                        console.log("添加成功！！！")
                         th.text(parseInt(old) + 1)
 
                     }
@@ -946,7 +946,7 @@
                 })
 
             }else{
-                alert("请先进行登录")
+                console.log("请先进行登录")
             }
     })
 
