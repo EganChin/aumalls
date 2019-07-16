@@ -48,11 +48,11 @@ public class GoodsManagerController {
 
     @RequestMapping("goodsE1")
     @ResponseBody
-    public R getGoodsStateE1(Map<String, Object> model,@RequestParam int pn, @RequestParam int ps){
+    public R getGoodsStateE1(@RequestParam int pn, @RequestParam int ps){
         ManagerGoodsForm query = new ManagerGoodsForm();
         query.setPn(pn);
         query.setPs(ps);
-        model.put("page",iGoodsManagerService.getGoodsByStateE1(query));
+        System.out.println("进入goodsE1"+query.getPs());
         return R.ok().put("page",iGoodsManagerService.getGoodsByStateE1(query));
     }
 
@@ -78,7 +78,7 @@ public class GoodsManagerController {
     @RequestMapping("ls")
     @ResponseBody
     public String lsGoods(@RequestParam int id){
-
+        iGoodsManagerService.updateGoodsStateTo0(id);
         return "下架成功";
     }
 

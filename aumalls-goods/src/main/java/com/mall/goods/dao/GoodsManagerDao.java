@@ -48,8 +48,13 @@ public interface GoodsManagerDao extends BaseMapper<Goods> {
      * 管理员查看已上架商品
      * @return
      */
-    @Select("SELECT * FROM goods WHERE 1 = goods.goods_state")
-    public List<Goods> getAllGoodsState1(Page page);
+    @Select("SELECT" +
+            "        goods.goods_id,goods.goods_name,goods.goods_price,goods.goods_num,goods.goods_type,goods_type.type_id,goods_type.type_name\n" +
+            "        FROM goods,goods_type\n" +
+            "        WHERE goods.goods_type = goods_type.type_id\n" +
+            "        and\n" +
+            "        1 = goods.goods_state")
+    public List<ApplyGoodsVO> getAllGoodsState1(Page page);
 
     /**
      * 查询注册用户数
