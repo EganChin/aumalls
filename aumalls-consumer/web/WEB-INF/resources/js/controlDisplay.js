@@ -20,9 +20,9 @@ function managerSystemDisplay() {
 }
 (function () {
     $(".controlDisplay").hide()
-})()
-$(function () {
     $("#managerHomePage").show()
+})();
+$(function () {
     $("#list1").click(function () {
         homepageDisplay()
     })
