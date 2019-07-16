@@ -11,6 +11,7 @@
     <script src="${pageContext.request.contextPath}/resources/bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/adminnistrators.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/manager.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/list.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/chat.css">
     <script src="${pageContext.request.contextPath}/resources/js/framework/AWLCore.js"></script>
     <script src="${pageContext.request.contextPath}/resources/js/framework/AWLConst.js"></script>

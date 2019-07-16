@@ -48,7 +48,7 @@ public class GoodsManagerController {
     @ResponseBody
     public String deleteGoods(@RequestParam int id){
         iGoodsManagerService.deleteGoodsById(id);
-        return "update success";
+        return "delete success";
     }
 
     @RequestMapping("/")
