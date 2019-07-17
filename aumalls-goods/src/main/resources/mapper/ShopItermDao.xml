@@ -17,14 +17,13 @@
         SELECT
             g.goods_name AS goodsName,
             s.item_goods AS goodsId,
-            gi.img_goods AS goodsImgPath,
+            g.goods_img AS goodsImgPath,
             s.item_id AS itermId,
             s.item_price AS goodsTotalPrice,
             s.item_num AS goodsNum,
             g.goods_price AS goodsPrice
         FROM
             goods g
-        LEFT JOIN goods_img gi ON gi.img_goods = g.goods_id
-        INNER JOIN shopitem s ON s.item_goods = g.goods_id where s.item_user = #{userId}
+        right JOIN shopitem s ON s.item_goods = g.goods_id where s.item_user = #{userId}
     </select>
 </mapper>

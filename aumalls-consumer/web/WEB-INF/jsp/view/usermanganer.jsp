@@ -7,16 +7,16 @@
 <head>
     <meta charset="UTF-8">
     <title>managerGoods</title>
-    <link rel="stylesheet" href="../../resources/css/list.css">
+    <link rel="stylesheet" href="/resources/css/list.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/bootstrap-4.3.1-dist/css/bootstrap.min.css">
     <script src="${pageContext.request.contextPath}/resources/js/jquery-1.7.2.min.js"></script>
     <script src="${pageContext.request.contextPath}/resources/bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/adminnistrators.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/manager.css">
 
-    <script src="../../resources/js/framework/AWLCore.js"></script>
-    <script src="../../resources/js/framework/AWLConst.js"></script>
-    <script src="../../resources/js/framework/AWLHttp.js"></script>
+    <script src="/resources/js/framework/AWLCore.js"></script>
+    <script src="/resources/js/framework/AWLConst.js"></script>
+    <script src="/resources/js/framework/AWLHttp.js"></script>
 
 </head>
 <body>
@@ -124,30 +124,20 @@
 
     userPageBtn(${data.ps}, ${data.total})
 
-
-
     $(".usertime").change(function () {
 
         var t = $(this).val();
         var id = $(this).parent().attr("data_obj")
+
         if(confirm("是否修改用户显示登录限制时间")){
-            $.ajax({
-                url:"/useradmin/updataUserWhitetime",
-                type:"POST",
-                data:{userid:id,time: t},
+            AWLHttp.post(httpAddress.updataUserWhitetime, {userid:id,time: t}, {
                 success:function(result){
                     if(result.code == 200){
                         alert("修改成功！")
                     }
                 }
-            });
-
-
-
+            })
         }
-
-
-
     })
 
 
