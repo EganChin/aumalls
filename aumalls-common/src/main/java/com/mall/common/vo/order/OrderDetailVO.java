@@ -24,7 +24,17 @@ public class OrderDetailVO implements Serializable {
     private double orderPrice;
     private Timestamp orderTime;
 
-    List<OrderDetail> orderDetails;
+    List<OrderGoodsVO> orderDetails;
+
+    public List<OrderGoodsVO> getOrderDetails() {
+        return orderDetails;
+    }
+
+    public void setOrderDetails(List<OrderGoodsVO> orderDetails) {
+        this.orderDetails = orderDetails;
+    }
+
+
 
 
     public void setOrder(Order order){
@@ -110,13 +120,7 @@ public class OrderDetailVO implements Serializable {
         this.orderTime = orderTime;
     }
 
-    public List<OrderDetail> getOrderDetails() {
-        return orderDetails;
-    }
 
-    public void setOrderDetails(List<OrderDetail> orderDetails) {
-        this.orderDetails = orderDetails;
-    }
 
     @Override
     public String toString() {

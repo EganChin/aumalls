@@ -21,6 +21,7 @@ var httpAddress = {
     "orderDetail":"order/orderDetail",
     "ordersPage":"order/ordersPage",
     "order":"order/order",
+    "orderSum":"order/orderSum",
     "chatLogDetail": "chat/detail",
     "flushCartIterm":"shopcart/flushCartIterm",
     "updataCartNum":"shopcart/updataCartNum",

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author 10653
@@ -22,7 +23,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping("order")
-@RequiresRoles("ADMIN")
+@RequiresRoles("USER")
 public class OrderController extends  BaseController{
 
     @Reference
@@ -40,24 +41,34 @@ public class OrderController extends  BaseController{
         ValidatorUtils.validate(form);
 
         int userId=getUser().getUserId();
-        System.out.println("订单查询————用户id为:"+userId);
+        //System.out.println("订单查询————用户id为:"+userId);
         PageWrapper pw=orderService.getOrdersByUserId(userId,form);
         List<OrderVO> list=pw.getList();
-        for (int i = 0; i <list.size() ; i++) {
+        /*for (int i = 0; i <list.size() ; i++) {
             System.out.println("----第"+(i+1)+"个订单----");
             System.out.println(list.get(i).toString());
-        }
+        }*/
         return R.ok().put("page", pw);
     }
 
-    @ResponseBody
     @RequestMapping("orderDetail")
-    public R getOrderDetail(@RequestParam("orderId")String orderId){
+    public String  getOrderDetail(Map<String, Object> model,@RequestParam("orderId")String orderId){
 
         OrderDetailVO orderDetailVO = orderService.getOrderDetail(orderId);
 
-        System.out.println("获取对象结果：\t"+orderDetailVO);
+        //System.out.println("获取对象结果：\t"+orderDetailVO);
 
-        return R.ok().put("orderDetail",orderDetailVO);
+        model.put("orderDetail",orderDetailVO);
+
+        return "orderDetail";
+    }
+
+    @ResponseBody
+    @RequestMapping("orderSum")
+    public R getOrderSum(@RequestParam("status")int status){
+        int userId=getUser().getUserId();
+        int orderSum=orderService.getOrderSum(userId,status);
+        System.out.println("订单数为："+orderSum);
+        return R.ok().put("orderSum",orderSum);
     }
 }

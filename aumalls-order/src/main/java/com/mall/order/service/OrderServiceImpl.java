@@ -9,6 +9,7 @@ import com.mall.common.domain.OrderStatus;
 import com.mall.common.form.order.QueryOrdersForm;
 import com.mall.common.utils.PageWrapper;
 import com.mall.common.vo.order.OrderDetailVO;
+import com.mall.common.vo.order.OrderGoodsVO;
 import com.mall.common.vo.order.OrderVO;
 import com.mall.order.dao.OrderDao;
 
@@ -47,6 +48,13 @@ public class OrderServiceImpl implements com.mall.common.service.OrderService {
 
         List<OrderVO> orderList=orderDao.selectOrderPage(page,orderWrapper);
 
+        for (int i = 0; i <orderList.size() ; i++) {
+            QueryWrapper<OrderGoodsVO> OGWrapper = new QueryWrapper<>();
+            OGWrapper.eq("order_detail.detail_order",orderList.get(i).getOrderId());
+            String orderImg=orderDao.selectImgByOrderId(OGWrapper).getGoodsImg();
+            orderList.get(i).setGoodsImg(orderImg);
+        }
+
         return new PageWrapper<>(page,orderList);
     }
 
@@ -66,12 +74,12 @@ public class OrderServiceImpl implements com.mall.common.service.OrderService {
             ODWrapper.eq("detail_order", orderId);
             ORWrapper.eq("order_status_id", order.getOrderStatus());
 
-            List<OrderDetail> orderDetails = orderDao.selectODByOrderId(ODWrapper);
+            List<OrderGoodsVO> orderGoodsVOS = orderDao.selectODByOrderId(ODWrapper);
             OrderStatus orderStatus = orderDao.selectStatusName(ORWrapper);
 
             orderDetailVO.setOrder(order);
             orderDetailVO.setOrderStatusName(orderStatus.getOrderStatusName());
-            orderDetailVO.setOrderDetails(orderDetails);
+            orderDetailVO.setOrderDetails(orderGoodsVOS);
         }
 
         return orderDetailVO;
@@ -85,5 +93,15 @@ public class OrderServiceImpl implements com.mall.common.service.OrderService {
     @Override
     public List<OrderVO> getAllOrders() {
         return orderDao.selectAllOrders();
+    }
+
+    @Override
+    public int getOrderSum(int userId,int status) {
+        QueryWrapper<Order> orderWrapper=new QueryWrapper<>();
+        orderWrapper.eq("order_user",userId);
+        if(status!=0){
+            orderWrapper.eq("order_status",status);
+        }
+        return orderDao.selectOrderSum(orderWrapper);
     }
 }
