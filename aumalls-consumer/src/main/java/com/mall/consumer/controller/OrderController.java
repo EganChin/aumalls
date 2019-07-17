@@ -23,7 +23,7 @@ import java.util.List;
 @RequestMapping("order")
 public class OrderController extends  BaseController{
 
-    @Reference
+//    @Reference
     private OrderService orderService;
 
     @RequestMapping("order")
