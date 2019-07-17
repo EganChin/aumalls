@@ -25,7 +25,8 @@ public interface UserService {
     User findUserByName(String user_name);
     int addUser(User user);
     int modifyUserinfo(User user);
+    void modifyUserPass(User user);
     void deleteUserinfo(int user_id);
     List<User> findUserByUserId(int user_id);
-    List<User> getUserList();
+    List<User> selectAll();
 }
