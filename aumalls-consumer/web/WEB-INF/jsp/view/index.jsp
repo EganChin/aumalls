@@ -19,6 +19,7 @@
     <script src="resources/js/framework/AWLCore.js"></script>
     <script src="resources/js/framework/AWLConst.js"></script>
     <script src="resources/js/framework/AWLHttp.js"></script>
+    <script src="resources/js/controller/index.js"></script>
 
 </head>
 <body>
@@ -902,7 +903,7 @@
 <script src="resources/js/controller/paging.js"></script>-->
 <%--<script src="resources/js/controller/login.js"></script>--%>
 <script src="resources/js/controller/chat.js"></script>
-<script src="resources/js/controller/index.js"></script>
+
 
 <script>
     addPageBtn(${goodsPage.ps}, ${goodsPage.total})

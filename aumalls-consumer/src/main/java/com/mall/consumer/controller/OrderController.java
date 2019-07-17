@@ -25,7 +25,7 @@ import java.util.List;
 @RequiresRoles("ADMIN")
 public class OrderController extends  BaseController{
 
-//    @Reference
+    @Reference
     private OrderService orderService;
 
     @RequestMapping("order")

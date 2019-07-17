@@ -214,8 +214,8 @@
 </body>
 <script src="${pageContext.request.contextPath}/resources/js/controlDisplay.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/manager/managerGoods.js"></script>
-<script src="${pageContext.request.contextPath}/resources/js/manager/goodsManager.js">
-</script>
+<script src="${pageContext.request.contextPath}/resources/js/manager/goodsManager.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/controller/chat.js"></script>
 <script>
 
     $("#list2").click(function () {
