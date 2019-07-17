@@ -19,7 +19,7 @@
     <script src="resources/js/framework/AWLCore.js"></script>
     <script src="resources/js/framework/AWLConst.js"></script>
     <script src="resources/js/framework/AWLHttp.js"></script>
-    <script src="resources/js/controller/index.js"></script>
+
 
 </head>
 <body>
@@ -898,6 +898,7 @@
 </footer>
 <script src="resources/js/jquery-1.7.2.min.js"></script>
 <script src="resources/js/jquery.lazyload.min.js"></script>
+<script src="resources/js/controller/index.js"></script>
 <script src="resources/js/base.js"></script>
 <%--<script src="resources/js/index.js"></script>--%>
 <script src="resources/js/controller/paging.js"></script>-->

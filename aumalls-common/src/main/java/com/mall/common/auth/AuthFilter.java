@@ -100,7 +100,7 @@ public class AuthFilter extends AuthenticatingFilter {
             return Arrays.stream(request.getCookies())
                 .collect(Collectors.toMap(Cookie::getName, Cookie::getValue))
                 .get("token");
-        }catch (NullPointerException e){
+        }catch (Exception e){
             log.warn("a request from unknown browser without cookie.");
             return null;
         }
