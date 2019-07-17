@@ -14,11 +14,12 @@ var roles = {
 
 };
 var httpAddress = {
-    "userLogin": "user/login",
-    "adminLogin": "admin/login",
+    "login": "user/login",
     "getSeniorGoodsTypeList": "goods/type/senior",
     "getGoodsPage": "goods/page",
-    "chatLogDetail": "chat/detail"
+    "orderDetail":"order/orderDetail",
+    "ordersPage":"order/ordersPage",
+    "order":"order/order",
 };
 (function () {
     for (var objSub in httpAddress) {

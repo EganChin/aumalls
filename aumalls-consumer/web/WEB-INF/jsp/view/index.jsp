@@ -13,16 +13,17 @@
     <link rel="stylesheet" href="resources/css/reset.css">
     <link rel="stylesheet" href="resources/css/base.css">
     <link rel="stylesheet" href="resources/css/list.css">
+
     <base target="_blank">
 
     <script src="resources/js/framework/AWLCore.js"></script>
     <script src="resources/js/framework/AWLConst.js"></script>
     <script src="resources/js/framework/AWLHttp.js"></script>
+
 </head>
 <body>
 <%--<jsp:include page="login.jsp"/>--%>
 <jsp:include page="chat.jsp"/>
-<jsp:include page="order.jsp"/>
 <header class="wrap-all">
     <div class="head center_1200">
         <!-- 头部左边 -->

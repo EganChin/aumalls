@@ -32,10 +32,11 @@ public class GoodsManagerServiceImpl implements IGoodsManagerService {
     }
 
     @Override
-    public List<Goods> getGoodsByStateE1(ManagerGoodsForm query) {
-        QueryWrapper<Goods> queryWrapper=new QueryWrapper();
-        queryWrapper.eq("goods_state",1);
-        return goodsManagerDao.selectList(queryWrapper);
+    public PageWrapper<ApplyGoodsVO> getGoodsByStateE1(ManagerGoodsForm query) {
+        Page page = new Page(query.getPn(),query.getPs());
+        List<ApplyGoodsVO> goods = new ArrayList<>();
+        goods = goodsManagerDao.getAllGoodsState1(page);
+        return new PageWrapper<>(page,goods);
     }
 
     @Override
@@ -44,9 +45,9 @@ public class GoodsManagerServiceImpl implements IGoodsManagerService {
     }
 
     @Override
-    public int updateGoodsStateTo0(List ids) {
+    public int updateGoodsStateTo0(Integer id) {
 
-        return goodsManagerDao.updateGoodsStateTo0(ids);
+        return goodsManagerDao.updateGoodsStateTo0(id);
     }
 
     @Override
