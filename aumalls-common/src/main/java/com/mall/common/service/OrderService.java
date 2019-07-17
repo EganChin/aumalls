@@ -11,7 +11,7 @@ import java.util.List;
 
 /**
  * @author 10653
- * @date 2019/7/11
+ * @date 2019/7/17
  */
 public interface OrderService {
 
@@ -43,5 +43,7 @@ public interface OrderService {
      * @return List<OrderVO>
      */
     List<OrderVO> getAllOrders();
+
+    int getOrderSum(int userId,int status);
 
 }
