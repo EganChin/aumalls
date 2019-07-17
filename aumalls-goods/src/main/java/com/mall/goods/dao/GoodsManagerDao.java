@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.mall.common.domain.Goods;
 import com.mall.common.vo.goods.ApplyGoodsVO;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 
@@ -67,4 +68,12 @@ public interface GoodsManagerDao extends BaseMapper<Goods> {
      * @param id
      */
     public void deleteGoods(int id);
+
+    /**
+     * 根据商品id获取指定的商品信息
+     * @param id
+     * @return
+     */
+    @Select("select * from goods where goods_id = #{id,jdbcType=INTEGER}")
+    public List<Goods> getGoodsInfoById(@Param("id") int id);
 }
