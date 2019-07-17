@@ -4,7 +4,7 @@
  * date: 2019/5/23 10:00
  * by: 陈奕铠
  */
-var serverURL = "http://localhost/";
+var serverURL = "http://" + location.hostname +"/";
 var httpCode = {
     "error": 500,
     "success": 200,
@@ -29,7 +29,8 @@ var httpAddress = {
     "flushCartIterm":"shopcart/flushCartIterm",
     "addTouserCart":"shopcart/addTouserCart",
     "getUserItermNum":"shopcart/getUserItermNum",
-    "updataUserWhitetime":"/useradmin/updataUserWhitetime"
+    "updataUserWhitetime":"useradmin/updataUserWhitetime",
+    "showAllUser":"useradmin/showAllUser"
 };
 (function () {
     for (var objSub in httpAddress) {

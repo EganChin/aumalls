@@ -65,4 +65,10 @@ public class GoodsManagerServiceImpl implements IGoodsManagerService {
         goodsManagerDao.deleteGoods(id);
     }
 
+    @CacheEvict(value = "goods-cache", allEntries = true)
+    @Override
+    public List<Goods> getGoodsInfoById(int id) {
+        return goodsManagerDao.getGoodsInfoById(id);
+    }
+
 }

@@ -31,6 +31,8 @@ public class ShiroConfig {
             "/images",
             "/useradmin/**",
             "/user/login",
+            "/register",
+            "/toRegister/**",
             "/admin/login",
             "/login",
             "/**/*.ico",

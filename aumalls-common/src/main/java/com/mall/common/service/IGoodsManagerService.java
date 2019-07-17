@@ -49,4 +49,11 @@ public interface IGoodsManagerService {
      * @param id
      */
     void deleteGoodsById(int id);
+
+    /**
+     * 根据商品id获取指定的商品信息
+     * @param id
+     * @return
+     */
+    List<Goods> getGoodsInfoById(int id);
 }

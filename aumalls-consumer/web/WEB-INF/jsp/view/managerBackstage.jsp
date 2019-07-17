@@ -85,7 +85,7 @@
         <div class="list-group list-box">
             <a id="list1" href="#" class="list-group-item list-group-item-dark list-set"
                style="margin-top: 25px">系统首页</a>
-            <a id="list2" href="#" class="list-group-item list-group-item-dark list-set">用户管理</a>
+            <a id="list2"  class="list-group-item list-group-item-dark list-set">用户管理</a>
             <a id="list3" href="#" class="list-group-item list-group-item-dark list-set">商品管理</a>
             <a id="list4" href="#" class="list-group-item list-group-item-dark list-set">订单管理</a>
             <a id="list5" href="#" class="list-group-item list-group-item-dark list-set">发布公告</a>
@@ -109,37 +109,37 @@
                 <div id="systemManager" class="card-body cardBody-modify">系统管理</div>
             </div>
             <div>
-                <div class="system-info col-3">
-                    <label class="system-item1">系统现状</label>
-                    <div class="system-div">
-                        <span class="system-item2">注册用户数:</span>
-                        <span>${userNumber}</span>
-                    </div>
-                    <div class="system-div">
-                        <span class="system-item2">注册店铺数:</span>
-                        <span>3</span>
-                    </div>
+                <div class="" style="margin-top: 50px">
+                    <label>系统现状</label>
+                    <table class="table table-striped">
+                        <tbody>
+                            <tr>
+                                <td>注册用户数</td>
+                                <td>${userNumber}</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
-                <div class="system-info col-3">
-                    <label class="system-item1">系统运营</label>
-                    <div class="system-div">
-                        <span class="system-item2">系统运营时长:</span>
-                        <span>50</span>
-                    </div>
-                    <div class="system-div">
-                        <span class="system-item2">系统运营时长:</span>
-                        <span>50</span>
-                    </div>
-                </div>
-                <div class="system-info col-4">
-                    <label class="system-item1">系统管理员</label>
-                    <div class="system-div">
-                        <span class="system-item2">昵称:</span>
-                        <span>李大拿</span>
-                        <span class="system-item2" style="margin-left: 20px">角色:</span>
-                        <span>李大拿</span>
-                    </div>
-                </div>
+<%--                <div class="system-info col-3">--%>
+<%--                    <label class="system-item1">系统运营</label>--%>
+<%--                    <div class="system-div">--%>
+<%--                        <span class="system-item2">系统运营时长:</span>--%>
+<%--                        <span>50</span>--%>
+<%--                    </div>--%>
+<%--                    <div class="system-div">--%>
+<%--                        <span class="system-item2">系统运营时长:</span>--%>
+<%--                        <span>50</span>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--                <div class="system-info col-4">--%>
+<%--                    <label class="system-item1">系统管理员</label>--%>
+<%--                    <div class="system-div">--%>
+<%--                        <span class="system-item2">昵称:</span>--%>
+<%--                        <span>李大拿</span>--%>
+<%--                        <span class="system-item2" style="margin-left: 20px">角色:</span>--%>
+<%--                        <span>李大拿</span>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
             </div>
         </div>
         <div id="managerGoods" class="context-container controlDisplay">
@@ -185,11 +185,11 @@
                     <div id="menu1" class="container tab-pane GoodsPageController"
                          style="padding: 0;width: 100%;position: static"><br>
                         <span>商品管理</span>
-                        <div class="change" id="menulPn">
+                        <div class="change GoodsPageControllerM" id="menulPn">
                             <span class="left" id="menu1Left">&lt;</span>
                             <span class="right" id="menu1Right">&gt;</span>
                         </div>
-                        <table class="table table-striped">
+                        <table id="tableSH" class="table table-striped GoodsPageControllerM">
                             <thead>
                             <tr>
                                 <th>商品名</th>
@@ -198,10 +198,13 @@
                                 <th>商品类型</th>
                             </tr>
                             </thead>
-                            <tbody id="goods-manager">
+                            <tbody id="goods-manager" class="GoodsPageControllerM">
                             <!--动态生成-->
                             </tbody>
                         </table>
+                        <div id="clickView" class="GoodsPageControllerM" style="text-align: center;margin-top: 18px">
+
+                        </div>
                     </div>
                     <div id="menul2" class="container tab-pane fade containerGoodsPageController"
                          style="padding: 0;width: 100%;position: static"><br>
@@ -215,4 +218,12 @@
 <script src="${pageContext.request.contextPath}/resources/js/controlDisplay.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/manager/managerGoods.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/manager/goodsManager.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/controller/chat.js"></script>
+<script>
+
+    $("#list2").click(function () {
+        alert("jinru")
+        window.open(httpAddress.showAllUser + "?pagenum=1");
+    })
+</script>
 </html>

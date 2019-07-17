@@ -23,4 +23,20 @@
     <delete id="deleteGoods" parameterType="java.lang.Integer">
         delete from goods where goods_id=#{id,jdbcType=INTEGER}
     </delete>
+<!--    <select id="getGoodsInfoById" parameterType="java.lang.Integer" resultType="com.mall.common.vo.goods.ApplyGoodsVO">-->
+<!--        SELECT-->
+<!--goods.goods_name,-->
+<!--goods.goods_price,-->
+<!--goods.goods_num,-->
+<!--goods.goods_img,-->
+<!--goods.goods_type,-->
+<!--goods.goods_state,-->
+<!--goods_type.type_name-->
+<!--FROM-->
+<!--goods ,-->
+<!--goods_type-->
+<!--WHERE-->
+<!--goods.goods_type = goods_type.type_id AND-->
+<!--goods.goods_id = #{id,jdbcType=INTEGER}-->
+<!--    </select>-->
 </mapper>

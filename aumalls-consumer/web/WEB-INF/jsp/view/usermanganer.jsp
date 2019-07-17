@@ -130,7 +130,7 @@
         var id = $(this).parent().attr("data_obj")
 
         if(confirm("是否修改用户显示登录限制时间")){
-            AWLHttp.post(httpAddress.updataUserWhitetime, {userid:id,time: t}, {
+            AWLHttp.post(httpAddress.updataUserWhitetime + "?userid=" +id + "&time="+ t, {}, {
                 success:function(result){
                     if(result.code == 200){
                         alert("修改成功！")
