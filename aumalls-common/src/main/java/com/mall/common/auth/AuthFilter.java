@@ -96,8 +96,14 @@ public class AuthFilter extends AuthenticatingFilter {
      * 获取请求中的token
      */
     private String getRequestToken(HttpServletRequest request) {
-        return Arrays.stream(request.getCookies())
-            .collect(Collectors.toMap(Cookie::getName, Cookie::getValue))
-            .get("token");
+        try{
+            return Arrays.stream(request.getCookies())
+                .collect(Collectors.toMap(Cookie::getName, Cookie::getValue))
+                .get("token");
+        }catch (NullPointerException e){
+            log.warn("a request from unknown browser without cookie.");
+            return null;
+        }
+
     }
 }
