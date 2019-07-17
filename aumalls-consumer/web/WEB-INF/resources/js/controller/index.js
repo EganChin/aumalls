@@ -2,7 +2,7 @@ $(function () {
 
     $("#order").click(function () {
         AWLPage.redirectTo("order/order");
-    })
+    });
 
     var loginStatus = function (username) {
         $("#user-group").css("display", "none");
@@ -22,8 +22,13 @@ $(function () {
 
     var user = AWLStorage.get("user");
 
-    if (user)
+    if (user){
+        if(user.isAdmin){
+            AWLPage.redirectTo("manager/");
+            return;
+        }
         loginStatus(user.userName);
+    }
 
     $("#login").click(function () {
         toLogin();

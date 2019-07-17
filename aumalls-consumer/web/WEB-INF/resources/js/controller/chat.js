@@ -1,11 +1,8 @@
-
-
-
 $(function () {
 
     var operator = AWLStorage.get("user");
     var isUser;
-    if(operator)
+    if (operator)
         isUser = !operator.isAdmin;
     var userCss = "lis_lf";
     var adminCss = "lis_rt";
@@ -82,8 +79,7 @@ $(function () {
         }
 
 
-
-        ws = new WebSocket("ws://127.0.0.1:8900/ws");
+        ws = new WebSocket("ws://" + location.hostname + ":8900/ws");
 
         ws.onmessage = function (event) {
             var pattern = /^\(.*\)\(.*\)\(.*\)/g;
@@ -122,11 +118,11 @@ $(function () {
         };
     });
 
-    var getChatLog = function(){
+    var getChatLog = function () {
         AWLHttp.get(httpAddress.chatLogDetail, {}, {
-            success:function (response) {
-                var list  = response.data.vo;
-                for(var i=0; i<list.length; i++){
+            success: function (response) {
+                var list = response.data.vo;
+                for (var i = 0; i < list.length; i++) {
                     var pattern = /^\(.*\)\(.*\)\(.*\)/g;
                     var rawMsg = list[i].content;
                     console.log("接收数据：" + rawMsg);
@@ -143,6 +139,6 @@ $(function () {
         })
     };
 
-    if(AWLStorage.get("user"))
+    if (AWLStorage.get("user"))
         getChatLog();
 });
