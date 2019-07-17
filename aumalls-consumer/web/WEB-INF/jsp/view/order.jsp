@@ -6,7 +6,6 @@
     <meta charset="UTF-8">
     <title>order</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/bootstrap-4.3.1-dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/base.css">
     <script src="${pageContext.request.contextPath}/resources/js/framework/AWLCore.js"></script>
     <script src="${pageContext.request.contextPath}/resources/js/framework/AWLConst.js"></script>
     <script src="${pageContext.request.contextPath}/resources/js/framework/AWLHttp.js"></script>
@@ -17,22 +16,12 @@
 </head>
 <body>
 
+<nav class="navbar navbar-dark bg-primary" style="background-color: #e3f2fd;">
+    <a class="navbar-brand " href="#" id="myOrder"><h1>我的订单</h1></a>
+    <a class="navbar-brand" href="#" id="backToIndex"><h6>返回首页</h6></a>
+</nav>
 
 <div class="container" id="order-page">
-
-    <header class="wrap-all" style="margin-bottom: 20px">
-        <div class="head border-top border-bottom container-fluid">
-            <!-- 头部左边 -->
-            <div class="headLeft">
-                <div class="hello">
-                    <a href="#">
-                        <em></em>
-                        <span>澳猫首页</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </header>
 
     <div class="row" id="status-nav">
         <ul class="nav nav-tabs" role="tablist">
