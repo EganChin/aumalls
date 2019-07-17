@@ -30,6 +30,7 @@ public class GoodsManagerController {
     public ModelAndView toManager(ManagerGoodsForm query){
         //创建一个模型视图对象
         ModelAndView mav = new ModelAndView();
+        mav.addObject("userNumber",iGoodsManagerService.getUserCount());
         mav.setViewName("managerBackstage");
         return mav;
     }
@@ -40,9 +41,6 @@ public class GoodsManagerController {
         ManagerGoodsForm query = new ManagerGoodsForm();
         query.setPn(pn);
         query.setPs(ps);
-        System.out.println("pn:"+query.getPn());
-        System.out.println("ps:"+query.getPs());
-        System.out.println("跳转至goodsE0");
         //获取查询的数据
 
         return R.ok().put("page", iGoodsManagerService.getGoodsByStateE0(query));
@@ -54,7 +52,6 @@ public class GoodsManagerController {
         ManagerGoodsForm query = new ManagerGoodsForm();
         query.setPn(pn);
         query.setPs(ps);
-        System.out.println("进入goodsE1"+query.getPs());
         return R.ok().put("page",iGoodsManagerService.getGoodsByStateE1(query));
     }
 
@@ -83,5 +80,9 @@ public class GoodsManagerController {
         iGoodsManagerService.updateGoodsStateTo0(id);
         return "下架成功";
     }
-
+    @RequestMapping("queryGoods")
+    @ResponseBody
+    public R getGoodsInfoById(@RequestParam int id){
+        return R.ok().put("goods",iGoodsManagerService.getGoodsInfoById(id));
+    }
 }
