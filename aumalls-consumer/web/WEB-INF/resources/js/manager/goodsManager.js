@@ -1,19 +1,29 @@
-var managerGoods = (function () {
-    var pn = parseInt(util.param.pn ? util.param.pn : 1);
-    var ps = parseInt(util.param.ps ? util.param.ps : 5);
+var goodsManager = (function () {
     var flag = 0;
-    // list3为商品
-    $("#list3").click(function () {
-        if (flag === 0) {
-            getGoodsE0()
+    $("#menu1Manager").click(function () {
+        $(".GoodsPageController").hide();
+        if(flag===0){
+            getGoodsE1();
         }
+        $("#menu1").show();
     });
     $("#homeManager").click(function () {
-        location.href="?page=topage&ps="+5+"&pn="+1;
+        $(".GoodsPageController").hide();
+        $("#home").show();
     });
-    function getGoodsE0() {
+    $("#testManager").click(function () {
+        $(".GoodsPageController").hide();
+        $("#menul2").show();
+    });
+
+    var pn = parseInt(util.param.pn ? util.param.pn : 1);
+    var ps = parseInt(util.param.ps ? util.param.ps : 5);
+
+
+
+    function getGoodsE1() {
         $.ajax({
-            url: "../manager/goodsE0",
+            url: "../manager/goodsE1",
             type: "GET",
             dataType: "json",
             data: {"pn": pn, "ps": ps},
@@ -22,7 +32,7 @@ var managerGoods = (function () {
                 flag = 1;
                 //获取当前页数据（记录）
                 var GoodsList = msg.data.page.list;
-                var rightButton = $("#right");
+                var menu1LefButton = $("#menu1Right");
                 //获取总记录数
                 var total = parseInt(msg.data.page.total);
                 //分页功能
@@ -45,7 +55,7 @@ var managerGoods = (function () {
                 var pageRange = pageUtil.getPageRange();
                 for (i = pageRange.start; i <= pageRange.end; i++) {
                     var cls = i === current ? "\"active\"" : "\"page\"";
-                    rightButton.before("<span class=" + cls + "><a href='/manager/?page=topage&pn=" + i + "&ps=" + ps + "' target=\"_self\" class='page-link'> " + i + "</a></span>");
+                    menu1LefButton.before("<span class=" + cls + "><a href='/manager/?page=goodsManager&pn=" + i + "&ps=" + ps + "' target=\"_self\" class='page-link'> " + i + "</a></span>");
                 }
 
                 for (var i = 0; i < GoodsList.length; i++) {
@@ -55,10 +65,10 @@ var managerGoods = (function () {
                         + "<td>" + good.goodsPrice + "</td>"
                         + "<td>" + good.goodsNum + "</td>"
                         + "<td>" + good.typeName + "</td>"
-                        + "<td style='color: #005cbf'>" + "<button id='agreeAdd-" + good.goodsId + "'>同意</button>"
-                        + "<button id='refuseAdd-" + good.goodsId + "'>拒绝</button></td>"
+                        + "<td style='color: #005cbf'>" + "<button id='view-" + good.goodsId + "'>查看</button>"
+                        + "<button id='ls-" + good.goodsId + "'>下架</button></td>"
                         + "</tr>"
-                    $("#goods-apply").append(annexHtml)
+                    $("#goods-manager").append(annexHtml)
                 }
             }
         })
@@ -68,25 +78,17 @@ var managerGoods = (function () {
         $("table").on("click","button",function () {
             var mychoice = new Array(2);
             mychoice = $(this).attr("id").split("-");
-            if(mychoice.length>1&&mychoice[0]==="agreeAdd"){
-                $.ajax({
-                    url:"../manager/addGoods",
-                    type: "GET",
-                    data:{"id":parseInt(mychoice[1])},
-                    // dataType: "json",
-                    success: function (data) {
-                        location.href="?page=topage&ps="+ps+"&pn="+pn;
-                    }
-                })
+            if(mychoice.length>1&&mychoice[0]==="view"){
+
             }
-            if(mychoice.length>1&&mychoice[0]==="refuseAdd"){
+            if(mychoice.length>1&&mychoice[0]==="ls"){
                 $.ajax({
-                    url:"../manager/deleteGoods",
+                    url:"../manager/ls",
                     type: "GET",
                     data:{"id":parseInt(mychoice[1])},
                     // dataType: "json",
                     success: function (data) {
-                        location.href="?page=topage&ps="+ps+"&pn="+pn;
+                        location.href="?page=goodsManager&ps="+ps+"&pn="+pn;
                     }
                 })
             }
@@ -96,21 +98,11 @@ var managerGoods = (function () {
 
     var init = (function(){
         var pageName = util.param.page;
-        if(pageName==="topage"){
+        if(pageName==="goodsManager"){
             managerGoodsDisplay();
-            getGoodsE0();
+            $(".GoodsPageController").hide();
+            $("#menu1").show();
+            getGoodsE1();
         }
     })();
-
-    var inform = $('#chat-inform');
-
-    $("#logout").click(function () {
-        AWLStorage.setCookie("token", "token", "h-100");
-        AWLStorage.remove("user");
-        AWLPage.redirectTo("/");
-    })
-    // $('#chat-cservicen').hover(function(e) {
-    //     console.log("hover");
-    //     inform.children().stop().slideToggle();
-    // })
 })();

@@ -11,17 +11,12 @@ $(function () {
         AWLPage.redirectTo(redirect);
     };
 
-
-    $("#close").click(function () {
-        closeDialog();
-    });
-
-    $("#cancel-btn").click(function () {
-        closeDialog();
-    });
-
-    $("#login").click(function () {
-        openDialog();
+    $('.checkbox').click(function(event) {
+        if ($(this).hasClass('checked')) {
+            $(this).removeClass('checked');
+        } else {
+            $(this).addClass('checked');
+        }
     });
 
     $("#login-btn").click(function () {
@@ -38,10 +33,10 @@ $(function () {
             success: function (msg) {
                 AWLStorage.remove("user");
                 var vo = msg.data.vo;
-                document.cookie = "token=" + vo.token + $("#remember").val() === true ? ";expires=7" : "";
                 AWLStorage.setCookie("token", vo.token, "d1");
                 closeDialog();
 
+                vo.isAdmin = isAdmin;
                 AWLStorage.save("user", vo);
 
                 closeDialog();

@@ -606,3 +606,9 @@ a.add:hover{
 	outline: none;
 	border:1px solid #999;
 }
+
+.price-active{
+    border-radius:3px;
+    background:#00AAEE;
+    color:white !important;
+}

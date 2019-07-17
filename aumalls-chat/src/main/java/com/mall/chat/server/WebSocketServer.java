@@ -18,6 +18,7 @@ import io.netty.handler.stream.ChunkedWriteHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 /**
@@ -31,7 +32,8 @@ public class WebSocketServer {
 
     private final static Logger logger = LoggerFactory.getLogger(WebSocketServer.class);
 
-    private int port = 8900;
+    @Value("${netty.port}")
+    private int port;
 
     @Autowired
     private WebSocketHandler webSocketHandler;
@@ -63,7 +65,7 @@ public class WebSocketServer {
                     }
                 });
             ChannelFuture cf = bootstrap.bind().sync();
-            logger.info("启动正在监听");
+            logger.info("启动正在监听:"+port);
             cf.channel().closeFuture().sync();
         } catch (InterruptedException e) {
             logger.warn("中断异常", e);

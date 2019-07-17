@@ -33,10 +33,13 @@ public class AdminServiceImpl implements AdminService {
     @Autowired
     private AuthConfig configuration;
 
+    @Autowired
+    private AuthConfig authConfig;
+
     @Override
     public LoginVO adminLogin(LoginForm form) {
         QueryWrapper<Admin> ew = new QueryWrapper<Admin>()
-            .eq("admin_pass",  form.getPassword())
+            .eq("admin_pass",  HashUtils.sha256Digest(form.getPassword() + authConfig.getSalt()))
             .eq("admin_name", form.getAccount());
         Admin admin = adminDao.selectOne(ew);
 

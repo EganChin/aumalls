@@ -39,16 +39,22 @@ public interface GoodsManagerDao extends BaseMapper<Goods> {
     /**
      * 管理员下架商品
      * 更新商品状态state为0
-     * @param ids
+     * @param id
      * @return
      */
-    public int updateGoodsStateTo0(List ids);
+    public int updateGoodsStateTo0(Integer id);
 
     /**
      * 管理员查看已上架商品
      * @return
      */
-    public List<Goods> getAllGoodsState1();
+    @Select("SELECT" +
+            "        goods.goods_id,goods.goods_name,goods.goods_price,goods.goods_num,goods.goods_type,goods_type.type_id,goods_type.type_name\n" +
+            "        FROM goods,goods_type\n" +
+            "        WHERE goods.goods_type = goods_type.type_id\n" +
+            "        and\n" +
+            "        1 = goods.goods_state")
+    public List<ApplyGoodsVO> getAllGoodsState1(Page page);
 
     /**
      * 查询注册用户数

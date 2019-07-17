@@ -110,6 +110,8 @@ var AWLStorage = (function () {
         return true;
     };
     AWLStorageObj.get = function (key) {
+        if(key === "user" && !document.cookie)
+            AWLStorageObj.remove(key);
         return getLocalStorage(key);
         // return localStorage.getItem(key);
     };

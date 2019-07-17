@@ -1,23 +1,9 @@
 // $(function () {
 
-var minPrice = AWLHttp.getParam("minPrice");
-var maxPrice = AWLHttp.getParam("maxPrice");
-if (minPrice){
-
-    $("#price-"+minPrice).attr("class", "price-active");
-    minPrice = "&minPrice=" + minPrice;
-}
-else minPrice = "";
-if (maxPrice)
-    maxPrice = "&maxPrice=" + maxPrice;
-else maxPrice = "";
-
-var pn = AWLHttp.getParam("pn");
-
-if (!pn) pn = 1;
 
 var addPageBtn = function (ps, total) {
-
+    var pn = AWLHttp.getParam("pn");
+    if (!pn) pn = 1;
 
     //分页功能
     var pageNum = parseInt(total / ps);
@@ -40,36 +26,14 @@ var addPageBtn = function (ps, total) {
     var rithtButton = $("#right");
     for (i = pageRange.start; i <= pageRange.end; i++) {
         var cls = i === current ? "\"active\"" : "\"page\"";
-        rithtButton.before("<span class=" + cls + "><a href='/?&pn=" + i + maxPrice + minPrice + "' target=\"_self\" class='page-link'> " + i + "</a></span>");
+        rithtButton.before("<span class=" + cls + "><a href='/?pn=" + i + "' target=\"_self\" class='page-link'> " + i + "</a></span>");
     }
     // console.log(btns);
     // $("#right").append(btns);
 };
 
-var screenPrice = function (minP, maxP, ele) {
-    var cls = ele.getAttribute("class");
-    console.log(cls);
-    var uri = "/?pn=" + pn;
-    if (minP)
-        minP = "&minPrice=" + minP;
-    else if(minP === 0)
-        minP = "&minPrice=0";
-    else minP = "";
-    if (maxP)
-        maxP = "&maxPrice=" + maxP;
-    else maxP = "";
-    if (cls === "price-active"){
-
-        AWLPage.redirectTo("/");
-        return;
-    }
-    uri = uri + minP +  maxP;
-    AWLPage.redirectTo(uri)
-};
-
 var userPageBtn = function (ps, total) {
     var pn = AWLHttp.getParam("pagenum");
-
     if (!pn) pn = 1;
 
     //分页功能
@@ -98,6 +62,7 @@ var userPageBtn = function (ps, total) {
     // console.log(btns);
     // $("#right").append(btns);
 };
+
 
 
 // });

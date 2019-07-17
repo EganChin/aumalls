@@ -35,7 +35,7 @@
                     <a class="navigation-link" href="#"> </a>
                 </li>
                 <li class="nav-item">
-                    <a class="navigation-link" href="#">退出管理</a>
+                    <a class="navigation-link" href="javascript:void(0)" id="logout">退出管理</a>
                 </li>
             </ul>
         </div>
@@ -51,7 +51,7 @@
             </button>
             <button type="button" id="Popover9-toggle" aria-haspopup="true" aria-expanded="false"
                     aria-owns="Popover9-content" class="Button Messages-icon Button--plain">
-                <span id="chat-cservice" style="display: inline-flex; align-items: center;">&#8203;
+                <span id="link-cservice" style="display: inline-flex; align-items: center;">&#8203;
                 <svg class="Zi Zi--Comments"
                      fill="currentColor"
                      viewBox="0 0 24 24" width="22"
@@ -148,20 +148,21 @@
                 <br>
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs" role="tablist">
-                    <li class="nav-item">
-                        <a class="nav-link active" data-toggle="tab" href="#home">商品审批</a>
+                    <li class="nav-item" id="homeManager">
+                        <a class="nav-link" data-toggle="tab" href="">商品审批</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="tab" href="#menu1">商品管理</a>
+                    <li class="nav-item" id="menu1Manager">
+                        <a class="nav-link" data-toggle="tab" href="">商品管理</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="tab" href="#menu2">Menu 2</a>
+                    <li class="nav-item active" id="testManager">
+                        <a class="nav-link" data-toggle="tab" href="">Menu 2</a>
                     </li>
                 </ul>
 
                 <!-- Tab panes -->
                 <div class="tab-content">
-                    <div id="home" class="container tab-pane active"><br>
+                    <div id="home" class="container tab-pane active GoodsPageController"><br>
+                        <span>商品审批</span>
                         <div class="change" id="pn">
                             <span class="left" id="left">&lt;</span>
                             <span class="right" id="right">&gt;</span>
@@ -180,8 +181,15 @@
                             </tbody>
                         </table>
                     </div>
-                    <div id="menu1" class="container tab-pane fade"><br>
-                        <table>
+
+                    <div id="menu1" class="container tab-pane GoodsPageController"
+                         style="padding: 0;width: 100%;position: static"><br>
+                        <span>商品管理</span>
+                        <div class="change" id="menulPn">
+                            <span class="left" id="menu1Left">&lt;</span>
+                            <span class="right" id="menu1Right">&gt;</span>
+                        </div>
+                        <table class="table table-striped">
                             <thead>
                             <tr>
                                 <th>商品名</th>
@@ -195,30 +203,16 @@
                             </tbody>
                         </table>
                     </div>
-                    <div id="menu2" class="container tab-pane fade"><br>
-                        <h3>Menu 2</h3>
-                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-                            laudantium, totam rem aperiam.</p>
+                    <div id="menul2" class="container tab-pane fade containerGoodsPageController"
+                         style="padding: 0;width: 100%;position: static"><br>
                     </div>
                 </div>
             </div>
-        </div>
-        <div id="managerUser" class=" controlDisplay">
-
-        </div>
-        <div id="managerOrder" class="controlDisplay">
-
-        </div>
-        <div id="managerSystem" class="controlDisplay">
-
-        </div>
-        <div id="">
-
         </div>
     </div>
 </div>
 </body>
 <script src="${pageContext.request.contextPath}/resources/js/controlDisplay.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/manager/managerGoods.js"></script>
-
+<script src="${pageContext.request.contextPath}/resources/js/manager/goodsManager.js"></script>
 </html>

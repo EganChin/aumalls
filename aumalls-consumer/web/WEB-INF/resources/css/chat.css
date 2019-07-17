@@ -93,7 +93,7 @@
     left: 50%;
     margin-left: -250px;
     top: 5%;
-    z-index: 19;
+    z-index: 10000;
 }
 
 .chat-top {
@@ -256,6 +256,9 @@
     background-size: cover;
     float: left;
     margin: 0 15px 0 5px;
+    font-size: 6px;
+    line-height: 12;
+    text-align: center;
 }
 .lis_lf p{
     float: left;
@@ -272,7 +275,11 @@
     background: url('/images/cservice.png') no-repeat;
     background-size: cover;
     float: right;
+    /*margin: 0 15px 0 5px;*/
     margin: 0 5px 0 15px;
+    font-size: 6px;
+    line-height: 12;
+    text-align: center;
 }
 .lis_rt p{
     float: right;

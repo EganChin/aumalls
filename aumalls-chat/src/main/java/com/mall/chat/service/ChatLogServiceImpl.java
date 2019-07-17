@@ -30,7 +30,7 @@ public class ChatLogServiceImpl implements ChatLogService {
     public List<ChatLog> getDetails() {
         QueryWrapper<ChatLog> chatWrapper = new QueryWrapper<ChatLog>()
             .ge("create_time", System.currentTimeMillis()-3*24*60*60*1000)
-            .orderByDesc("create_time");
+            .orderByAsc("create_time");
         return chatLogDao.selectList(chatWrapper);
     }
 
