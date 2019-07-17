@@ -21,7 +21,15 @@ var httpAddress = {
     "orderDetail":"order/orderDetail",
     "ordersPage":"order/ordersPage",
     "order":"order/order",
-    "chatLogDetail": "chat/detail"
+    "chatLogDetail": "chat/detail",
+    "flushCartIterm":"shopcart/flushCartIterm",
+    "updataCartNum":"shopcart/updataCartNum",
+    "getUserShopCartIterm":"shopcart/getUserShopCartIterm",
+    "flushCartIterm":"shopcart/flushCartIterm",
+    "addTouserCart":"shopcart/addTouserCart",
+    "getUserItermNum":"shopcart/getUserItermNum",
+    "updataUserWhitetime":"useradmin/updataUserWhitetime",
+    "showAllUser":"useradmin/showAllUser"
 };
 (function () {
     for (var objSub in httpAddress) {

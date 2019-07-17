@@ -57,7 +57,7 @@
                 <div class="MCright W310">
                     <h3 class="clearfix">
                         <span>登录澳猫团</span>
-                        <a target="_blank" href="register.html">免费注册</a>
+                        <a target="_blank" href="/toRegister/register">免费注册</a>
                     </h3>
                     <p class="userName">
                         <em></em>

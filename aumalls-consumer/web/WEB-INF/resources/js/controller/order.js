@@ -16,6 +16,7 @@ $(function () {
             success:function (msg) {
                 orders=msg.data.page.list;
 
+                ordersList.html("");
                     for (var i in orders) {
                         var statusName;
                         var handleStr;
@@ -68,10 +69,14 @@ $(function () {
 
     }
 
-    $("#order").click(function () {
-        AWLPage.redirectTo("order/order");
+
+    $("#myOrder").click(function () {
+        AWLPage.redirectTo("order");
     });
 
+    $("#backToIndex").click(function () {
+        AWLPage.redirectTo("/");
+    })
 
     //点击状态菜单栏
     $(".nav-link").click(function () {
