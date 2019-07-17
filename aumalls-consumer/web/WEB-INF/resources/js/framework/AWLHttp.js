@@ -104,7 +104,7 @@ var AWLHttp = (function () {
             success: function (message) {
                 // $("#loadingDiv").fadeOut(200);
                 // 用户未登录，显示登录框
-                if (message.code === httpCode.unauthorized){
+                if (message.code === httpCode.unauthorized) {
                     // AWLPage.redirectTo("/login.html");
                     AWLStorage.remove("user");
                     document.cookie = "token=xxx&expire=-10000";
@@ -119,7 +119,13 @@ var AWLHttp = (function () {
             },
             error: function (message) {
                 // $("#loadingDiv").fadeOut(200);
-                alert("发生脚本或网络错误："+message.code);
+                AWLStorage.setCookie("token", "token", "h-100");
+                AWLStorage.remove("user");
+                if (message.code){
+
+                    alert("发生脚本或网络错误：" + message.code);
+                }
+                location.reload();
                 // callBack.error(message);
             }
         });
