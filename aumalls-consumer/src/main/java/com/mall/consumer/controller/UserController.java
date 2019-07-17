@@ -24,7 +24,7 @@ import java.util.Map;
  * @date 2019/7/10 10:44
  **/
 @RestController
-@RequestMapping("user")
+@RequestMapping("/user")
 public class UserController {
 
     @Reference
@@ -41,7 +41,7 @@ public class UserController {
 
     @RequestMapping("/login")
     public String login(){
-        return "userLogin/userlogin";
+        return "login";
     }
 
     @RequestMapping("/loginbypro")
@@ -76,41 +76,15 @@ public class UserController {
 
     @RequestMapping("/userinfo")
     public String userinfo(){
-        return "user/userinfo";
+        return "userinfo";
     }
 
-    @RequestMapping("/register")
-    public String register(){
-        return "userLogin/userregister";
-    }
+
 
     @RequestMapping(value = "/signout")
     public String signOut(HttpServletResponse response, HttpServletRequest request) {
         request.getSession().removeAttribute("user");
-        return "userLogin/userlogin";
-    }
-
-    @RequestMapping(value = "addUser", produces ={ "application/json;charset=UTF-8"})
-    public void addUser(HttpServletResponse response, HttpServletRequest request){
-        String jsonData = request.getParameter("jsonData");
-        System.out.println(jsonData);
-        Gson gson = new Gson();
-        Map<String,String> map = gson.fromJson(jsonData,Map.class);
-        User user = new User();
-
-        user.setUserPass(map.get("userPass"));
-        user.setUserPhone(map.get("userPhone"));
-        user.setUserAddress(map.get("userAddress"));
-        user.setUserName(map.get("userName"));
-
-
-
-        int flag = userService.addUser(user);
-        try {
-            response.getWriter().print(flag);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        return "login";
     }
 
     @RequestMapping("findUserByName")
