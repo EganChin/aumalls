@@ -38,6 +38,8 @@ public class GoodsServiceImpl implements GoodsService {
 
         QueryWrapper<QueryGoodsVO> goodsWrapper = new QueryWrapper<>();
 
+        goodsWrapper.eq("goods_state", 1);
+
         goodsWrapper.between("goods_price", form.getMinPrice(), form.getMaxPrice());
 
         if (form.getSorts() != null)

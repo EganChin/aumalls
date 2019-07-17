@@ -10,6 +10,8 @@ import com.mall.common.utils.PageWrapper;
 import com.mall.common.utils.Query;
 import com.mall.common.vo.goods.ApplyGoodsVO;
 import com.mall.goods.dao.GoodsManagerDao;
+import org.springframework.cache.annotation.CacheEvict;
+
 import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
@@ -39,11 +41,13 @@ public class GoodsManagerServiceImpl implements IGoodsManagerService {
         return new PageWrapper<>(page,goods);
     }
 
+    @CacheEvict(value = "goods-cache", allEntries = true)
     @Override
     public int updateGoodsState(Integer id) {
         return goodsManagerDao.updateGoodsState(id);
     }
 
+    @CacheEvict(value = "goods-cache", allEntries = true)
     @Override
     public int updateGoodsStateTo0(Integer id) {
 
@@ -55,6 +59,7 @@ public class GoodsManagerServiceImpl implements IGoodsManagerService {
         return goodsManagerDao.getUserCount();
     }
 
+    @CacheEvict(value = "goods-cache", allEntries = true)
     @Override
     public void deleteGoodsById(int id) {
         goodsManagerDao.deleteGoods(id);
