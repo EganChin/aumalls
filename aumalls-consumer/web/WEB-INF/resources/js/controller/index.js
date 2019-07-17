@@ -1,5 +1,9 @@
 $(function () {
 
+    $("#order").click(function () {
+        AWLPage.redirectTo("order/order");
+    })
+
     var loginStatus = function (username) {
         $("#user-group").css("display", "none");
         $("#logout-group").css("display", "block");
@@ -34,7 +38,7 @@ $(function () {
         var pn = AWLHttp.getParam("pn");
         if (!pn)
             pn = 1;
-        AWLPage.redirectTo("/login?redirect=/?pn" + pn);
+        AWLPage.redirectTo("/login?redirect=/?pn=" + pn);
     }
 
 });
