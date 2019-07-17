@@ -2,28 +2,27 @@
 <%--@elvariable id="goods" type="com.mall.common.vo.goods.QueryGoodsVO"--%>
 <%--@elvariable id="typeList" type="java.util.List<com.mall.common.vo.goods.GoodsTypeVO>"--%>
 <%@ include file="base.jsp" %>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <meta http-equiv=“Content-Type” content=“text/html; charset=UTF-8″>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>列表-澳猫团</title>
-    <link rel="stylesheet" href="../../resources/css/dialog.css">
+    <link rel="stylesheet" href="/resources/css/dialog.css">
     <!--<link rel="shortcut icon" href="favicon.ico">-->
-    <link rel="stylesheet" href="../../resources/css/reset.css">
-    <link rel="stylesheet" href="../../resources/css/base.css">
-    <link rel="stylesheet" href="../../resources/css/list.css">
+    <link rel="stylesheet" href="/resources/css/reset.css">
+    <link rel="stylesheet" href="/resources/css/base.css">
+    <link rel="stylesheet" href="/resources/css/list.css">
     <base target="_blank">
 
-    <script src="../../resources/js/framework/AWLCore.js"></script>
-    <script src="../../resources/js/framework/AWLConst.js"></script>
-    <script src="../../resources/js/framework/AWLHttp.js"></script>
+    <script src="/resources/js/framework/AWLCore.js"></script>
+    <script src="/resources/js/framework/AWLConst.js"></script>
+    <script src="/resources/js/framework/AWLHttp.js"></script>
 </head>
 <body>
-<jsp:include page="login.jsp"/>
 <header class="wrap-all">
-    <c:set var="APP_PATH" value="${pageContext.request.contextPath}" />
+    <c:set var="APP_PATH" value="${pageContext.request.contextPath}"/>
     <div class="head center_1200">
         <!-- 头部左边 -->
         <div class="headLeft">
@@ -676,22 +675,22 @@
                         <li data_obj="${iterm.goodsTotalPrice}">
                             <div class="proImg">
                                 <a href="#">
-                                    <img class="lazy" src="resources/js/lazyload/grey.gif" height='165' width='183'
-                                         data-original="images/${iterm.goodsImgPath}"
+                                    <img class="lazy" src="/resources/js/lazyload/grey.gif" height='165' width='183'
+                                         data-original="/resources/images/${iterm.goodsImgPath}"
                                          alt="">
                                 </a>
                             </div>
                             <div class="proTxt">
                                 <p><a href="#">${iterm.goodsName}</a></p>
                                 <p>
-                                    数量：<span id="num-jian" class="num-jian" data_obj="${iterm.itermId}">-</span>
-                                        <input type="text" class="input-num" size="5" value="${iterm.goodsNum}"/>
-                                        <span id="num-jia" class="num-jia" data_obj="${iterm.itermId}">+</span>
+                                    数量：<span id="num-jian" style="font: bold" class="num-jian" data_obj="${iterm.itermId}" data_price="${iterm.goodsPrice}">-</span>
+                                    <input type="text" class="input-num" size="5" value="${iterm.goodsNum}"/>
+                                    <span id="num-jia" class="num-jia" style="font: bold" data_obj="${iterm.itermId}" data_price="${iterm.goodsPrice}">+</span>
                                 </p>
                                 <p>
                                     <strong data_obj="${iterm.goodsPrice}">小计：<b>${iterm.goodsTotalPrice}</b>￥</strong>
                                 </p>
-                                <p>
+                                <p align="center">
                                     <input type="hidden" value="${iterm.itermId}">
                                     <strong><a class="deleteiterm" size="10">移除购物车</a></strong>
                                 </p>
@@ -710,16 +709,14 @@
                     </c:forEach>>
 
                     <c:if test="${total > 0}">
-                        总价：<b id="total">${total}</b> , <a href="http://127.0.0.1/shopcart/flushCart?userid=${param.userid}">清空购物车</a>
+                        总价：<b id="total">${total}</b> , <a
+                            href="http://127.0.0.1/shopcart/flushCart?userid=${param.userid}">清空购物车</a>
                     </c:if>
 
                 </p>
             </div>
 
         </div>
-
-
-
 
 
     </div>
@@ -831,69 +828,28 @@
         </div>
     </div>
 </div>
-<footer>
-    <div class="up">
-        <div class="txt textWarp  w1190">
-            <!-- <ul>
-                <li><a target="_blank" href="#">关于澳猫海淘</a></li>
-                <li><a target="_blank" href="#">商家入驻</a></li>
-                <li><a target="_blank" href="#">网站合作</a></li>
-                <li><a target="_blank" href="#">友情链接</a></li>
-                <li><a target="_blank" href="#">澳猫公益</a></li>
-                <li><a target="_blank" href="#">法律声明</a></li>
-                <li><a target="_blank" href="#">诚聘英才</a></li>
-                <li><a target="_blank" href="#">联系我们</a></li>
-                <li><a target="_blank" href="#">网站地图</a></li>
-            </ul>
-            <ul class="twoArea">
-                <li><a target="_blank" href="#">澳猫云商</a></li>
-                <li><a target="_blank" href="#">澳洲澳猫</a></li><span>|</span>
-                <li><a target="_blank" href="#">康多多</a></li><span>|</span>
-                <li><a target="_blank" href="#">PPTV</a></li><span>|</span>
-                <li><a target="_blank" href="#">红孩子</a></li><span>|</span>
-                <li><a target="_blank" href="#">缤购</a></li><span>|</span>
-                <li><a target="_blank" href="#">乐购仕</a></li><span>|</span>
-                <li><a target="_blank" href="#">澳猫物流</a></li><span>|</span>
-                <li><a target="_blank" href="#">澳猫澳大利亚</a></li><span>|</span>
-                <li><a target="_blank" href="#">澳猫新西兰</a></li><span>|</span>
-                <li><a target="_blank" href="#">澳猫物流</a></li><span>|</span>
-                <li><a target="_blank" href="#">澳猫澳大利亚</a></li><span>|</span>
-                <li><a target="_blank" href="#">澳猫新西兰</a></li><span>|</span>
-                <li><a target="_blank" href="#">澳猫物流</a></li><span>|</span>
-                <li><a target="_blank" href="#">澳猫澳大利亚</a></li><span>|</span>
-                <li><a target="_blank" href="#">澳猫新西兰</a></li>
-            </ul> -->
-            <p>
-                澳大利亚Health more - 河南康多多贸易有限公司 - 河南澳蜜电子商务有限公司 版权所有<br>
-                Copyright © 20015-2018 澳猫aumalls.com 版权所有, 豫ICP备15030837号-1
-            </p>
-            <div class="ALLN"></div>
-        </div>
-    </div>
-</footer>
-<script src="../../resources/js/jquery-1.7.2.min.js"></script>
-<script src="../../resources/js/jquery.lazyload.min.js"></script>
-<script src="../../resources/js/base.js"></script>
-<script src="../../resources/js/controller/paging.js"></script>
-<script src="../../resources/js/controller/login.js"></script>
+<script src="/resources/js/jquery-1.7.2.min.js"></script>
+<script src="/resources/js/jquery.lazyload.min.js"></script>
+<script src="/resources/js/base.js"></script>
+<script src="/resources/js/controller/paging.js"></script>
+<script src="/resources/js/controller/login.js"></script>
 <script>
-
+    httpAddress
     $(".deleteiterm").click(function () {
 
         var del_id = $(this).parent().prev("input").val()
         var th = $(this);
 
-        alert(del_id)
 
         if (confirm("确认将其移除购物车吗？")) {
 
-            AWLHttp.post("flushCartIterm?itermid=" + del_id,{}, {
-                success:function (result) {
+            AWLHttp.post(httpAddress.flushCartIterm + "?itermid=" + del_id, {}, {
+                success: function (result) {
 
                     th.parents("li").remove()
                     alert("删除成功！");
                     var total = $("#total").text()
-                    var itermtotal = th.parent().parent().parent().parent().attr("data_obj")
+                    var itermtotal = th.parent().parent().prev().children().children().text()
                     $("#total").text(parseInt(total) - parseInt(itermtotal))
 
                 }
@@ -922,19 +878,18 @@
 
         var num = parseInt($(this).next().val())
 
-        if(num == 1){
+        if (num == 1) {
             alert("数量不能为负数！！！")
-        }else{
+        } else {
             alert(${APP_PATH})
             var id = $(this).attr("data_obj")
             var tl = $(this)
             var goodsprice = tl.parent().next().children().attr("data_obj")
-            alert(goodsprice)
 
-            AWLHttp.post("updataCartNum?itermid="+ id + "&goodsnum=" + (num - 1),{}, {
-                success:function (result) {
+            AWLHttp.post(httpAddress.updataCartNum +"?itermid=" + id + "&goodsnum=" + (num - 1), {}, {
+                success: function (result) {
 
-                    tl.next().val(num -1)
+                    tl.next().val(num - 1)
                     tl.parent().next().children().children().text(goodsprice * (num - 1))
 
                     var total = $("#total").text()
@@ -965,8 +920,6 @@
         }
 
 
-
-
     })
 
     $(".num-jia").click(function () {
@@ -978,10 +931,10 @@
 
         var goodsprice = tl.parent().next().children().attr("data_obj")
 
-        AWLHttp.post("updataCartNum?itermid="+ id + "&goodsnum=" + (num + 1),{}, {
-            success:function (result) {
+        AWLHttp.post(httpAddress.updataCartNum +"?itermid=" + id + "&goodsnum=" + (num + 1), {}, {
+            success: function (result) {
                 tl.prev().val(num + 1)
-             tl.parent().next().children().children().text(goodsprice * (num + 1))
+                tl.parent().next().children().children().text(goodsprice * (num + 1))
 
                 var total = $("#total").text()
 
@@ -1001,33 +954,27 @@
 //         });
 
 
-
     })
 
-
     $(".input-num").change(function () {
-        alert("进入")
         var id = $(this).prev().attr("data_obj")
         var num = $(this).val()
         var tl = $(this)
-        if(num <= 0){
+        if (num <= 0) {
             alert("数据失败！！！")
-            window.location.href="getUserShopCartIterm?userid=1";
-        }else{
-            var oldtotal = tl.parent().parent().parent().attr("data_obj")
-            alert(oldtotal)
+            window.location.href = httpAddress.getUserShopCartIterm + "?userid=" + AWLStorage.get("user").id;
+        } else {
 
-            AWLHttp.post("updataCartNum?itermid="+ id + "&goodsnum=" + num,{}, {
-                success:function (result) {
+            var oldtotal = tl.parent().next().children().children().text()
+
+            AWLHttp.post(httpAddress.updataCartNum +"?itermid=" + id + "&goodsnum=" + num, {}, {
+                success: function (result) {
 
                     var goodsprice = tl.parent().next().children().attr("data_obj")
-
-                    alert(goodsprice)
 
                     tl.parent().next().children().children().text(parseInt(goodsprice) * parseInt(num))
 
                     var total = $("#total").text()
-                    alert(total)
 
                     $("#total").text(parseInt(total) - parseInt(oldtotal) + parseInt(goodsprice) * parseInt(num))
 
@@ -1035,23 +982,6 @@
 
             })
 
-//            $.ajax({
-//
-//                url:"http://127.0.0.1/shopcart/updataCartNum?itermid="+ id + "&goodsnum=" + num,
-//
-//                success:function(result){
-//
-//                    var goodsprice = tl.parent().next().children().attr("data_obj")
-//                    alert(goodsprice)
-//
-//                    tl.parent().next().children().children().text(parseInt(goodsprice) * parseInt(num))
-//
-//                    var total = $("#total").text()
-//                    alert(total)
-//
-//                    $("#total").text(parseInt(total) - parseInt(oldtotal) + parseInt(goodsprice) * parseInt(num))
-//                }
-//            });
         }
 
 
