@@ -28,7 +28,8 @@ var httpAddress = {
     "flushCartIterm":"shopcart/flushCartIterm",
     "addTouserCart":"shopcart/addTouserCart",
     "getUserItermNum":"shopcart/getUserItermNum",
-    "updataUserWhitetime":"/useradmin/updataUserWhitetime"
+    "updataUserWhitetime":"useradmin/updataUserWhitetime",
+    "showAllUser":"useradmin/showAllUser"
 };
 (function () {
     for (var objSub in httpAddress) {

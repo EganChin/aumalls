@@ -85,7 +85,7 @@
         <div class="list-group list-box">
             <a id="list1" href="#" class="list-group-item list-group-item-dark list-set"
                style="margin-top: 25px">系统首页</a>
-            <a id="list2" href="#" class="list-group-item list-group-item-dark list-set">用户管理</a>
+            <a id="list2"  class="list-group-item list-group-item-dark list-set">用户管理</a>
             <a id="list3" href="#" class="list-group-item list-group-item-dark list-set">商品管理</a>
             <a id="list4" href="#" class="list-group-item list-group-item-dark list-set">订单管理</a>
             <a id="list5" href="#" class="list-group-item list-group-item-dark list-set">发布公告</a>
@@ -214,5 +214,13 @@
 </body>
 <script src="${pageContext.request.contextPath}/resources/js/controlDisplay.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/manager/managerGoods.js"></script>
-<script src="${pageContext.request.contextPath}/resources/js/manager/goodsManager.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/manager/goodsManager.js">
+</script>
+<script>
+
+    $("#list2").click(function () {
+        alert("jinru")
+        window.open(httpAddress.showAllUser + "?pagenum=1");
+    })
+</script>
 </html>
