@@ -22,7 +22,7 @@ import java.util.Date;
 @RequiresRoles("ADMIN")
 public class UserAdminController {
 
-//    @Reference
+    @Reference
     private IUserAdminService userAdminService;
 
     @RequestMapping("showAllUser")

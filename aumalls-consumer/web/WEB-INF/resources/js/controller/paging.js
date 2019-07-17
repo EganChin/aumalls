@@ -49,7 +49,8 @@ var addPageBtn = function (ps, total) {
 var screenPrice = function (minP, maxP, ele) {
     var cls = ele.getAttribute("class");
     console.log(cls);
-    var uri = "/?pn=" + pn;
+    // var uri = "/?pn=" + pn;
+    var uri = "/?";
     if (minP)
         minP = "&minPrice=" + minP;
     else if(minP === 0)

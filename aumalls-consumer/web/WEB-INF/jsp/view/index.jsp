@@ -910,7 +910,7 @@
         $(function () {
             var num = 0;
             if(AWLStorage.get("user") != null){
-                AWLHttp.get("shopcart/getUserItermNum", {},{
+                AWLHttp.get(httpAddress.getUserItermNum, {},{
                     success:function (result) {
                         num = parseInt(result.data.num)
                         $("#gouwuchenum").text(num)
@@ -935,7 +935,7 @@
         var th = $("#gouwuchenum")
         var id = $(this).attr("data_obj")
             if(AWLStorage.get("user") != null){
-                AWLHttp.post("shopcart/addTouserCart?goodsnum=1&goodsid=" + id,{}, {
+                AWLHttp.post(httpAddress.addTouserCart +  "?goodsnum=1&goodsid=" + id,{}, {
                     success:function (result) {
 
                         console.log("添加成功！！！")
