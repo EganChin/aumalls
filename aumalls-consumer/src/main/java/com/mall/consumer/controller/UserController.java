@@ -29,10 +29,7 @@ public class UserController {
 
     @Reference
     private UserService userService;
-<<<<<<< HEAD
 
-=======
->>>>>>> 6a824b9d5b405c1dcf0e4b6c7bc4deb345086543
 
     @RequestMapping(value = "login", method = RequestMethod.POST)
     public R login(@RequestBody LoginForm form){
@@ -52,30 +49,30 @@ public class UserController {
         return "userLogin/findaccount";
     }
 
-    @RequestMapping("/home/index")
-    public String loginCheck(HttpServletRequest request, HttpServletResponse response){
-
-        response.setContentType("text/plain");
-        response.setCharacterEncoding("utf-8");
-
-        String loginName = request.getParameter("user_name");
-        String loginPassword = request.getParameter("user_password");
-        User user = userService.findUserByName(loginName);
-
-        if (user == null){
-            System.out.println("登陆失败,用户名不存在");
-            request.setAttribute("error",1);
-            return "userLogin/userlogin";
-        } else if (!user.getUserPass().equals(loginPassword)) {
-            System.out.println("登陆失败,密码错误");
-            request.setAttribute("error",0);
-            return "userLogin/userlogin";
-        } else {
-            request.getSession().setAttribute("user", user);
-            System.out.println("登陆成功");
-            return "home/index";
-        }
-    }
+//    @RequestMapping("/home/index")
+//    public String loginCheck(HttpServletRequest request, HttpServletResponse response){
+//
+//        response.setContentType("text/plain");
+//        response.setCharacterEncoding("utf-8");
+//
+//        String loginName = request.getParameter("user_name");
+//        String loginPassword = request.getParameter("user_password");
+//        User user = userService.findUserByName(loginName);
+//
+//        if (user == null){
+//            System.out.println("登陆失败,用户名不存在");
+//            request.setAttribute("error",1);
+//            return "userLogin/userlogin";
+//        } else if (!user.getUserPass().equals(loginPassword)) {
+//            System.out.println("登陆失败,密码错误");
+//            request.setAttribute("error",0);
+//            return "userLogin/userlogin";
+//        } else {
+//            request.getSession().setAttribute("user", user);
+//            System.out.println("登陆成功");
+//            return "home/index";
+//        }
+//    }
 
     @RequestMapping("/userinfo")
     public String userinfo(){
@@ -101,11 +98,11 @@ public class UserController {
         Map<String,String> map = gson.fromJson(jsonData,Map.class);
         User user = new User();
 
-        user.setUserPass(map.get("user_pass"));
-        user.setUserPhone(map.get("user_phone"));
-        user.setUserAddress(map.get("user_address"));
-        user.setUserName(map.get("user_name"));
-        user.setUserPhone(map.get("user_phone"));
+        user.setUserPass(map.get("userPass"));
+        user.setUserPhone(map.get("userPhone"));
+        user.setUserAddress(map.get("userAddress"));
+        user.setUserName(map.get("userName"));
+
 
 
         int flag = userService.addUser(user);
@@ -118,7 +115,7 @@ public class UserController {
 
     @RequestMapping("findUserByName")
     public void findUserByName(HttpServletResponse response, HttpServletRequest request){
-        User user = userService.findUserByName(request.getParameter("user_name"));
+        User user = userService.findUserByName(request.getParameter("userName"));
         try {
             if(user!=null){
                 response.getWriter().print(1);
@@ -142,9 +139,9 @@ public class UserController {
 
 
         user.setUserId(Integer.parseInt(map.get("userId")));
-        user.setUserName(map.get("user_name"));
-        user.setUserPhone(map.get("user_phone"));
-        user.setUserAddress(map.get("user_address"));
+        user.setUserName(map.get("userName"));
+        user.setUserPhone(map.get("userPhone"));
+        user.setUserAddress(map.get("userAddress"));
         request.getSession().setAttribute("user", user);
         int flag = userService.modifyUserinfo(user);
         try {
@@ -154,21 +151,38 @@ public class UserController {
         }
     }
 
+    @RequestMapping("modifyUserPass")
+    public void modifyUserPass(HttpServletResponse response, HttpServletRequest request){
+        String jsonData = request.getParameter("jsonData");
+        Gson gson = new Gson();
+        Map<String,String> map = gson.fromJson(jsonData,Map.class);
+        User user = (User)request.getSession().getAttribute("user");
+
+        user.setUserPass(map.get("userPass"));
+        request.getSession().setAttribute("user", user);
+        userService.modifyUserPass(user);
+        try {
+            response.getWriter().print("修改失败");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     @RequestMapping("deleteUserinfo")
     public void deleteUserinfo(HttpServletResponse response, HttpServletRequest request){
 
-        userService.deleteUserinfo(Integer.parseInt(request.getParameter("user_id")));
+        userService.deleteUserinfo(Integer.parseInt(request.getParameter("userId")));
 
 
     }
 
     @RequestMapping("findUserByUserId")
     public List<User> findUserByUserId(HttpServletRequest request, HttpServletResponse response){
-        return userService.findUserByUserId(Integer.parseInt(request.getParameter("user_id")));
+        return userService.findUserByUserId(Integer.parseInt(request.getParameter("userId")));
     }
 
     @RequestMapping("selectAll")
     public List<User> getUserList(HttpServletRequest request, HttpServletResponse response){
-        return userService.getUserList();
+        return userService.selectAll();
     }
 }

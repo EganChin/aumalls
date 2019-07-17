@@ -89,12 +89,18 @@ public class UserServiceImpl implements UserService {
     public int modifyUserinfo(User user){
         return userMapper.modifyUserinfo(user);
     }
+
+    public void modifyUserPass(User user){
+        userMapper.modifyUserPass(user);
+    }
+
     public void deleteUserinfo(int user_id)  {userMapper.deleteUserinfo(user_id);
     }
     public List<User> findUserByUserId(int user_id){
         return userMapper.findUserByUserId(user_id);
     }
-    public List<User> getUserList(){
+
+    public List<User> selectAll(){
         return userMapper.selectAll();
     }
 
