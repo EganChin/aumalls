@@ -80,6 +80,7 @@ public class GoodsManagerController {
         iGoodsManagerService.updateGoodsStateTo0(id);
         return "下架成功";
     }
+
     @RequestMapping("queryGoods")
     @ResponseBody
     public R getGoodsInfoById(@RequestParam int id){

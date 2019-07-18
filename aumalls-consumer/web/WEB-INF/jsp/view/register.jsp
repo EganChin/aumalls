@@ -22,7 +22,7 @@
                     注册澳猫商城，带给你不一样的盛宴！
                 </div>
                 <div>
-                    <form method="post" role="form" name="toRegister" action="/toRegister/addUser" onsubmit="return check()">
+                    <form method="post" role="form" name="toRegister" action="/toRegister/addUser" onsubmit="return check()" >
                         <div class="row">
                             <div class="col-12">
                                 <input class="form-control login-input" value="" name="userName"
@@ -40,7 +40,7 @@
                             </div>
                         </div>
                         <div>
-                            <button type="submit" class="btn btn-info login-button">注册</button>
+                            <button type="submit" class="btn btn-info login-button"  onclick="play()">注册</button>
                         </div>
                     </form>
                 </div>
@@ -74,5 +74,13 @@
     }
 </script>
 <script src="resources/js/register.js"></script>
+<script type="text/javascript">
+    function play()
+        {
+            alert("注册成功");
+        }
+
+</script>
+
 </body>
 </html>
