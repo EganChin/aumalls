@@ -9,17 +9,17 @@ import java.util.List;
  **/
 public class GoodsTypeVO implements Serializable{
 
-    private String typeId;
+    private Integer typeId;
 
     private String typeName;
 
     private List<GoodsTypeVO> children;
 
-    public String getTypeId() {
+    public Integer getTypeId() {
         return typeId;
     }
 
-    public void setTypeId(String typeId) {
+    public void setTypeId(Integer typeId) {
         this.typeId = typeId;
     }
 

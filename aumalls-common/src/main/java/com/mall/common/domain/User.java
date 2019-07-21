@@ -2,9 +2,11 @@ package com.mall.common.domain;
 
 
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 
 import java.io.Serializable;
 
+@TableName("\"user\"")
 public class User implements Serializable{
 
     @TableId

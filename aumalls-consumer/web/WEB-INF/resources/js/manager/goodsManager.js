@@ -90,7 +90,7 @@ var goodsManager = (function () {
                             +"<p>商品名："+queryGoods[0].goodsName+"</p>"
                             +"<p>商品价格："+queryGoods[0].goodsPrice +"</p>"
                             +"<p>商品数量："+queryGoods[0].goodsNum +"</p>"
-                            +"<p>图片：<img class='lazy' src='../resources/js/lazyload/grey.gif' height='165' width='183' data-original='../images/>"+queryGoods[0].goodsImg +"' alt=''</p>"
+                            +"<p>图片：<img class='lazy' src='../resources/js/lazyload/grey.gif' height='165' width='183' data-original='/images/"+queryGoods[0].goodsImg +"'></p>"
                             +"<p><button id='queryBack' backPn='"+pn+"' backPs='"+ps+"'>返回</button></p></div>";
                         $("#clickView").append(annexHtml);
                         $(".GoodsPageControllerM").hide();
