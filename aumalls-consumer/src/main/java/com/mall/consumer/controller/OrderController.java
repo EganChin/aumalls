@@ -8,7 +8,6 @@ import com.mall.common.utils.R;
 import com.mall.common.validator.ValidatorUtils;
 import com.mall.common.vo.order.OrderDetailVO;
 import com.mall.common.vo.order.OrderVO;
-import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -23,10 +22,9 @@ import java.util.Map;
 
 @Controller
 @RequestMapping("order")
-@RequiresRoles("USER")
 public class OrderController extends  BaseController{
 
-    @Reference
+//    @Reference
     private OrderService orderService;
 
     @RequestMapping("order")

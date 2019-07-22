@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("admin")
 public class AdminController extends BaseController {
 
-    @Reference
+//    @Reference
     private AdminService adminService;
 
     @RequestMapping("login")

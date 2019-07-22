@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class ChatController {
 
 
-    @Reference
+//    @Reference
     private ChatLogService chatLogService;
 
     @RequestMapping("overview")

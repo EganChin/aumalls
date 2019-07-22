@@ -3,7 +3,6 @@ package com.mall.consumer.controller;
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.mall.common.service.IUserAdminService;
 import com.mall.common.utils.R;
-import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,10 +18,9 @@ import java.util.Date;
  */
 @Controller
 @RequestMapping("/useradmin")
-@RequiresRoles("ADMIN")
 public class UserAdminController {
 
-    @Reference
+//    @Reference
     private IUserAdminService userAdminService;
 
     @RequestMapping("showAllUser")

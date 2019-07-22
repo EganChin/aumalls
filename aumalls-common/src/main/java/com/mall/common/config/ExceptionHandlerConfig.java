@@ -4,7 +4,6 @@ import com.alibaba.dubbo.remoting.TimeoutException;
 import com.alibaba.dubbo.rpc.RpcException;
 import com.mall.common.utils.R;
 import com.mall.common.exception.RRException;
-import org.apache.shiro.authz.AuthorizationException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.converter.HttpMessageNotReadableException;
@@ -36,12 +35,6 @@ public class ExceptionHandlerConfig {
     public R handlerRRException(RRException e) {
         log.debug(e.getMessage(), e);
         return R.error(e.getCode(), e.getMessage());
-    }
-
-    @ExceptionHandler(AuthorizationException.class)
-    public R handlerAuthorizationException() {
-        log.debug("无权限", AuthenticationException.class);
-        return R.error(403, "无权限");
     }
 
     @ExceptionHandler(AuthenticationException.class)
