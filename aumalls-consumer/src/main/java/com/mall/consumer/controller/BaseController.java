@@ -3,6 +3,7 @@ package com.mall.consumer.controller;
 import com.mall.common.domain.Admin;
 import com.mall.common.domain.Operator;
 import com.mall.common.domain.User;
+import org.springframework.security.core.context.SecurityContextHolder;
 
 import java.util.Optional;
 
@@ -23,7 +24,7 @@ public class BaseController {
     }
 
     public Operator getOperator() {
-        return null;
+        return (Operator) SecurityContextHolder.getContext().getAuthentication().getCredentials();
     }
 
 }
