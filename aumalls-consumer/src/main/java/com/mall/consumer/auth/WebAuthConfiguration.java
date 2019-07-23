@@ -34,6 +34,7 @@ public class WebAuthConfiguration extends WebSecurityConfigurerAdapter {
     private static final String[] ANON_URLS = new String[]{
 //        "/**/**",
             "/",
+            "/error",
             "/resources/**",
             "/images/**",
             "/useradmin/**",
@@ -49,19 +50,6 @@ public class WebAuthConfiguration extends WebSecurityConfigurerAdapter {
             "/**/*.jpg",
             "/**/*.gif",
             "/**/*.png",
-            "/fonts/**",
-            "/druid/**",
-            "/api/**",
-            "/**/heapdump",
-            "/**/loggers",
-            "/**/liquibase",
-            "/**/logfile",
-            "/**/flyway",
-            "/**/auditevents",
-            "/**/jolokia",
-            "/metrics",
-            "/actuator/**",
-            "/v2/**",
     };
 
 
@@ -95,6 +83,7 @@ public class WebAuthConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
+
         httpSecurity
                 .csrf().disable()
                 .sessionManagement()
@@ -104,7 +93,7 @@ public class WebAuthConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers(ANON_URLS).permitAll()
                 .anyRequest().authenticated()   // 其他地址的访问均需验证权限
                 .and()
-                .addFilterBefore(authenticationTokenFilterBean(), UsernamePasswordAuthenticationFilter.class);
+                .addFilterAfter(authenticationTokenFilterBean(), UsernamePasswordAuthenticationFilter.class);
         httpSecurity.cors().configurationSource(corsConfigurationSource());
         httpSecurity.logout().disable();
         httpSecurity.headers().cacheControl();
