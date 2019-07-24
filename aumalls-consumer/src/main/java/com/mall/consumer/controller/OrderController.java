@@ -1,6 +1,5 @@
 package com.mall.consumer.controller;
 
-import com.alibaba.dubbo.config.annotation.Reference;
 import com.mall.common.form.order.QueryOrdersForm;
 import com.mall.common.service.OrderService;
 import com.mall.common.utils.PageWrapper;

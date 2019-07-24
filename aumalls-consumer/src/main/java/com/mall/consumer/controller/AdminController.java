@@ -1,6 +1,5 @@
 package com.mall.consumer.controller;
 
-import com.alibaba.dubbo.config.annotation.Reference;
 import com.mall.common.form.user.LoginForm;
 import com.mall.common.service.AdminService;
 import com.mall.common.utils.R;

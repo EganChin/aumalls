@@ -1,6 +1,5 @@
 package com.mall.consumer.controller;
 
-import com.alibaba.dubbo.config.annotation.Reference;
 import com.mall.common.service.ChatLogService;
 import com.mall.common.utils.R;
 import org.springframework.web.bind.annotation.RequestMapping;

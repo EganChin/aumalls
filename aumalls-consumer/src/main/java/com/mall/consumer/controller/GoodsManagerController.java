@@ -1,6 +1,5 @@
 package com.mall.consumer.controller;
 
-import com.alibaba.dubbo.config.annotation.Reference;
 import com.mall.common.form.goods.ManagerGoodsForm;
 import com.mall.common.service.IGoodsManagerService;
 import com.mall.common.utils.R;
@@ -16,7 +15,6 @@ import java.util.Map;
 @RequestMapping("manager")
 public class GoodsManagerController {
 
-    @Reference
     private IGoodsManagerService iGoodsManagerService;
 
     /**

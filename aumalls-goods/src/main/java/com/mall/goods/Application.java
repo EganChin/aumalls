@@ -1,6 +1,5 @@
 package com.mall.goods;
 
-import com.alibaba.dubbo.spring.boot.annotation.EnableDubboConfiguration;
 import com.mall.common.config.annotation.DatabaseConfig;
 import com.mall.common.config.annotation.SecurityConfig;
 import org.mybatis.spring.annotation.MapperScan;
@@ -8,6 +7,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.cache.annotation.EnableCaching;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.FilterType;
 import org.springframework.context.annotation.ImportResource;
@@ -19,7 +20,8 @@ import org.springframework.scheduling.annotation.EnableScheduling;
  **/
 @EnableCaching
 @EnableScheduling
-@EnableDubboConfiguration
+@EnableDiscoveryClient
+@EnableFeignClients
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
 @ComponentScan(basePackages = {"com.mall.goods", "com.mall.common.config"},
     excludeFilters = {@ComponentScan.Filter(type = FilterType.ANNOTATION, value = SecurityConfig.class)})

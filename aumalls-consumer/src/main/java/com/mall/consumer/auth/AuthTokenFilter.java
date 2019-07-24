@@ -5,7 +5,6 @@ import com.mall.common.domain.Operator;
 import com.mall.common.exception.NRException;
 import com.mall.common.exception.RRException;
 import com.mall.common.utils.R;
-import org.apache.zookeeper.Op;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,7 +41,7 @@ public class AuthTokenFilter extends AbstractAuthenticationProcessingFilter {
 
 
     @Autowired
-    private RedisTemplate<String,Object> redisTemplate;
+    private RedisTemplate<String, Object> redisTemplate;
 
     protected AuthTokenFilter(RequestMatcher requiresAuthenticationRequestMatcher) {
         super(requiresAuthenticationRequestMatcher);
@@ -54,15 +53,15 @@ public class AuthTokenFilter extends AbstractAuthenticationProcessingFilter {
 
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 
-        if(auth != null && auth.isAuthenticated()){
+        if (auth != null && auth.isAuthenticated()) {
             return new UsernamePasswordAuthenticationToken(auth.getPrincipal(), auth.getCredentials());
         }
 
         Operator operator = (Operator) redisTemplate.opsForValue().get(token);
 
-        if(operator == null){
+        if (operator == null) {
             write(httpServletResponse, R.error(HttpStatus.UNAUTHORIZED.value(), "令牌过期或不存在"));
-            throw new RRException( "令牌过期或不存在", HttpStatus.UNAUTHORIZED.value());
+            throw new RRException("令牌过期或不存在", HttpStatus.UNAUTHORIZED.value());
         }
 
 
@@ -91,14 +90,16 @@ public class AuthTokenFilter extends AbstractAuthenticationProcessingFilter {
         String token = request.getHeader(TOKEN);
         if (StringUtils.isEmpty(token))
             token = request.getParameter(TOKEN);
-        if(StringUtils.isEmpty(token)){
-            for(Cookie cookie : request.getCookies())
-                if(cookie.getName().equals(TOKEN)){
-                    token = cookie.getValue();
-                    break;
-                }
+        if (StringUtils.isEmpty(token)) {
+            Cookie[] cookies = request.getCookies();
+            if (cookies != null)
+                for (Cookie cookie : cookies)
+                    if (cookie.getName().equals(TOKEN)) {
+                        token = cookie.getValue();
+                        break;
+                    }
         }
-        if (StringUtils.isEmpty(token)){
+        if (StringUtils.isEmpty(token)) {
             write(response, R.error(HttpStatus.UNAUTHORIZED.value(), "令牌无效"));
             throw new NRException("令牌无效");
         }

@@ -1,6 +1,5 @@
 package com.mall.goods.service;
 
-import com.alibaba.dubbo.config.annotation.Service;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.mall.common.domain.Goods;
@@ -16,7 +15,7 @@ import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
 
-@Service(interfaceName = "com.mall.common.service.IGoodsManagerService")
+//@Service(interfaceName = "com.mall.common.service.IGoodsManagerService")
 @org.springframework.stereotype.Service
 public class GoodsManagerServiceImpl implements IGoodsManagerService {
 

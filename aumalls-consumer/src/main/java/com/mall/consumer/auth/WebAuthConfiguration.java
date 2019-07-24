@@ -34,6 +34,7 @@ public class WebAuthConfiguration extends WebSecurityConfigurerAdapter {
     private static final String[] ANON_URLS = new String[]{
 //        "/**/**",
             "/",
+            "/actuator/**",
             "/error",
             "/resources/**",
             "/images/**",

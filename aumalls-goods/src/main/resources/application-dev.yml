@@ -6,6 +6,7 @@ spring:
     protocol: dubbo
     port: 20883
 
+
   datasource:
       type: com.alibaba.druid.pool.DruidDataSource
       driverClassName: org.postgresql.Driver
@@ -46,6 +47,14 @@ spring:
         min-idle: 2
         max-active: 8
         max-idle: 4
+  cloud:
+    consul:
+      discovery:
+        service-name: goods
+        instance-id: goods
+        port: ${server.port}
+      config:
+        enabled: true
 
 management:
   endpoints:

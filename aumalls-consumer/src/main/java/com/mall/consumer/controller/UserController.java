@@ -1,6 +1,5 @@
 package com.mall.consumer.controller;
 
-import com.alibaba.dubbo.config.annotation.Reference;
 import com.google.gson.Gson;
 import com.mall.common.domain.User;
 import com.mall.common.form.user.LoginForm;
@@ -27,7 +26,6 @@ import java.util.Map;
 @RequestMapping("/user")
 public class UserController {
 
-    @Reference
     private UserService userService;
 
 

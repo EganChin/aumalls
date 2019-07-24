@@ -1,12 +1,30 @@
 spring:
+#  cloud:
+#    consul:
+#      #      host: 10.0.197.189
+#      port: 8500
+#      discovery:
+#        register: true
+#        instance-id: consumer
+#        service-name: consumer
+#        port: 80
+#        healthCheckPath: /actuator/health
+#        healthCheckInterval: 15s
+#      config:
+#        enabled: true
+#        format: YAML
+#        prefix: config
+#        defaultContext: application
+#        profileSeparator: ','
+#        data-key: data
 
-  dubbo:
-
-    appname: consumer
-    registry: zookeeper://127.0.0.1:2181
-    protocol: dubbo
-    port: 20880
-
+  #  dubbo:
+  #
+  #    appname: consumer
+  #    registry: zookeeper://127.0.0.1:2181
+  #    protocol: dubbo
+  #    port: 20880
+  #
 
   redis:
     database: 0
@@ -19,6 +37,20 @@ spring:
         min-idle: 2
         max-active: 8
         max-idle: 4
+  cloud:
+    consul:
+      #      host: 192.168.140.128
+      port: 8500
+      discovery:
+        instance-id: consumer:${server.port}
+        service-name: consumer
+    config:
+      discovery:
+        enabled: true
+        service-id: springcloud-config-server
+      fail-fast: true
+
+
 #  mvc:
 #    view:
 #      prefix: /WEB-INF/jsp/view

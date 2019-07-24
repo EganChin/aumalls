@@ -1,6 +1,5 @@
 package com.mall.goods.service;
 
-import com.alibaba.dubbo.config.annotation.Service;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.mall.common.domain.Goods;
 import com.mall.common.domain.Shopitem;
@@ -15,7 +14,6 @@ import java.util.List;
 /**
  * Created by zzy on 2019/7/11.
  */
-@Service(interfaceName = "com.mall.common.service.IUserShopCartService", timeout = 5000)
 @org.springframework.stereotype.Service
 public class UserCartServiceImpl implements IUserShopCartService {
 
